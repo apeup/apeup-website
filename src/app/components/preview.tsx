@@ -94,8 +94,7 @@ export default function Preview() {
             className="w-full md:w-1/2 flex justify-center"
           >
             <video
-              src="https://vercel.com/your-blob-url/age-up.mp4"
-
+              src="/age-up.mp4"
               autoPlay
               muted
               loop

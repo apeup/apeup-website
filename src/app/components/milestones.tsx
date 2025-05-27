@@ -5,22 +5,23 @@ import { zenDots } from "../fonts";
 import { useEffect, useState, useRef } from "react";
 
 const milestonesLeft = [
-  { id: 1, league: "League 1", mau: "0.5M MAU", icon: "/1.png" },
-  { id: 2, league: "League 3", mau: "2M MAU", icon: "/3.png" },
-  { id: 3, league: "League 5", mau: "4M MAU", icon: "/5.png" },
-  { id: 4, league: "Airdrop Phase", mau: "", icon: "/7.png" },
-  { id: 5, league: "NFT Marketplace & Staking Launch", mau: "", icon: "/nft.png" },
+  { league: "League 1", mau: "0.5M MAU", icon: "/1.png" },
+  { league: "League 3", mau: "2M MAU", icon: "/3.png" },
+  { league: "League 5", mau: "4M MAU", icon: "/5.png" },
+  { league: "Airdrop Phase", mau: "", icon: "/7.png" },
+  { league: "NFT Marketplace & Staking Launch", mau: "", icon: "/nft.png" },
 ];
 
 const milestonesRight = [
-  { id: 1, league: "League 2", mau: "1M MAU", icon: "/2.png" },
-  { id: 2, league: "League 4", mau: "3M MAU", icon: "/4.png" },
-  { id: 3, league: "League 6", mau: "5M MAU", icon: "/6.png" },
-  { id: 4, league: "Platform Listings (CEXs, DEXs)", mau: "", icon: "/8.png" },
+  { league: "League 2", mau: "1M MAU", icon: "/2.png" },
+  { league: "League 4", mau: "3M MAU", icon: "/4.png" },
+  { league: "League 6", mau: "5M MAU", icon: "/6.png" },
+  { league: "Platform Listings (CEXs, DEXs)", mau: "", icon: "/8.png" },
 ];
 
 export default function Milestones() {
-  const [visiblePairs, setVisiblePairs] = useState<{ [key: number]: boolean }>({});
+  // Store visibility per dot index (1-based)
+  const [visibleDots, setVisibleDots] = useState<{ [key: number]: boolean }>({});
 
   const leftRefs = useRef<(HTMLDivElement | null)[]>([]);
   const rightRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -30,42 +31,48 @@ export default function Milestones() {
 
     const observers: IntersectionObserver[] = [];
 
-    function updateVisibility(id: number) {
-      const leftVisible = leftRefs.current[id - 1]?.getAttribute("data-visible") === "true";
-      const rightVisible = rightRefs.current[id - 1]?.getAttribute("data-visible") === "true";
-      setVisiblePairs((prev) => ({ ...prev, [id]: leftVisible && rightVisible }));
-    }
-
-    milestonesLeft.forEach(({ id }, idx) => {
-      const leftObserver = new IntersectionObserver(
+    // Left side observers
+    milestonesLeft.forEach((_, idx) => {
+      const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (leftRefs.current[idx]) {
-              leftRefs.current[idx].setAttribute("data-visible", entry.isIntersecting.toString());
-              updateVisibility(id);
+              leftRefs.current[idx]?.setAttribute("data-visible", entry.isIntersecting.toString());
+
+              // Left dots are at odd positions: 1,3,5,7,9
+              // So dotIndex = idx * 2 + 1
+              const dotIndex = idx * 2 + 1;
+
+              setVisibleDots((prev) => ({ ...prev, [dotIndex]: entry.isIntersecting }));
             }
           });
         },
         { threshold: 0.5 }
       );
-      if (leftRefs.current[idx]) leftObserver.observe(leftRefs.current[idx]);
-      observers.push(leftObserver);
+      if (leftRefs.current[idx]) observer.observe(leftRefs.current[idx]);
+      observers.push(observer);
     });
 
-    milestonesRight.forEach(({ id }, idx) => {
-      const rightObserver = new IntersectionObserver(
+    // Right side observers
+    milestonesRight.forEach((_, idx) => {
+      const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (rightRefs.current[idx]) {
-              rightRefs.current[idx].setAttribute("data-visible", entry.isIntersecting.toString());
-              updateVisibility(id);
+              rightRefs.current[idx]?.setAttribute("data-visible", entry.isIntersecting.toString());
+
+              // Right dots are at even positions: 2,4,6,8
+              // So dotIndex = idx * 2 + 2
+              const dotIndex = idx * 2 + 2;
+
+              setVisibleDots((prev) => ({ ...prev, [dotIndex]: entry.isIntersecting }));
             }
           });
         },
         { threshold: 0.5 }
       );
-      if (rightRefs.current[idx]) rightObserver.observe(rightRefs.current[idx]);
-      observers.push(rightObserver);
+      if (rightRefs.current[idx]) observer.observe(rightRefs.current[idx]);
+      observers.push(observer);
     });
 
     return () => {
@@ -73,7 +80,7 @@ export default function Milestones() {
     };
   }, []);
 
-  const totalDots = 9; // Show 9 dots and 8 lines
+  const totalDots = 9;
 
   return (
     <section className="relative bg-[url('/milestone-bg.png')] bg-[#130F1F] bg-cover bg-no-repeat bg-center py-20 px-4 sm:px-6 lg:px-8">
@@ -100,10 +107,9 @@ export default function Milestones() {
           <div className="flex flex-col items-center md:items-start space-y-10 sm:space-y-12 w-full md:w-[480px] lg:w-[514px]">
             {milestonesLeft.map((item, idx) => (
               <div
-                key={item.id}
+                key={idx}
                 ref={(el) => { leftRefs.current[idx] = el; }}
                 data-visible="false"
-                id={`left-milestone-${item.id}`}
                 className="w-full h-[90px] sm:h-[100px] md:h-[110px] xl:h-[120px] relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-2xl px-4 py-4 sm:py-6 flex items-center justify-center gap-3 sm:gap-4"
               >
                 {idx !== milestonesLeft.length - 1 && (
@@ -150,13 +156,13 @@ export default function Milestones() {
           {/* Dots Column */}
           <div className="hidden md:flex flex-col items-center justify-center shrink-0">
             {[...Array(totalDots)].map((_, i) => {
-              const id = i + 1;
-              const isVisible = visiblePairs[id] ?? false;
+              const dotIndex = i + 1;
+              const isVisible = visibleDots[dotIndex] ?? false;
 
               return (
-                <div key={id} className="flex flex-col items-center relative">
+                <div key={i} className="flex flex-col items-center relative">
                   <div
-                    id={`dot-${id}`}
+                    id={`dot-${dotIndex}`}
                     className={`h-[43px] w-[43px] rounded-full relative transition-colors duration-500 ${
                       isVisible ? "bg-pink-500" : "bg-[#585561]"
                     }`}
@@ -170,7 +176,7 @@ export default function Milestones() {
 
                   {i < totalDots - 1 && (
                     <div
-                      id={`line-${id}`}
+                      id={`line-${dotIndex}`}
                       className={`w-[4px] h-[40px] transition-colors duration-500 ${
                         isVisible ? "bg-pink-500" : "bg-white"
                       }`}
@@ -185,10 +191,9 @@ export default function Milestones() {
           <div className="flex flex-col space-y-10 sm:space-y-12 w-full md:w-[480px] xl:w-[514px] md:mt-0">
             {milestonesRight.map((item, idx) => (
               <div
-                key={item.id}
+                key={idx}
                 ref={(el) => { rightRefs.current[idx] = el; }}
                 data-visible="false"
-                id={`right-milestone-${item.id}`}
                 className="w-full h-[90px] sm:h-[100px] md:h-[110px] lg:h-[120px] relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-2xl lg:px-20 py-4 sm:py-5 flex items-center justify-center gap-3 sm:gap-4"
               >
                 <div className="hidden lg:block absolute -right-12 sm:-right-14 md:-right-7 xl:-right-14 top-0 z-10 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[110px] sm:h-[115px] xl:h-[121px] w-[110px] sm:w-[115px] xl:w-[121px] rounded-full shadow-[0_4px_50px_#00000040]">
