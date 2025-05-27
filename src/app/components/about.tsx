@@ -95,7 +95,7 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
               viewport={{ once: true, amount: 0.2 }}
-              className={`text-[18px] font-medium ${inter.className} mt-4`}
+              className={`text-[18px] md:font-medium ${inter.className} mt-4`}
             >
               ApeUp is a community-driven Play & Earn mobile game where you
               control your Ape to jump, train and mine real crypto rewards.
@@ -105,7 +105,7 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
               viewport={{ once: true, amount: 0.2 }}
-              className={`text-[18px] font-medium mt-5 ${inter.className}`}
+              className={`text-[18px] md:font-medium mt-5 ${inter.className}`}
             >
               We built ApeUp to ApeUp the industry — pushing beyond the limited
               experiences of previous Telegram mini-apps. This game was created
@@ -199,7 +199,7 @@ export default function About() {
             width={250}
             height={250}
             alt="Lucky Wheel"
-            className="rounded-xl w-full max-w-[88%] lg:max-w-[257px] h-auto mt-30"
+            className="rounded-xl w-full max-w-[88%] lg:max-w-[257px] h-auto mt-20"
           />
           <Image
             src="/spin.png"

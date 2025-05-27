@@ -7,7 +7,7 @@ function DashedLine({ index }: { index: number }) {
   // Define responsive height classes for each dashed line
   // Adjust these classes to your desired heights per breakpoint
   const baseHeights = [
-    "h-[3.5rem] sm:h-[5rem] md:h-[9rem] lg:h-[7.5rem] xl:h-[7.5rem]", // First line taller
+    "h-[4.5rem] sm:h-[5rem] md:h-[9rem] lg:h-[7.5rem] xl:h-[7.5rem]", // First line taller
     "h-8 sm:h-8 md:h-7 lg:h-12",                        // Others shorter
     "h-8 sm:h-8 md:h-7 lg:h-12",
     "h-8 sm:h-8 md:h-7 lg:h-12",
@@ -68,7 +68,7 @@ export default function Preview() {
       </div>
 
       {/* Main content */}
-      <div className="relative z-20 max-w-[1410px] mx-auto px-4 sm:px-6 md:py-10">
+      <div className="relative z-20 max-w-[1410px] mx-auto px-2 sm:px-6 md:py-10">
         {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -162,7 +162,7 @@ export default function Preview() {
                       {text}
                     </h4>
                     {i !== points.length - 1 && (
-                      <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mt-1 mb-1 sm:mt-4 sm:mb-2" />
+                      <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mt-4 mb-4 sm:mt-4 sm:mb-2" />
                     )}
                   </div>
                 </motion.div>
