@@ -2,80 +2,81 @@
 
 import Image from "next/image";
 import { zenDots } from "../fonts";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
-const milestones = [
-  { league: "League 1", mau: "0.5M MAU", icon: "/1.png" },
-  { league: "League 3", mau: "2M MAU", icon: "/3.png" },
-  { league: "League 5", mau: "4M MAU", icon: "/5.png" },
-  { league: "Airdrop Phase", mau: "", icon: "/7.png" },
-  { league: "NFT Marketplace & Staking Launch", mau: "", icon: "/nft.png" },
+const milestonesLeft = [
+  { id: 1, league: "League 1", mau: "0.5M MAU", icon: "/1.png" },
+  { id: 2, league: "League 3", mau: "2M MAU", icon: "/3.png" },
+  { id: 3, league: "League 5", mau: "4M MAU", icon: "/5.png" },
+  { id: 4, league: "Airdrop Phase", mau: "", icon: "/7.png" },
+  { id: 5, league: "NFT Marketplace & Staking Launch", mau: "", icon: "/nft.png" },
 ];
 
-const milestones2 = [
-  { league: "League 2", mau: "1M MAU", icon: "/2.png" },
-  { league: "League 4", mau: "3M MAU", icon: "/4.png" },
-  { league: "League 6", mau: "5M MAU", icon: "/6.png" },
-  { league: "Platform Listings (CEXs, DEXs)", mau: "", icon: "/8.png" },
+const milestonesRight = [
+  { id: 1, league: "League 2", mau: "1M MAU", icon: "/2.png" },
+  { id: 2, league: "League 4", mau: "3M MAU", icon: "/4.png" },
+  { id: 3, league: "League 6", mau: "5M MAU", icon: "/6.png" },
+  { id: 4, league: "Platform Listings (CEXs, DEXs)", mau: "", icon: "/8.png" },
 ];
-
-const totalMilestones = milestones.length + milestones2.length;
 
 export default function Milestones() {
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [inViewArray, setInViewArray] = useState<boolean[]>(
-    Array(totalMilestones).fill(true) // All in view since animation is removed
-  );
-  const [startFromTop, setStartFromTop] = useState(true);
+  const [visiblePairs, setVisiblePairs] = useState<{ [key: number]: boolean }>({});
+
+  const leftRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const rightRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const updated = cardRefs.current.map((ref) => {
-        if (!ref) return false;
-        const rect = ref.getBoundingClientRect();
-        return rect.top < window.innerHeight && rect.bottom > 0;
-      });
+    if (!window.IntersectionObserver) return;
 
-      const firstVisibleIndex = updated.findIndex(Boolean);
-      const lastVisibleIndex = updated.slice().reverse().findIndex(Boolean);
-      const reversedLastVisibleIndex =
-        lastVisibleIndex !== -1
-          ? updated.length - 1 - lastVisibleIndex
-          : -1;
+    const observers: IntersectionObserver[] = [];
 
-      if (
-        firstVisibleIndex !== -1 &&
-        reversedLastVisibleIndex !== -1 &&
-        firstVisibleIndex < updated.length - 1 - lastVisibleIndex
-      ) {
-        setStartFromTop(true);
-      } else {
-        setStartFromTop(false);
-      }
+    function updateVisibility(id: number) {
+      const leftVisible = leftRefs.current[id - 1]?.getAttribute("data-visible") === "true";
+      const rightVisible = rightRefs.current[id - 1]?.getAttribute("data-visible") === "true";
+      setVisiblePairs((prev) => ({ ...prev, [id]: leftVisible && rightVisible }));
+    }
 
-      setInViewArray(updated);
-    };
+    milestonesLeft.forEach(({ id }, idx) => {
+      const leftObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (leftRefs.current[idx]) {
+              leftRefs.current[idx].setAttribute("data-visible", entry.isIntersecting.toString());
+              updateVisibility(id);
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+      if (leftRefs.current[idx]) leftObserver.observe(leftRefs.current[idx]);
+      observers.push(leftObserver);
+    });
 
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleScroll);
+    milestonesRight.forEach(({ id }, idx) => {
+      const rightObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (rightRefs.current[idx]) {
+              rightRefs.current[idx].setAttribute("data-visible", entry.isIntersecting.toString());
+              updateVisibility(id);
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+      if (rightRefs.current[idx]) rightObserver.observe(rightRefs.current[idx]);
+      observers.push(rightObserver);
+    });
+
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
+      observers.forEach((obs) => obs.disconnect());
     };
   }, []);
 
-  const getHighlightState = (index: number) => {
-    if (startFromTop) {
-      return inViewArray[index];
-    } else {
-      return inViewArray.slice(index + 1).every((val) => val) && inViewArray[index];
-    }
-  };
+  const totalDots = 9; // Show 9 dots and 8 lines
 
   return (
-    <section className="relative bg-[url('/milestone-bg.png')] bg-[#130F1F] bg-cover bg-no-repeat bg-center py-12 px-4 sm:px-6 lg:px-8">
-      {/* Background Images */}
+    <section className="relative bg-[url('/milestone-bg.png')] bg-[#130F1F] bg-cover bg-no-repeat bg-center py-20 px-4 sm:px-6 lg:px-8">
       <Image
         className="pointer-events-none select-none absolute -bottom-10 right-0 w-[100px] sm:w-[180px] md:w-[280px] lg:w-[400px] opacity-70"
         src="/yellow.png"
@@ -97,16 +98,16 @@ export default function Milestones() {
         <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-6 md:gap-12">
           {/* Left Column */}
           <div className="flex flex-col items-center md:items-start space-y-10 sm:space-y-12 w-full md:w-[480px] lg:w-[514px]">
-            {milestones.map((item, idx) => (
+            {milestonesLeft.map((item, idx) => (
               <div
-                key={idx}
-                ref={(el) => {
-                  cardRefs.current[idx] = el;
-                }}
+                key={item.id}
+                ref={(el) => { leftRefs.current[idx] = el; }}
+                data-visible="false"
+                id={`left-milestone-${item.id}`}
                 className="w-full h-[90px] sm:h-[100px] md:h-[110px] xl:h-[120px] relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-2xl px-4 py-4 sm:py-6 flex items-center justify-center gap-3 sm:gap-4"
               >
-                {idx !== milestones.length - 1 && (
-                  <div className="hidden lg:block absolute -left-12 sm:-left-14 md:-left-7 xl:-left-14 bg-black h-[110px] sm:h-[115px] xl:h-[121px] w-[110px] sm:w-[115px] xl:w-[121px] rounded-full bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_50px_#00000040] transition hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)]">
+                {idx !== milestonesLeft.length - 1 && (
+                  <div className="hidden lg:block absolute -left-12 sm:-left-14 md:-left-7 xl:-left-14 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[110px] sm:h-[115px] xl:h-[121px] w-[110px] sm:w-[115px] xl:w-[121px] rounded-full shadow-[0_4px_50px_#00000040]">
                     <Image
                       src={item.icon}
                       height={90}
@@ -148,41 +149,31 @@ export default function Milestones() {
 
           {/* Dots Column */}
           <div className="hidden md:flex flex-col items-center justify-center shrink-0">
-            {[...Array(totalMilestones)].map((_, i) => {
-              const isActive = getHighlightState(i);
+            {[...Array(totalDots)].map((_, i) => {
+              const id = i + 1;
+              const isVisible = visiblePairs[id] ?? false;
+
               return (
-                <div key={i} className="flex flex-col items-center">
+                <div key={id} className="flex flex-col items-center relative">
                   <div
-                    className={`rounded-full relative w-[14px] h-[14px] ${isActive ? "bg-white" : "bg-white"}`}
-                    style={{
-                      filter: isActive ? "blur(0px)" : "blur(0px)",
-                      transition: "all 0.3s ease",
-                    }}
+                    id={`dot-${id}`}
+                    className={`h-[43px] w-[43px] rounded-full relative transition-colors duration-500 ${
+                      isVisible ? "bg-pink-500" : "bg-[#585561]"
+                    }`}
                   >
                     <div
-                      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
-                      style={{
-                        width: 40,
-                        height: 40,
-                        backgroundColor: isActive
-                          ? "rgba(232, 46, 159, 0.3)"
-                          : "white",
-                        scale: isActive ? 1 : 0.4,
-                        transition: "opacity 0.3s ease",
-                      }}
+                      className={`absolute top-1/2 left-1/2 w-[14px] h-[14px] -translate-x-1/2 -translate-y-1/2 rounded-full transition-colors duration-500 ${
+                        isVisible ? "bg-pink-300" : "bg-white"
+                      }`}
                     />
                   </div>
 
-                  {i < totalMilestones - 1 && (
+                  {i < totalDots - 1 && (
                     <div
-                      className="w-[4px]"
-                      style={{
-                        height: 70,
-                        backgroundColor: getHighlightState(i + 1)
-                          ? "#E82E9F"
-                          : "#ffffff",
-                        transition: "background-color 0.3s ease",
-                      }}
+                      id={`line-${id}`}
+                      className={`w-[4px] h-[40px] transition-colors duration-500 ${
+                        isVisible ? "bg-pink-500" : "bg-white"
+                      }`}
                     />
                   )}
                 </div>
@@ -192,54 +183,51 @@ export default function Milestones() {
 
           {/* Right Column */}
           <div className="flex flex-col space-y-10 sm:space-y-12 w-full md:w-[480px] xl:w-[514px] md:mt-0">
-            {milestones2.map((item, idx) => {
-              const index = milestones.length + idx;
-              return (
-                <div
-                  key={idx}
-                  ref={(el) => {
-                    cardRefs.current[index] = el;
-                  }}
-                  className="w-full h-[90px] sm:h-[100px] md:h-[110px] lg:h-[120px] relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-2xl lg:px-20 py-4 sm:py-5 flex items-center justify-center gap-3 sm:gap-4"
-                >
-                  <div className="hidden lg:block absolute -right-12 sm:-right-14 md:-right-7 xl:-right-14 top-0 z-10 bg-black h-[110px] sm:h-[115px] xl:h-[121px] w-[110px] sm:w-[115px] xl:w-[121px] rounded-full bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_50px_#00000040] transition hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)]">
-                    <Image
-                      src={item.icon}
-                      height={90}
-                      width={60}
-                      alt={item.league}
-                      className="h-[120px] sm:h-[130px] xl:h-[137px] w-[50px] sm:w-[55px] xl:w-[64px] absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                    />
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-center gap-1 sm:gap-2 text-center z-10">
-                    <h4 className={`${zenDots.className} text-[16px] sm:text-[18px] md:text-[20px] xl:text-[28px] font-bold`}>
-                      {item.league} -
-                    </h4>
-                    <span className="text-[16px] sm:text-[18px] md:text-[20px] xl:text-[28px] mt-1 sm:mt-0">
-                      {item.mau}
-                    </span>
-                  </div>
-
+            {milestonesRight.map((item, idx) => (
+              <div
+                key={item.id}
+                ref={(el) => { rightRefs.current[idx] = el; }}
+                data-visible="false"
+                id={`right-milestone-${item.id}`}
+                className="w-full h-[90px] sm:h-[100px] md:h-[110px] lg:h-[120px] relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-2xl lg:px-20 py-4 sm:py-5 flex items-center justify-center gap-3 sm:gap-4"
+              >
+                <div className="hidden lg:block absolute -right-12 sm:-right-14 md:-right-7 xl:-right-14 top-0 z-10 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[110px] sm:h-[115px] xl:h-[121px] w-[110px] sm:w-[115px] xl:w-[121px] rounded-full shadow-[0_4px_50px_#00000040]">
                   <Image
-                    className="absolute top-0 right-0 max-w-[100px] sm:max-w-[120px] w-full pointer-events-none"
-                    src="/mask.png"
-                    width={64}
-                    height={64}
-                    alt="mask top"
-                    priority
-                  />
-                  <Image
-                    className="absolute bottom-0 left-0 rotate-180 max-w-[100px] sm:max-w-[120px] w-full pointer-events-none"
-                    src="/mask.png"
-                    width={64}
-                    height={64}
-                    alt="mask bottom"
-                    priority
+                    src={item.icon}
+                    height={90}
+                    width={60}
+                    alt={item.league}
+                    className="h-[120px] sm:h-[130px] xl:h-[137px] w-[50px] sm:w-[55px] xl:w-[64px] absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   />
                 </div>
-              );
-            })}
+
+                <div className="flex flex-col sm:flex-row sm:items-center justify-center gap-1 sm:gap-2 text-center z-10">
+                  <h4 className={`${zenDots.className} text-[16px] sm:text-[18px] md:text-[20px] xl:text-[28px] font-bold`}>
+                    {item.league} -
+                  </h4>
+                  <span className="text-[16px] sm:text-[18px] md:text-[20px] xl:text-[28px] mt-1 sm:mt-0">
+                    {item.mau}
+                  </span>
+                </div>
+
+                <Image
+                  className="absolute top-0 right-0 max-w-[100px] sm:max-w-[120px] w-full pointer-events-none"
+                  src="/mask.png"
+                  width={64}
+                  height={64}
+                  alt="mask top"
+                  priority
+                />
+                <Image
+                  className="absolute bottom-0 left-0 rotate-180 max-w-[100px] sm:max-w-[120px] w-full pointer-events-none"
+                  src="/mask.png"
+                  width={64}
+                  height={64}
+                  alt="mask bottom"
+                  priority
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

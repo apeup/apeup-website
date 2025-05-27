@@ -48,7 +48,7 @@ export default function Preview() {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <div
-          className="absolute inset-0 bg-[url('/preview_bg.png')] bg-cover bg-no-repeat bg-center backdro"
+          className="absolute inset-0 bg-[url('/preview_bg.png')] bg-cover bg-no-repeat bg-center"
         />
         <div className="absolute inset-0 bg-black opacity-30" />
         <motion.div
