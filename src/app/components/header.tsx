@@ -12,12 +12,12 @@ export default function Header() {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50"
+      className="fixed top-0 left-0 w-full z-50 overflow-x-hidden"
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <div className="relative w-full max-w-[1360px] mx-auto mt-2 px-4 xs:px-4 sm:px-6 lg:px-20 xl:pr-0 py-3 text-white flex items-center">
+      <div className="relative w-full max-w-[1360px] mx-auto mt-2 px-4 xs:px-4 sm:px-6 lg:px-20 xl:pr-0 py-3 text-white flex items-center overflow-hidden">
         {/* Logo */}
         <div className="flex-1 max-w-[100px] md:max-w-[138px]">
           <Link href="/#home">
@@ -80,7 +80,7 @@ export default function Header() {
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
-            className="sm:hidden text-white"
+            className="sm:hidden text-white shrink-0 pr-2 sm:pr-0"
             onClick={() => setIsMenuOpen((prev) => !prev)}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
