@@ -21,7 +21,7 @@ export default function Roadmap() {
           <h2
             className={`${zenDots.className} text-[28px] sm:text-[36px] md:text-[44px] xl:text-[54px] leading-tight`}
             style={{
-              textShadow: "0 0 20px #EB319C, 0 0 40px #EB319C",
+              textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
             }}
           >
             Roadmap
@@ -108,7 +108,7 @@ export default function Roadmap() {
         <h2
           className={`${zenDots.className} text-center text-[28px] sm:text-[36px] md:text-[44px] xl:text-[54px] leading-tight mt-20 sm:mt-24`}
           style={{
-            textShadow: "0 0 20px #EB319C, 0 0 40px #EB319C",
+            textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
           }}
         >
           League Milestones - MAU Unlocks

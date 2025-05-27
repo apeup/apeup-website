@@ -77,7 +77,7 @@ export default function Preview() {
           viewport={{ once: true }}
           className={`text-[32px] sm:text-[44px] md:text-[54px] lg:text-[64px] xl:text-[74px] font-semibold mb-8 text-center text-white ${zenDots.className}`}
           style={{
-            textShadow: "0 0 20px #EB319C, 0 0 40px #EB319C",
+            textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
           }}
         >
           Immersive Game Preview:

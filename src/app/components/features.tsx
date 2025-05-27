@@ -68,7 +68,7 @@ export default function Features() {
             transition={{ duration: 1 }}
             className={`${zenDots.className} text-[28px] sm:text-[36px] md:text-[44px] xl:text-[54px] text-center md:text-left leading-tight`}
             style={{
-              textShadow: "0 0 20px #EB319C, 0 0 40px #EB319C",
+              textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
             }}
           >
             GameFlow Features

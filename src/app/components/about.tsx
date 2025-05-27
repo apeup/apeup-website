@@ -85,7 +85,7 @@ export default function About() {
               viewport={{ once: true, amount: 0.2 }}
               className={`text-[32px] sm:text-[40px] md:text-[48px] lg:text-[54px] ${zenDots.className}`}
               style={{
-                textShadow: "0 0 20px #EB319C, 0 0 40px #EB319C",
+                textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
               }}
             >
               About the Game
