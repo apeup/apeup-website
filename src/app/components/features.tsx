@@ -73,16 +73,17 @@ export default function Features() {
           <div className="flex gap-3 items-center">
             <button
               onClick={() => handleChange(-1)}
-              className="bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_50px_#00000040] transition hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[40px] w-[40px] text-white text-lg"
-            >
+              className="bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[40px] w-[40px] text-white text-lg"
+            style={{boxShadow: 'inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)'}}>
               ←
             </button>
             <button
               onClick={() => handleChange(1)}
-              className="bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_50px_#00000040] transition hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[40px] w-[40px] text-white text-lg"
-            >
+              className="bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[40px] w-[40px] text-white text-lg"
+            style={{boxShadow: 'inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)'}}>
               →
             </button>
+
           </div>
         </div>
 

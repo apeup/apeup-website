@@ -125,10 +125,9 @@ export default function Preview() {
                 >
                   <div className="flex flex-col items-center ">
                     <div
-                      className={`w-7 h-7 sm:w-8 sm:h-8 text-xs sm:text-sm rounded-full z-10 bg-gradient-to-b from-yellow-400 to-orange-500 py-2 flex items-center justify-center font-bold text-white shadow-[inset_0px_2px_4px_rgba(255,255,255,0.3)] ${zenDots.className}`}
+                      className={`w-7 h-7 sm:w-8 sm:h-8 text-xs sm:text-sm rounded-full z-10 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_50px_#00000040] py-2 flex items-center justify-center font-bold text-white ${zenDots.className}`}
                       style={{
-                        textShadow: "0 1px 0 rgba(255,255,255,0.4)",
-                        marginBottom: "1px",
+                        boxShadow: 'inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)'
                       }}
                     >
                       {`0${i + 1}`}

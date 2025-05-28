@@ -171,14 +171,14 @@ export default function About() {
                   onClick={prevSlide}
                   className="bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[37px] w-[37px] text-white"
                   aria-label="Previous"
-                >
+                style={{boxShadow: 'inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)'}}>
                   ←
                 </button>
                 <button
                   onClick={nextSlide}
                   className="bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[37px] w-[37px] text-white"
                   aria-label="Next"
-                >
+                style={{boxShadow: 'inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)'}}>
                   →
                 </button>
               </div>
