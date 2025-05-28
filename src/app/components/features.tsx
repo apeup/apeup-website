@@ -56,7 +56,7 @@ export default function Features() {
   return (
     <section
       ref={sectionRef}
-      className="bg-[url('/about-bg.png')] bg-cover bg-no-repeat bg-center text-white relative overflow-hidden"
+      className="bg-[url('/features-bg.png')] bg-cover bg-no-repeat bg-center text-white relative overflow-hidden"
     >
       <div className="px-4 sm:px-6 md:px-10 lg:px-16 py-10 ml-auto relative z-10">
         {/* Header and Buttons */}
