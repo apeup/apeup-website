@@ -110,10 +110,10 @@ export default function Milestones() {
                 key={idx}
                 ref={(el) => { leftRefs.current[idx] = el; }}
                 data-visible="false"
-                className="w-full h-[90px] sm:h-[100px] xl:h-[120px] relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-2xl px-8 py-4 sm:py-6 flex items-center justify-center md:justify-end xl:justify-center gap-3 sm:gap-4"
+                className="w-full h-[90px] sm:h-[100px] xl:h-[120px] relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-2xl px-8 py-4 sm:py-6 flex items-center justify-end sm:justify-center md:justify-end lg:justify-center gap-3 sm:gap-4"
               >
                 {idx !== milestonesLeft.length - 1 && (
-                  <div className="hidden sm:block absolute -left-3 sm:-left-5 md:top-3 lg:top-2 xl:top-0 md:-left-7 xl:-left-14 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[90px] sm:h-[105px] md:h-[90px] xl:h-[121px] w-[90px] sm:w-[105px] md:w-[90px] xl:w-[121px] rounded-full shadow-[0_4px_50px_#00000040]">
+                  <div className="absolute -left-3 sm:-left-5 md:top-3 lg:top-2 xl:top-0 md:-left-7 xl:-left-14 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[90px] sm:h-[105px] md:h-[90px] xl:h-[121px] w-[90px] sm:w-[105px] md:w-[90px] xl:w-[121px] rounded-full shadow-[0_4px_50px_#00000040]">
                     <Image
                       src={item.icon}
                       height={90}
@@ -124,8 +124,11 @@ export default function Milestones() {
                   </div>
                 )}
 
-                <div className="flex flex-col sm:flex-row justify-center gap-1 sm:gap-2 text-center z-10">
-                  <h4 className={`${zenDots.className} text-[16px] sm:text-[18px] xl:text-[28px] lg:font-bold`}>
+                <div
+                  className={`flex flex-col sm:flex-row justify-center gap-1 sm:gap-2 text-center ${item.league === "NFT Marketplace & Staking Launch" ? "" : "pl-14"} sm:pl-0 z-10`}
+                >
+
+                  <h4 className={`${zenDots.className} text-[16px]  sm:text-[18px] xl:text-[28px] lg:font-bold`}>
                     {item.league} -
                   </h4>
                   <span className="text-[16px] sm:text-[18px] xl:text-[28px] mt-1 sm:mt-0">
@@ -201,9 +204,9 @@ export default function Milestones() {
                 key={idx}
                 ref={(el) => { rightRefs.current[idx] = el; }}
                 data-visible="false"
-                className="w-full h-[90px] sm:h-[100px] xl:h-[120px] relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-2xl pr-10 pl-8 lg:px-20 py-4 sm:py-5 flex items-center justify-center md:justify-start xl:justify-center gap-3 sm:gap-4"
+                className="w-full h-[90px] sm:h-[100px] xl:h-[120px] relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-2xl pr-10 pl-8 lg:px-20 py-4 sm:py-5 flex items-center justify-start sm:justify-center md:justify-start lg:justify-center gap-3 sm:gap-4"
               >
-                <div className="hidden sm:block absolute -right-3 lg:top-3 md:top-[3.5] xl:top-0 sm:-right-5 md:-right-7 xl:-right-14 top-0 z-10 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[90px] sm:h-[105px] md:h-[90px] xl:h-[121px] w-[90px] sm:w-[105px] md:w-[90px] xl:w-[121px] rounded-full shadow-[0_4px_50px_#00000040]">
+                <div className="absolute -right-3 lg:top-3 md:top-[3.5] xl:top-0 sm:-right-5 md:-right-7 xl:-right-14 top-0 z-10 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[90px] sm:h-[105px] md:h-[90px] xl:h-[121px] w-[90px] sm:w-[105px] md:w-[90px] xl:w-[121px] rounded-full shadow-[0_4px_50px_#00000040]">
                   <Image
                     src={item.icon}
                     height={90}
@@ -213,7 +216,7 @@ export default function Milestones() {
                   />
                 </div>
 
-                <div className="flex flex-col sm:flex-row sm:items-center justify-center gap-1 sm:gap-2 text-center z-10">
+                <div className={`flex flex-col sm:flex-row sm:items-center justify-center gap-1 sm:gap-2 text-center pr-10  z-10 ${item.league === "Platform Listings (CEXs, DEXs)" ? "sm:pr-4" : "sm:pr-0" }`}>
                   <h4 className={`${zenDots.className} text-[16px] sm:text-[18px] xl:text-[28px] lg:font-bold`}>
                     {item.league} -
                   </h4>
