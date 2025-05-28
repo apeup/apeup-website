@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 // DashedLine remains unchanged
 function DashedLine({ index }: { index: number }) {
   const baseHeights = [
-    "h-[6rem] sm:h-[5rem] md:h-[4rem] lg:h-[7.5rem] xl:h-[4.5rem]",
+    "h-[7.5rem] sm:h-[5rem] md:h-[4rem] lg:h-[7.5rem] xl:h-[6.9rem]",
     "h-8 sm:h-10 md:h-7 lg:h-12",
     "h-8 sm:h-8 md:h-7 lg:h-12",
     "h-8 sm:h-8 md:h-7 lg:h-12",
@@ -19,11 +19,11 @@ function DashedLine({ index }: { index: number }) {
 
 export default function Preview() {
   const points = [
-    "Dynamic animated background featuring gameplay snippets",
+    "A daily&weekly leaderboards Where you Compete on the global",
     "Gym mining area",
     "Spin wheel",
     "Slot machine",
-    "Arcade-style visual effects and 3D-inspired transitions",
+    "Mini Airdrops the higher your rank, the bigger payout",
   ];
 
   const [videoUrl, setVideoUrl] = useState<string | null>(null);

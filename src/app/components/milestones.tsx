@@ -119,7 +119,7 @@ export default function Milestones() {
                       height={90}
                       width={60}
                       alt={item.league}
-                      className="h-[100px] sm:h-[120px] xl:h-[137px] w-[40px] sm:w-[55px] xl:w-[64px] absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                      className="h-[100px] object-cover sm:h-[120px] xl:h-[137px] w-[40px] sm:w-[55px] xl:w-[64px] absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2"
                     />
                   </div>
                 )}
@@ -209,7 +209,7 @@ export default function Milestones() {
                     height={90}
                     width={60}
                     alt={item.league}
-                    className="h-[100px] sm:h-[120px] xl:h-[137px] w-[50px] sm:w-[55px] xl:w-[64px] absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                    className="h-[100px] object-cover sm:h-[120px] xl:h-[137px] w-[50px] sm:w-[55px] xl:w-[64px] absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   />
                 </div>
 
