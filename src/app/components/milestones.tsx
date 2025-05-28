@@ -157,35 +157,42 @@ export default function Milestones() {
           <div className="hidden md:flex flex-col items-center justify-center shrink-0">
             {[...Array(totalDots)].map((_, i) => {
               const dotIndex = i + 1;
-              const isVisible = visibleDots[dotIndex] ?? false;
+
+              // Find max visible dot index
+              const visibleIndexes = Object.entries(visibleDots)
+                .filter(([_, visible]) => visible)
+                .map(([idx]) => parseInt(idx));
+
+              const maxVisibleDot = visibleIndexes.length > 0 ? Math.max(...visibleIndexes) : 0;
+
+              // Color dots up to maxVisibleDot pink, others white
+              const isActive = dotIndex <= maxVisibleDot;
 
               return (
                 <div key={i} className="flex flex-col items-center relative">
                   <div
                     id={`dot-${dotIndex}`}
-                    className={`h-[43px] w-[43px] rounded-full relative transition-colors duration-500 ${
-                      isVisible ? "bg-pink-500" : "bg-[#585561]"
-                    }`}
+                    className={`h-[43px] w-[43px] rounded-full relative transition-colors duration-500 ${isActive ? "bg-pink-500" : "bg-[#585561]"
+                      }`}
                   >
                     <div
-                      className={`absolute top-1/2 left-1/2 w-[14px] h-[14px] -translate-x-1/2 -translate-y-1/2 rounded-full transition-colors duration-500 ${
-                        isVisible ? "bg-pink-300" : "bg-white"
-                      }`}
+                      className={`absolute top-1/2 left-1/2 w-[14px] h-[14px] -translate-x-1/2 -translate-y-1/2 rounded-full transition-colors duration-500 ${isActive ? "bg-pink-300" : "bg-white"
+                        }`}
                     />
                   </div>
 
                   {i < totalDots - 1 && (
                     <div
                       id={`line-${dotIndex}`}
-                      className={`w-[4px] h-[40px] transition-colors duration-500 ${
-                        isVisible ? "bg-pink-500" : "bg-white"
-                      }`}
+                      className={`w-[4px] h-[40px] transition-colors duration-500 ${isActive ? "bg-pink-500" : "bg-white"
+                        }`}
                     />
                   )}
                 </div>
               );
             })}
           </div>
+
 
           {/* Right Column */}
           <div className="flex flex-col space-y-10 sm:space-y-12 w-full md:w-[480px] xl:w-[514px] md:mt-0">
