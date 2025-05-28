@@ -195,7 +195,7 @@ export default function Milestones() {
 
 
           {/* Right Column */}
-          <div className="flex flex-col space-y-10 sm:space-y-14 md:space-y-10 w-full md:w-[480px] xl:w-[514px] mt-10">
+          <div className="flex flex-col space-y-10 sm:space-y-14 md:space-y-10 w-full md:w-[480px] xl:w-[514px] mt-4 md:mt-10">
             {milestonesRight.map((item, idx) => (
               <div
                 key={idx}

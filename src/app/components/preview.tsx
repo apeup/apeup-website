@@ -87,7 +87,7 @@ export default function Preview() {
                 muted
                 loop
                 playsInline
-                className="w-[80%] h-full object-cover max-h-[562px] rounded-[24px] sm:rounded-[32px] md:rounded-[39px]"
+                className="w-[100%] md:w-[85%] h-auto justify-center items-center object-cover max-h-[562px] rounded-[24px] sm:rounded-[32px] md:rounded-[39px]"
               />
             )}
           </motion.div>

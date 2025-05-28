@@ -218,7 +218,7 @@ export default function About() {
       <div className="lg:flex flex-col xl:hidden justify-center items-center gap-10 hidden py-20">
         <div>
           {/* Preview Crousel */}
-          <div className="bg-[url(/preview-banner.png)] z-40 bg-cover bg-center bg-no-repeat rounded-3xl mt-8 lg:p-15 relative overflow-visible max-w-[500px] xl:max-w-[700px] w-full h-full mx-auto">
+          <div className="bg-[url(/preview-banner.png)] z-40 bg-cover bg-center bg-no-repeat rounded-3xl mt-8 lg:p-15 relative overflow-visible max-w-[500px] lg:max-w-[600px] xl:max-w-[700px] w-full h-full mx-auto">
             <Image
               className="absolute z-10 top-0 right-0"
               src="/mask.png"
@@ -241,7 +241,7 @@ export default function About() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
                 transition={{ duration: 0.4 }}
-                className="flex flex-col md:flex-row lg:flex-col xl:flex-row justify-between items-start gap-6 transition-all duration-300"
+                className="flex flex-col md:flex-row justify-between items-start gap-6 transition-all duration-300"
               >
                 {features.slice(index, index + 2).map((feature, i) => (
                   <div
