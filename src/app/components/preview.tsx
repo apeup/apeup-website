@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 // DashedLine remains unchanged
 function DashedLine({ index }: { index: number }) {
   const baseHeights = [
-    "h-[7.5rem] sm:h-[5rem] md:h-[4rem] lg:h-[7.5rem] xl:h-[6.9rem]",
+    "h-[7.5rem] sm:h-[5rem] md:h-[5.2rem] lg:h-[7.5rem] xl:h-[7.3rem]",
     "h-8 sm:h-10 md:h-7 lg:h-12",
     "h-8 sm:h-8 md:h-7 lg:h-12",
     "h-8 sm:h-8 md:h-7 lg:h-12",
@@ -35,8 +35,8 @@ export default function Preview() {
   }, []);
 
   return (
-    <section className="relative py-10 md:py-20">
-      <Image src="/blur.png" height={100} width={100} alt="blur" className="absolute z-50 -top-20 w-full h-[150px]" />
+    <section className="relative py-10 md:py-20 xl:px-20">
+      <Image src="/blur.png" height={100} width={100} alt="blur" className="absolute z-50 -top-30 w-full h-[250px]" />
 
       <Image
         src="/preview-yellow.png"
@@ -55,7 +55,6 @@ export default function Preview() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="absolute -bottom-20 z-10 w-full max-h-[150px]"
         >
-          <Image className="object-cover w-full h-auto" src="/blur.png" height={150} width={1920} alt="blur" />
         </motion.div>
       </div>
 
@@ -65,13 +64,13 @@ export default function Preview() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className={`text-[32px] sm:text-[44px] md:text-[54px] xl:text-[74px] font-semibold mb-8 text-center text-white ${zenDots.className}`}
+          className={`text-[32px] sm:text-[44px] md:text-[54px] xl:text-[64px] 2xl:text-[74px] font-semibold mb-8 text-center text-white ${zenDots.className}`}
           style={{ textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C" }}
         >
           Immersive Game Preview:
         </motion.h2>
 
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-10 md:gap-20">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-10">
           {/* Video from Sanity */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -87,7 +86,7 @@ export default function Preview() {
                 muted
                 loop
                 playsInline
-                className="w-[100%] md:w-[85%] h-auto justify-center items-center object-cover max-h-[562px] rounded-[24px] sm:rounded-[32px] md:rounded-[39px]"
+                className="w-[100%] md:w-[85%] xl:w-[80%] h-auto justify-center items-center object-cover max-h-[562px] rounded-[24px] sm:rounded-[32px] md:rounded-[39px]"
               />
             )}
           </motion.div>
@@ -102,14 +101,14 @@ export default function Preview() {
           >
             <Image
               className="absolute z-10 top-0 right-0 max-w-[204px] w-32 sm:w-40 md:w-full"
-              src="/mask.png"
+              src="/mask.svg"
               width={120}
               height={80}
               alt="mask"
             />
             <Image
               className="absolute z-10 bottom-0 left-0 max-w-[204px] rotate-180 w-32 sm:w-40 md:w-full"
-              src="/mask.png"
+              src="/mask.svg"
               width={120}
               height={80}
               alt="mask"
@@ -137,7 +136,7 @@ export default function Preview() {
                     {i !== points.length - 1 && <DashedLine index={i} />}
                   </div>
                   <div className="flex-1">
-                    <h4 className={`text-white font-medium leading-snug ${zenDots.className} text-[16px] sm:text-[18px] lg:text-[22px] 2xl:text-[28px]`}>
+                    <h4 className={`text-white font-medium leading-snug ${zenDots.className} text-[16px] lg:text-[22px] 2xl:text-[28px]`}>
                       {text}
                     </h4>
                     {i !== points.length - 1 && (

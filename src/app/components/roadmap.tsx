@@ -15,7 +15,7 @@ export default function Roadmap() {
       id="roadmap"
       className="text-white bg-[url('/features-bg.png')] bg-cover bg-no-repeat bg-center relative"
     >
-      <div className="max-w-[1600px] mx-auto px-4 py-16">
+      <div className="max-w-[1600px] mx-auto px-4 py-20">
         {/* Heading */}
         <div className="text-center">
           <h2
@@ -39,9 +39,9 @@ export default function Roadmap() {
             {...fadeUp}
             viewport={{ once: true }}
           >
-            <Image src="/roadmap-1.png" width={70} height={70} alt="roadmap-1" />
-            <h4 className={`${zenDots.className} text-[28px] mt-3`}>Now</h4>
-            <p className={`text-base max-w-[220px] mt-1 ${inter.className}`}>
+            <Image className="w-[50px] sm:w-[70px]" src="/roadmap-1.svg" width={70} height={70} alt="roadmap-1" />
+            <h4 className={`${zenDots.className} md:text-[28px] text-[22px] mt-3`}>Now</h4>
+            <p className={`sm:text-base text-sm max-w-[220px] mt-1 ${inter.className}`}>
               Beta Launch & Community Growth
             </p>
           </motion.div>
@@ -58,9 +58,9 @@ export default function Roadmap() {
             transition={{ delay: 0.1, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Image src="/roadmap-2.png" width={70} height={70} alt="roadmap-2" />
+            <Image className="w-[50px] sm:w-[70px]" src="/roadmap-2.svg" width={70} height={70} alt="roadmap-2" />
             <h4 className={`${zenDots.className} text-[28px] mt-3`}>Next</h4>
-            <p className={`text-base max-w-[220px] mt-1 ${inter.className}`}>
+            <p className={`sm:text-base text-sm max-w-[220px] mt-1 ${inter.className}`}>
               Play-to-Earn Rewards + NFT Sales
             </p>
           </motion.div>
@@ -77,9 +77,9 @@ export default function Roadmap() {
             transition={{ delay: 0.2, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Image src="/roadmap-3.png" width={70} height={70} alt="roadmap-3" />
+            <Image className="w-[50px] sm:w-[70px]" src="/roadmap-3.svg" width={70} height={70} alt="roadmap-3" />
             <h4 className={`${zenDots.className} text-[28px] mt-3`}>Soon</h4>
-            <p className={`text-base max-w-[220px] mt-1 ${inter.className}`}>
+            <p className={`sm:text-base text-sm max-w-[220px] mt-1 ${inter.className}`}>
               Full ApeUp Ecosystem
             </p>
           </motion.div>
@@ -96,9 +96,9 @@ export default function Roadmap() {
             transition={{ delay: 0.3, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Image src="/roadmap-4.png" width={70} height={70} alt="roadmap-4" />
+            <Image className="w-[50px] sm:w-[70px]" src="/roadmap-4.svg" width={70} height={70} alt="roadmap-4" />
             <h4 className={`${zenDots.className} text-[28px] mt-3`}>Future</h4>
-            <p className={`text-base max-w-[220px] mt-1 ${inter.className}`}>
+            <p className={`sm:text-base text-sm max-w-[220px] mt-1 ${inter.className}`}>
               New Game Titles, Airdrops, Marketplace
             </p>
           </motion.div>

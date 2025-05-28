@@ -9,22 +9,22 @@ const features = [
   {
     title: "Community-first",
     description: "Players vote, shape development, and drive the ecosystem forward.",
-    icon: "/community.png",
+    icon: "/community.svg",
   },
   {
     title: "Earn Rewards",
     description: "Play and mine real crypto rewards through skill and activity.",
-    icon: "/profit.png",
+    icon: "/profit.svg",
   },
   {
     title: "Player Driven",
     description: "Built by players, for players. Every decision is community-powered.",
-    icon: "/community.png",
+    icon: "/community.svg",
   },
   {
     title: "Cross-Platform",
     description: "Play seamlessly across mobile and future desktop support.",
-    icon: "/profit.png",
+    icon: "/profit.svg",
   },
 ];
 
@@ -115,7 +115,7 @@ export default function About() {
 
           <div className="lg:hidden xl:block">
             {/* Feature Carousel */}
-            <div className="bg-[url(/preview-banner.png)] z-40 bg-cover bg-center bg-no-repeat rounded-3xl mt-8 lg:p-15 p-7 relative overflow-visible max-w-[500px] lg:max-w-[700px] w-full h-full mx-auto">
+            <div className="bg-[url(/about-banner.svg)] z-40 bg-cover bg-center bg-no-repeat rounded-3xl mt-8 lg:p-15 p-7 relative overflow-visible max-w-[500px] lg:max-w-[700px] w-full h-full mx-auto">
               <Image
                 className="absolute z-10 top-0 right-0"
                 src="/mask.png"
@@ -195,7 +195,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           viewport={{ once: true, amount: 0.2 }}
-          className="lg:hidden xl:flex flex flex-col md:flex-row items-center gap-4 flex-1 z-10 justify-center w-full max-w-[280px] lg:max-w-[400px] 2xl:max-w-none"
+          className="lg:hidden xl:flex flex flex-row items-center gap-4 flex-1 z-10 justify-center w-[50%] mx-auto max-w-[280px] lg:max-w-[400px] 2xl:max-w-none"
         >
           <Image
             src="/lucky.png"
@@ -215,7 +215,7 @@ export default function About() {
       </div>
 
 
-      <div className="lg:flex flex-col xl:hidden justify-center items-center gap-10 hidden py-20">
+      <div className="lg:flex xl:hidden justify-center items-center gap-40 mx-6 hidden py-20">
         <div>
           {/* Preview Crousel */}
           <div className="bg-[url(/preview-banner.png)] z-40 bg-cover bg-center bg-no-repeat rounded-3xl mt-8 lg:p-15 relative overflow-visible max-w-[500px] lg:max-w-[600px] xl:max-w-[700px] w-full h-full mx-auto">
@@ -241,7 +241,7 @@ export default function About() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
                 transition={{ duration: 0.4 }}
-                className="flex flex-col md:flex-row justify-between items-start gap-6 transition-all duration-300"
+                className="flex flex-col justify-between items-start gap-6 transition-all duration-300"
               >
                 {features.slice(index, index + 2).map((feature, i) => (
                   <div
@@ -293,7 +293,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           viewport={{ once: true, amount: 0.2 }}
-          className="flex flex-col md:flex-row items-center gap-4 flex-1 z-10 justify-center w-full max-w-[280px] lg:max-w-[300px] xl:max-w-none"
+          className="flex flex-col md:flex-row items-center gap-4 flex-1 z-10 justify-center w-full mr-auto max-w-[280px] lg:max-w-[200px] xl:max-w-none"
         >
           <Image
             src="/lucky.png"

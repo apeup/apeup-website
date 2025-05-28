@@ -83,7 +83,7 @@ export default function Milestones() {
   const totalDots = 9;
 
   return (
-    <section className="relative bg-[url('/milestone-bg.png')] bg-[#130F1F] bg-cover bg-no-repeat bg-center py-10 md:py-20 px-4 sm:px-10 lg:px-10">
+    <section className="relative bg-[url('/milestone-bg.png')] bg-[#130F1F] bg-cover bg-no-repeat bg-center pb-10 md:pb-35 px-4 sm:px-10 lg:px-10 pt-10 sm:pt-0">
       <Image
         className="pointer-events-none select-none absolute -bottom-10 right-0 w-[100px] sm:w-[180px] md:w-[280px] lg:w-[400px] opacity-70"
         src="/yellow.png"
@@ -104,13 +104,13 @@ export default function Milestones() {
       <div className="max-w-[1200px] mx-auto space-y-10">
         <div className="flex flex-col md:flex-row justify-center w-[90%] md:w-full md:mx-auto ml-auto items-center md:items-start gap-6 lg:gap-12">
           {/* Left Column */}
-          <div className="flex flex-col items-center md:items-start space-y-10 sm:space-y-12 w-full md:w-[480px] lg:w-[514px]">
+          <div className="flex flex-col items-center md:items-start space-y-10 sm:space-y-12 w-full md:w-[480px] lg:w-[514px] px-4 md:px-0">
             {milestonesLeft.map((item, idx) => (
               <div
                 key={idx}
                 ref={(el) => { leftRefs.current[idx] = el; }}
                 data-visible="false"
-                className="w-full h-[90px] sm:h-[100px] xl:h-[120px] relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-2xl px-8 py-4 sm:py-6 flex items-center justify-end sm:justify-center md:justify-end lg:justify-center gap-3 sm:gap-4"
+                className="w-full h-[90px] sm:h-[100px] xl:h-[120px] relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-[24px] sm:rounded-[32px] md:rounded-[39px] px-8 py-4 sm:py-6 flex items-center justify-end sm:justify-center md:justify-end lg:justify-center gap-3 sm:gap-4"
               >
                 {idx !== milestonesLeft.length - 1 && (
                   <div className="absolute -left-2 sm:-left-5 md:top-3 lg:top-2 xl:top-0 md:-left-7 xl:-left-14 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[90px] sm:h-[105px] md:h-[90px] xl:h-[121px] w-[90px] sm:w-[105px] md:w-[90px] xl:w-[121px] rounded-full shadow-[0_4px_50px_#00000040]">
@@ -128,25 +128,25 @@ export default function Milestones() {
                   className={`flex flex-col sm:flex-row justify-center gap-1 sm:gap-2 text-center ${item.league === "NFT Marketplace & Staking Launch" ? "" : "pl-14"} sm:pl-0 z-10`}
                 >
 
-                  <h4 className={`${zenDots.className} text-[16px]  sm:text-[18px] xl:text-[28px] lg:font-bold`}>
+                  <h4 className={`${zenDots.className} text-[12px]  sm:text-[18px] xl:text-[28px] lg:font-bold`}>
                     {item.league} -
                   </h4>
-                  <span className="text-[16px] sm:text-[18px] xl:text-[28px] mt-1 sm:mt-0">
+                  <span className="text-[12px] sm:text-[18px] xl:text-[28px] mt-1 sm:mt-0">
                     {item.mau}
                   </span>
                 </div>
 
                 <Image
-                  className="absolute top-0 right-0 max-w-[100px] sm:max-w-[120px] w-full pointer-events-none"
-                  src="/mask.png"
+                  className="absolute top-0 right-0 max-w-[100px] sm:max-w-[120px] lg:max-w-[136px] w-full pointer-events-none"
+                  src="/mask.svg"
                   width={64}
                   height={64}
                   alt="mask top"
                   priority
                 />
                 <Image
-                  className="absolute bottom-0 left-0 rotate-180 max-w-[100px] sm:max-w-[120px] w-full pointer-events-none"
-                  src="/mask.png"
+                  className="absolute bottom-0 left-0 rotate-180 max-w-[100px] sm:max-w-[120px] lg:max-w-[136px] w-full pointer-events-none"
+                  src="/mask.svg"
                   width={64}
                   height={64}
                   alt="mask bottom"
@@ -157,7 +157,7 @@ export default function Milestones() {
           </div>
 
           {/* Dots Column */}
-          <div className="absolute md:static left-0 sm:left-5 md:flex flex-col items-center justify-center shrink-0">
+          <div className="absolute md:static left-3 sm:left-5 md:flex flex-col items-center justify-center shrink-0">
             {[...Array(totalDots)].map((_, i) => {
               const dotIndex = i + 1;
 
@@ -179,7 +179,7 @@ export default function Milestones() {
                       }`}
                   >
                     <div
-                      className={`absolute top-1/2 left-1/2 w-[14px] h-[14px] -translate-x-1/2 -translate-y-1/2 rounded-full transition-colors duration-500 ${isActive ? "bg-pink-300" : "bg-white"
+                      className={`absolute top-1/2 left-1/2 w-[14px] h-[14px] -translate-x-1/2 -translate-y-1/2 rounded-full transition-colors duration-500 ${isActive ? "bg-white" : "bg-white"
                         }`}
                     />
                   </div>
@@ -198,13 +198,13 @@ export default function Milestones() {
 
 
           {/* Right Column */}
-          <div className="flex flex-col space-y-10 sm:space-y-14 md:space-y-10 w-full md:w-[480px] xl:w-[514px] mt-4 md:mt-10">
+          <div className="flex flex-col space-y-10 sm:space-y-14 md:space-y-12 w-full md:w-[480px] xl:w-[514px] mt-4 md:mt-20 px-5 md:px-0">
             {milestonesRight.map((item, idx) => (
               <div
                 key={idx}
                 ref={(el) => { rightRefs.current[idx] = el; }}
                 data-visible="false"
-                className="w-full h-[90px] sm:h-[100px] xl:h-[120px] relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-2xl pr-10 pl-8 lg:px-20 py-4 sm:py-5 flex items-center justify-start sm:justify-center md:justify-start lg:justify-center gap-3 sm:gap-4"
+                className="w-full h-[90px] sm:h-[100px] xl:h-[120px] relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-[24px] sm:rounded-[32px] md:rounded-[39px] pr-10 pl-8 lg:px-20 py-4 sm:py-5 flex items-center justify-start sm:justify-center md:justify-start lg:justify-center gap-3 sm:gap-4"
               >
                 <div className="absolute -right-3 lg:top-3 md:top-[3.5] xl:top-0 sm:-right-5 md:-right-7 xl:-right-14 top-0 z-10 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[90px] sm:h-[105px] md:h-[90px] xl:h-[121px] w-[90px] sm:w-[105px] md:w-[90px] xl:w-[121px] rounded-full shadow-[0_4px_50px_#00000040]">
                   <Image
@@ -217,25 +217,25 @@ export default function Milestones() {
                 </div>
 
                 <div className={`flex flex-col sm:flex-row sm:items-center justify-center gap-1 sm:gap-2 text-center pr-10  z-10 ${item.league === "Platform Listings (CEXs, DEXs)" ? "sm:pr-4" : "sm:pr-0" }`}>
-                  <h4 className={`${zenDots.className} text-[16px] sm:text-[18px] xl:text-[28px] lg:font-bold`}>
+                  <h4 className={`${zenDots.className} text-[12px] sm:text-[18px] xl:text-[28px] lg:font-bold`}>
                     {item.league} -
                   </h4>
-                  <span className="text-[16px] sm:text-[18px] xl:text-[28px] mt-1 sm:mt-0">
+                  <span className="text-[12px] sm:text-[18px] xl:text-[28px] mt-1 sm:mt-0">
                     {item.mau}
                   </span>
                 </div>
 
                 <Image
-                  className="absolute top-0 right-0 max-w-[100px] sm:max-w-[120px] w-full pointer-events-none"
-                  src="/mask.png"
+                  className="absolute top-0 right-0 max-w-[100px] sm:max-w-[120px] lg:max-w-[136px] w-full pointer-events-none"
+                  src="/mask.svg"
                   width={64}
                   height={64}
                   alt="mask top"
                   priority
                 />
                 <Image
-                  className="absolute bottom-0 left-0 rotate-180 max-w-[100px] sm:max-w-[120px] w-full pointer-events-none"
-                  src="/mask.png"
+                  className="absolute bottom-0 left-0 rotate-180 max-w-[100px] sm:max-w-[120px] lg:max-w-[136px] w-full pointer-events-none"
+                  src="/mask.svg"
                   width={64}
                   height={64}
                   alt="mask bottom"

@@ -6,12 +6,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { zenDots } from "../fonts";
 
 const featureImages = [
-  "/feature-1.png",
-  "/feature-2.png",
-  "/feature-3.png",
-  "/feature-4.png",
-  "/feature-5.png",
-  "/feature-6.png",
+  "/feature-1.svg",
+  "/feature-2.svg",
+  "/feature-3.svg",
+  "/feature-4.svg",
+  "/feature-5.svg",
+  "/feature-6.svg",
 ];
 
 export default function Features() {
@@ -58,7 +58,7 @@ export default function Features() {
       ref={sectionRef}
       className="bg-[url('/features-bg.png')] bg-cover bg-no-repeat bg-center text-white relative overflow-hidden"
     >
-      <div className="px-4 sm:px-6 md:px-10 lg:px-16 py-10 ml-auto relative z-10">
+      <div className="px-4 sm:px-6 md:px-10 lg:px-16 py-16 ml-auto relative z-10">
         {/* Header and Buttons */}
         <div className="flex flex-col md:flex-row justify-between max-w-[1347px] mx-auto items-center gap-6">
           <h2
@@ -87,7 +87,7 @@ export default function Features() {
         </div>
 
         {/* Carousel */}
-        <div className="mt-21 overflow-hidden relative h-full">
+        <div className="md:mt-15 mt-10 overflow-hidden relative h-full">
           <AnimatePresence mode="wait">
             {!animating && (
               <motion.div
@@ -95,7 +95,7 @@ export default function Features() {
                 initial={{ x: 0, opacity: 1 }}
                 exit={{ x: direction > 0 ? -300 : 300, opacity: 0 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="flex gap-6 md:gap-8 justify-center lg:justify-start 2xl:justify-center"
+                className="flex gap-6 md:gap-8 justify-center lg:justify-start"
               >
                 {getVisibleImages().map((img, index) => (
                   <div
