@@ -95,7 +95,7 @@ export default function Features() {
                 initial={{ x: 0, opacity: 1 }}
                 exit={{ x: direction > 0 ? -300 : 300, opacity: 0 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="flex gap-6 md:gap-8 justify-center lg:justify-start"
+                className="flex gap-6 md:gap-8 justify-center lg:justify-start 2xl:justify-center"
               >
                 {getVisibleImages().map((img, index) => (
                   <div

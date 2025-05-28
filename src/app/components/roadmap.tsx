@@ -66,7 +66,7 @@ export default function Roadmap() {
           </motion.div>
 
           {/* Line 2 */}
-          <div className="hidden md:flex items-center justify-center w-[60px]">
+          <div className="hidden lg:flex items-center justify-center w-[60px]">
             <Image src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
           </div>
 

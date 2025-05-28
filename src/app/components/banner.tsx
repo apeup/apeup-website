@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 
 export default function Banner() {
     return (
-        <section className="relative bg-[url('/banner-bg.png')] bg-cover bg-[position:75%_center] h-[500px] md:h-[105dvh] w-full overflow-hidden">
+        <section className="relative bg-[url('/banner-bg.png')] bg-cover bg-[position:75%_center] h-[500px] sm:h-[105dvh] w-full overflow-hidden">
             {/* Main content */}
-            <div className="relative z-20 flex flex-col justify-center text-center md:text-left mt-10 md:mt-0 items-center h-full text-white w-full px-4 sm:px-6 md:px-8 xl:px-0 max-w-[1200px] mx-auto">
+            <div className="relative z-20 flex flex-col justify-center text-center md:text-left mt-10 md:mt-0 items-center h-full text-white w-full px-4 sm:px-6 md:px-8 lg:px-20 xl:px-0 max-w-[1200px] mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -15,7 +15,7 @@ export default function Banner() {
                     className="w-full max-w-[652px] mr-auto"
                 >
                     <h2
-                        className={`text-[32px] sm:text-[44px] md:text-[54px] lg:text-[64px] xl:text-[74px] font-semibold leading-[120%] mt-16 sm:mt-24 mb-4 sm:mb-6 text-white ${zenDots.className}`}
+                        className={`text-[32px] sm:text-[44px] md:text-[54px] xl:text-[74px] font-semibold leading-[120%] mt-16 sm:mt-24 mb-4 sm:mb-6 text-white ${zenDots.className}`}
                         style={{
                             textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
                         }}

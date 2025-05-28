@@ -83,7 +83,7 @@ export default function Milestones() {
   const totalDots = 9;
 
   return (
-    <section className="relative bg-[url('/milestone-bg.png')] bg-[#130F1F] bg-cover bg-no-repeat bg-center py-20 px-4 sm:px-6 lg:px-8">
+    <section className="relative bg-[url('/milestone-bg.png')] bg-[#130F1F] bg-cover bg-no-repeat bg-center py-10 md:py-20 px-4 sm:px-10 lg:px-10">
       <Image
         className="pointer-events-none select-none absolute -bottom-10 right-0 w-[100px] sm:w-[180px] md:w-[280px] lg:w-[400px] opacity-70"
         src="/yellow.png"
@@ -102,7 +102,7 @@ export default function Milestones() {
       />
 
       <div className="max-w-[1200px] mx-auto space-y-10">
-        <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-6 md:gap-12">
+        <div className="flex flex-col md:flex-row justify-center w-[90%] md:w-full mx-auto items-center md:items-start gap-6 lg:gap-12">
           {/* Left Column */}
           <div className="flex flex-col items-center md:items-start space-y-10 sm:space-y-12 w-full md:w-[480px] lg:w-[514px]">
             {milestonesLeft.map((item, idx) => (
@@ -110,25 +110,25 @@ export default function Milestones() {
                 key={idx}
                 ref={(el) => { leftRefs.current[idx] = el; }}
                 data-visible="false"
-                className="w-full h-[90px] sm:h-[100px] md:h-[110px] xl:h-[120px] relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-2xl px-4 py-4 sm:py-6 flex items-center justify-center gap-3 sm:gap-4"
+                className="w-full h-[90px] sm:h-[100px] xl:h-[120px] relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-2xl px-8 py-4 sm:py-6 flex items-center justify-center md:justify-end xl:justify-center gap-3 sm:gap-4"
               >
                 {idx !== milestonesLeft.length - 1 && (
-                  <div className="hidden lg:block absolute -left-12 sm:-left-14 md:-left-7 xl:-left-14 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[110px] sm:h-[115px] xl:h-[121px] w-[110px] sm:w-[115px] xl:w-[121px] rounded-full shadow-[0_4px_50px_#00000040]">
+                  <div className="hidden sm:block absolute -left-3 sm:-left-5 md:top-3 lg:top-2 xl:top-0 md:-left-7 xl:-left-14 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[90px] sm:h-[105px] md:h-[90px] xl:h-[121px] w-[90px] sm:w-[105px] md:w-[90px] xl:w-[121px] rounded-full shadow-[0_4px_50px_#00000040]">
                     <Image
                       src={item.icon}
                       height={90}
                       width={60}
                       alt={item.league}
-                      className="h-[120px] sm:h-[130px] xl:h-[137px] w-[50px] sm:w-[55px] xl:w-[64px] absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                      className="h-[100px] sm:h-[120px] xl:h-[137px] w-[40px] sm:w-[55px] xl:w-[64px] absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2"
                     />
                   </div>
                 )}
 
                 <div className="flex flex-col sm:flex-row justify-center gap-1 sm:gap-2 text-center z-10">
-                  <h4 className={`${zenDots.className} text-[16px] sm:text-[18px] md:text-[20px] xl:text-[28px] font-bold`}>
+                  <h4 className={`${zenDots.className} text-[16px] sm:text-[18px] xl:text-[28px] lg:font-bold`}>
                     {item.league} -
                   </h4>
-                  <span className="text-[16px] sm:text-[18px] md:text-[20px] xl:text-[28px] mt-1 sm:mt-0">
+                  <span className="text-[16px] sm:text-[18px] xl:text-[28px] mt-1 sm:mt-0">
                     {item.mau}
                   </span>
                 </div>
@@ -172,7 +172,7 @@ export default function Milestones() {
                 <div key={i} className="flex flex-col items-center relative">
                   <div
                     id={`dot-${dotIndex}`}
-                    className={`h-[43px] w-[43px] rounded-full relative transition-colors duration-500 ${isActive ? "bg-pink-500" : "bg-[#585561]"
+                    className={`lg:h-[43px] lg:w-[43px] h-[30px] w-[30px] rounded-full relative transition-colors duration-500 ${isActive ? "bg-pink-500" : "bg-[#585561]"
                       }`}
                   >
                     <div
@@ -184,7 +184,7 @@ export default function Milestones() {
                   {i < totalDots - 1 && (
                     <div
                       id={`line-${dotIndex}`}
-                      className={`w-[4px] h-[40px] transition-colors duration-500 ${isActive ? "bg-pink-500" : "bg-white"
+                      className={`w-[4px] lg:h-[40px] h-[50px] transition-colors duration-500 ${isActive ? "bg-pink-500" : "bg-white"
                         }`}
                     />
                   )}
@@ -195,29 +195,29 @@ export default function Milestones() {
 
 
           {/* Right Column */}
-          <div className="flex flex-col space-y-10 sm:space-y-12 w-full md:w-[480px] xl:w-[514px] md:mt-0">
+          <div className="flex flex-col space-y-10 sm:space-y-14 md:space-y-10 w-full md:w-[480px] xl:w-[514px] mt-10">
             {milestonesRight.map((item, idx) => (
               <div
                 key={idx}
                 ref={(el) => { rightRefs.current[idx] = el; }}
                 data-visible="false"
-                className="w-full h-[90px] sm:h-[100px] md:h-[110px] lg:h-[120px] relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-2xl lg:px-20 py-4 sm:py-5 flex items-center justify-center gap-3 sm:gap-4"
+                className="w-full h-[90px] sm:h-[100px] xl:h-[120px] relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-2xl pr-10 pl-8 lg:px-20 py-4 sm:py-5 flex items-center justify-center md:justify-start xl:justify-center gap-3 sm:gap-4"
               >
-                <div className="hidden lg:block absolute -right-12 sm:-right-14 md:-right-7 xl:-right-14 top-0 z-10 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[110px] sm:h-[115px] xl:h-[121px] w-[110px] sm:w-[115px] xl:w-[121px] rounded-full shadow-[0_4px_50px_#00000040]">
+                <div className="hidden sm:block absolute -right-3 lg:top-3 md:top-[3.5] xl:top-0 sm:-right-5 md:-right-7 xl:-right-14 top-0 z-10 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[90px] sm:h-[105px] md:h-[90px] xl:h-[121px] w-[90px] sm:w-[105px] md:w-[90px] xl:w-[121px] rounded-full shadow-[0_4px_50px_#00000040]">
                   <Image
                     src={item.icon}
                     height={90}
                     width={60}
                     alt={item.league}
-                    className="h-[120px] sm:h-[130px] xl:h-[137px] w-[50px] sm:w-[55px] xl:w-[64px] absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                    className="h-[100px] sm:h-[120px] xl:h-[137px] w-[50px] sm:w-[55px] xl:w-[64px] absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   />
                 </div>
 
                 <div className="flex flex-col sm:flex-row sm:items-center justify-center gap-1 sm:gap-2 text-center z-10">
-                  <h4 className={`${zenDots.className} text-[16px] sm:text-[18px] md:text-[20px] xl:text-[28px] font-bold`}>
+                  <h4 className={`${zenDots.className} text-[16px] sm:text-[18px] xl:text-[28px] lg:font-bold`}>
                     {item.league} -
                   </h4>
-                  <span className="text-[16px] sm:text-[18px] md:text-[20px] xl:text-[28px] mt-1 sm:mt-0">
+                  <span className="text-[16px] sm:text-[18px] xl:text-[28px] mt-1 sm:mt-0">
                     {item.mau}
                   </span>
                 </div>
