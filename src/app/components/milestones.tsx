@@ -160,7 +160,7 @@ export default function Milestones() {
 
               // Find max visible dot index
               const visibleIndexes = Object.entries(visibleDots)
-                .filter(([_, visible]) => visible)
+                .filter(([, visible]) => visible)
                 .map(([idx]) => parseInt(idx));
 
               const maxVisibleDot = visibleIndexes.length > 0 ? Math.max(...visibleIndexes) : 0;

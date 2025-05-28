@@ -1,5 +1,4 @@
 import Header from "./components/header";
-import Banner from "./components/banner";
 import Preview from "./components/preview";
 import About from "./components/about";
 import Features from "./components/features";
