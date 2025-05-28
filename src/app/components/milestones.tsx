@@ -102,7 +102,7 @@ export default function Milestones() {
       />
 
       <div className="max-w-[1200px] mx-auto space-y-10">
-        <div className="flex flex-col md:flex-row justify-center w-[90%] md:w-full mx-auto items-center md:items-start gap-6 lg:gap-12">
+        <div className="flex flex-col md:flex-row justify-center w-[90%] md:w-full md:mx-auto ml-auto items-center md:items-start gap-6 lg:gap-12">
           {/* Left Column */}
           <div className="flex flex-col items-center md:items-start space-y-10 sm:space-y-12 w-full md:w-[480px] lg:w-[514px]">
             {milestonesLeft.map((item, idx) => (
@@ -113,7 +113,7 @@ export default function Milestones() {
                 className="w-full h-[90px] sm:h-[100px] xl:h-[120px] relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-2xl px-8 py-4 sm:py-6 flex items-center justify-end sm:justify-center md:justify-end lg:justify-center gap-3 sm:gap-4"
               >
                 {idx !== milestonesLeft.length - 1 && (
-                  <div className="absolute -left-3 sm:-left-5 md:top-3 lg:top-2 xl:top-0 md:-left-7 xl:-left-14 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[90px] sm:h-[105px] md:h-[90px] xl:h-[121px] w-[90px] sm:w-[105px] md:w-[90px] xl:w-[121px] rounded-full shadow-[0_4px_50px_#00000040]">
+                  <div className="absolute -left-2 sm:-left-5 md:top-3 lg:top-2 xl:top-0 md:-left-7 xl:-left-14 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[90px] sm:h-[105px] md:h-[90px] xl:h-[121px] w-[90px] sm:w-[105px] md:w-[90px] xl:w-[121px] rounded-full shadow-[0_4px_50px_#00000040]">
                     <Image
                       src={item.icon}
                       height={90}
@@ -157,7 +157,7 @@ export default function Milestones() {
           </div>
 
           {/* Dots Column */}
-          <div className="hidden md:flex flex-col items-center justify-center shrink-0">
+          <div className="absolute md:static left-0 sm:left-5 md:flex flex-col items-center justify-center shrink-0">
             {[...Array(totalDots)].map((_, i) => {
               const dotIndex = i + 1;
 
@@ -187,7 +187,7 @@ export default function Milestones() {
                   {i < totalDots - 1 && (
                     <div
                       id={`line-${dotIndex}`}
-                      className={`w-[4px] lg:h-[40px] h-[50px] transition-colors duration-500 ${isActive ? "bg-pink-500" : "bg-white"
+                      className={`w-[4px] lg:h-[40px] md:h-[50px] h-[100px] sm:h-[120px] transition-colors duration-500 ${isActive ? "bg-pink-500" : "bg-white"
                         }`}
                     />
                   )}
