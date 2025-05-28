@@ -98,7 +98,7 @@ export default function Header() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
-              className="sm:hidden mt-2 w-11/12 max-w-xs mx-auto bg-black border border-white/20 rounded-xl px-6 py-4 text-white text-center text-xs space-y-3 z-40"
+              className="sm:hidden fixed mt-2 w-11/12 max-w-xs mx-auto bg-black border border-white/20 rounded-xl px-6 py-4 text-white text-center text-xs space-y-3 z-40"
             >
               <Link
                 className="block hover:text-[#F8B947]"
