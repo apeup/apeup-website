@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
+import { motion } from "framer-motion";
 import { zenDots } from "../fonts";
 
 const featureImages = [
@@ -18,7 +18,14 @@ export default function Features() {
   const [visibleCount, setVisibleCount] = useState(3);
   const [startIndex, setStartIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
-  const [xOffset, setXOffset] = useState(0); // translateX in px
+  const [xOffset, setXOffset] = useState(0);
+
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+
+  // For wheel scroll throttling and delta accumulation
+  const scrollAccum = useRef(0);
+  const scrollCooldown = useRef(false);
 
   useEffect(() => {
     const updateVisibleCount = () => {
@@ -33,10 +40,8 @@ export default function Features() {
     return () => window.removeEventListener("resize", updateVisibleCount);
   }, []);
 
-  // Slide width (max width + gap)
-  const slideWidth = 386 + 32; // Adjust if your gap or max-w changes
+  const slideWidth = 386 + 32;
 
-  // Get the visible slides
   const visibleSlides = [];
   for (let i = 0; i < visibleCount; i++) {
     visibleSlides.push(featureImages[(startIndex + i) % featureImages.length]);
@@ -46,17 +51,67 @@ export default function Features() {
     if (animating) return;
     setAnimating(true);
 
-    // Animate container to move left or right by slideWidth px
     setXOffset(-direction * slideWidth);
 
-    // After animation duration, update startIndex and reset xOffset
     setTimeout(() => {
-      setStartIndex((prev) =>
-        (prev + direction + featureImages.length) % featureImages.length
-      );
+      setStartIndex((prev) => (prev + direction + featureImages.length) % featureImages.length);
       setXOffset(0);
       setAnimating(false);
-    }, 700); // match transition duration
+    }, 700);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.changedTouches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    touchEndX.current = e.changedTouches[0].clientX;
+    if (
+      touchStartX.current !== null &&
+      touchEndX.current !== null &&
+      !animating
+    ) {
+      const diff = touchStartX.current - touchEndX.current;
+      const swipeThreshold = 50;
+      if (diff > swipeThreshold) {
+        handleChange(1);
+      } else if (diff < -swipeThreshold) {
+        handleChange(-1);
+      }
+    }
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
+  const handleWheel = (e: React.WheelEvent) => {
+    if (animating || scrollCooldown.current) return;
+
+    // Only respond to horizontal scroll mostly
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 5) {
+      scrollAccum.current += e.deltaX;
+
+      const threshold = 100; // Adjust this to control sensitivity
+
+      if (scrollAccum.current >= threshold) {
+        // Scroll right -> next slide
+        scrollCooldown.current = true;
+        handleChange(1);
+        scrollAccum.current = 0;
+
+        setTimeout(() => {
+          scrollCooldown.current = false;
+        }, 700);
+      } else if (scrollAccum.current <= -threshold) {
+        // Scroll left -> previous slide
+        scrollCooldown.current = true;
+        handleChange(-1);
+        scrollAccum.current = 0;
+
+        setTimeout(() => {
+          scrollCooldown.current = false;
+        }, 700);
+      }
+    }
   };
 
   return (
@@ -106,7 +161,12 @@ export default function Features() {
         </div>
 
         {/* Carousel */}
-        <div className="md:mt-15 mt-10 relative h-full overflow-hidden max-w-full mx-auto">
+        <div
+          className="md:mt-15 mt-10 relative h-full overflow-hidden max-w-full mx-auto"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          onWheel={handleWheel}
+        >
           <motion.div
             className="flex gap-6 md:gap-8 justify-center lg:justify-start"
             style={{

@@ -22,7 +22,7 @@ export default function Footer() {
           <div className="flex justify-center">
             <div className="w-[160px] lg:w-[222px]">
               <Image
-                src="/logo.png"
+                src="/logo.svg"
                 width={222}
                 height={150}
                 alt="Logo"

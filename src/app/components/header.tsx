@@ -23,7 +23,7 @@ export default function Header() {
           <div className="flex-1 max-w-[100px] md:max-w-[138px]">
             <Link href="/#home">
               <Image
-                src="/logo.png"
+                src="/logo.svg"
                 alt="Logo"
                 width={138}
                 height={0}
