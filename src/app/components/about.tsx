@@ -117,19 +117,32 @@ export default function About() {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={index}
-                  initial={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, x: 30 }}
                   animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6 }}
-                  className="flex flex-col md:flex-row justify-between items-start gap-6 transition-all duration-300"
+                  exit={{ opacity: 0, x: -30 }}
+                  transition={{ duration: 0.35, ease: 'easeOut' }}
+                  className="flex flex-col md:flex-row justify-between items-start gap-6"
                 >
                   {features.slice(index, index + 2).map((feature, i) => (
-                    <div key={i} className="flex flex-col items-start text-left w-[350px] sm:w-[280px] md:w-[300px] pr-20 sm:pr-0">
-                      <Image src={feature.icon} width={30} height={30} alt="Feature Icon" className="mb-2 w-[37px]" />
-                      <h4 className={`text-[22px] sm:text-[24px] lg:text-[28px] font-semibold mb-1 ${zenDots.className} text-white`}>
+                    <div
+                      key={i}
+                      className="flex flex-col items-start text-left w-[350px] sm:w-[280px] md:w-[300px] pr-20 sm:pr-0"
+                    >
+                      <Image
+                        src={feature.icon}
+                        width={30}
+                        height={30}
+                        alt="Feature Icon"
+                        className="mb-2 w-[37px]"
+                      />
+                      <h4
+                        className={`text-[22px] sm:text-[24px] lg:text-[28px] font-semibold mb-1 ${zenDots.className} text-white`}
+                      >
                         {feature.title}
                       </h4>
-                      <p className={`text-[14px] sm:text-[15px] lg:text-[16px] text-white ${inter.className}`}>
+                      <p
+                        className={`text-[14px] sm:text-[15px] lg:text-[16px] text-white ${inter.className}`}
+                      >
                         {feature.description}
                       </p>
                     </div>
@@ -137,11 +150,12 @@ export default function About() {
                 </motion.div>
               </AnimatePresence>
 
+
               <div className="flex justify-center mt-8 gap-6 absolute -bottom-5 z-30 left-1/2 transform -translate-x-1/2">
-                <button onClick={prevSlide} className="bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[37px] w-[37px] text-white" aria-label="Previous" style={{boxShadow: 'inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)'}}>
+                <button onClick={prevSlide} className="bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[37px] w-[37px] text-white" aria-label="Previous" style={{ boxShadow: 'inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)' }}>
                   ←
                 </button>
-                <button onClick={nextSlide} className="bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[37px] w-[37px] text-white" aria-label="Next" style={{boxShadow: 'inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)'}}>
+                <button onClick={nextSlide} className="bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[37px] w-[37px] text-white" aria-label="Next" style={{ boxShadow: 'inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)' }}>
                   →
                 </button>
               </div>

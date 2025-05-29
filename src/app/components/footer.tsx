@@ -4,7 +4,7 @@ import { inter } from "../fonts";
 
 export default function Footer() {
   return (
-    <footer id="socials" className="bg-[url('/footer-bg.png')] bg-cover bg-no-repeat bg-center xl:px-20 pt-20 pb-4">
+    <footer id="socials" className="bg-[url('/footer-bg.png')] bg-cover bg-no-repeat bg-center xl:px-20 pt-20 pb-5">
       <div className="max-w-[1400px] mx-auto px-5">
         {/* Top row: nav, logo, button */}
         <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-6 mb-11 md:gap-0">

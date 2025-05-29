@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { zenDots } from "../fonts";
 import { useEffect, useState, useRef } from "react";
+
+import { zenDots } from "../fonts";
 
 const milestonesLeft = [
   { league: "League 1", mau: "0.5M MAU", icon: "/1.png" },
@@ -20,70 +21,66 @@ const milestonesRight = [
 ];
 
 export default function Milestones() {
-  // Store visibility per dot index (1-based)
-  const [visibleDots, setVisibleDots] = useState<{ [key: number]: boolean }>({});
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [progress, setProgress] = useState(0); // 0 to 1 progress of scroll inside section
 
-  const leftRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const rightRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const totalDots = 9;
+  const ANIMATION_SPEED_FACTOR = 1.1; // Increase animation speed by 10%
 
+  // Calculate scroll progress inside the section
   useEffect(() => {
-    if (!window.IntersectionObserver) return;
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
 
-    const observers: IntersectionObserver[] = [];
+      const rect = sectionRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
 
-    // Left side observers
-    milestonesLeft.forEach((_, idx) => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (leftRefs.current[idx]) {
-              leftRefs.current[idx]?.setAttribute("data-visible", entry.isIntersecting.toString());
+      const startTrigger = windowHeight * 0.6;
+      const endTrigger = windowHeight;
 
-              // Left dots are at odd positions: 1,3,5,7,9
-              // So dotIndex = idx * 2 + 1
-              const dotIndex = idx * 2 + 1;
+      if (rect.bottom <= 0) {
+        setProgress(1);
+        return;
+      }
 
-              setVisibleDots((prev) => ({ ...prev, [dotIndex]: entry.isIntersecting }));
-            }
-          });
-        },
-        { threshold: 0.5 }
-      );
-      if (leftRefs.current[idx]) observer.observe(leftRefs.current[idx]);
-      observers.push(observer);
-    });
+      if (rect.top > startTrigger) {
+        setProgress(0);
+        return;
+      }
 
-    // Right side observers
-    milestonesRight.forEach((_, idx) => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (rightRefs.current[idx]) {
-              rightRefs.current[idx]?.setAttribute("data-visible", entry.isIntersecting.toString());
+      const totalScrollRange = rect.height + (endTrigger - startTrigger);
+      const scrolled = endTrigger - rect.top;
+      let prog = scrolled / totalScrollRange;
 
-              // Right dots are at even positions: 2,4,6,8
-              // So dotIndex = idx * 2 + 2
-              const dotIndex = idx * 2 + 2;
+      prog = Math.min(Math.max(prog, 0), 1);
 
-              setVisibleDots((prev) => ({ ...prev, [dotIndex]: entry.isIntersecting }));
-            }
-          });
-        },
-        { threshold: 0.5 }
-      );
-      if (rightRefs.current[idx]) observer.observe(rightRefs.current[idx]);
-      observers.push(observer);
-    });
+      setProgress(prog);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    // Initial call
+    handleScroll();
 
     return () => {
-      observers.forEach((obs) => obs.disconnect());
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  const totalDots = 9;
+  // Determine active dots/lines with boosted progress
+  const getIsActive = (index: number) => {
+    // index from 1 to totalDots
+    // Boost progress and clamp to 1
+    const boostedProgress = Math.min(progress * ANIMATION_SPEED_FACTOR, 1);
+    const progressIndex = boostedProgress * totalDots;
+    return index <= progressIndex;
+  };
 
   return (
-    <section className="relative bg-[url('/milestone-bg.png')] bg-[#130F1F] bg-cover bg-no-repeat bg-center pb-10 md:pb-35 px-4 sm:px-10 lg:px-10 pt-10 sm:pt-0">
+    <section
+      ref={sectionRef}
+      className="relative bg-[url('/milestone-bg.png')] bg-[#130F1F] bg-cover bg-no-repeat bg-center pb-10 md:pb-35 px-4 sm:px-10 lg:px-10 pt-10 sm:pt-0"
+    >
       <Image
         className="pointer-events-none select-none absolute -bottom-10 right-0 w-[100px] sm:w-[180px] md:w-[280px] lg:w-[400px] opacity-70"
         src="/yellow.png"
@@ -102,14 +99,12 @@ export default function Milestones() {
       />
 
       <div className="max-w-[1200px] mx-auto space-y-10">
-        <div className="flex flex-col md:flex-row justify-center w-[90%] md:w-full md:mx-auto ml-auto items-center md:items-start gap-6 lg:gap-12">
+        <div className="flex flex-col md:flex-row justify-center w-[90%] md:w-full md:mx-auto ml-auto items-center md:items-start gap-6 lg:gap-12 relative">
           {/* Left Column */}
           <div className="flex flex-col items-center md:items-start space-y-10 sm:space-y-12 w-full md:w-[480px] lg:w-[514px] px-4 md:px-0">
             {milestonesLeft.map((item, idx) => (
               <div
                 key={idx}
-                ref={(el) => { leftRefs.current[idx] = el; }}
-                data-visible="false"
                 className="w-full h-[90px] sm:h-[100px] xl:h-[120px] relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-[24px] sm:rounded-[32px] md:rounded-[39px] px-8 py-4 sm:py-6 flex items-center justify-end sm:justify-center md:justify-end lg:justify-center gap-3 sm:gap-4"
               >
                 {idx !== milestonesLeft.length - 1 && (
@@ -125,10 +120,15 @@ export default function Milestones() {
                 )}
 
                 <div
-                  className={`flex flex-col sm:flex-row justify-center gap-1 sm:gap-2 text-center ${item.league === "NFT Marketplace & Staking Launch" ? "" : "pl-14"} sm:pl-0 z-10`}
+                  className={`flex flex-col sm:flex-row justify-center gap-1 sm:gap-2 text-center ${
+                    item.league === "NFT Marketplace & Staking Launch"
+                      ? ""
+                      : "pl-14"
+                  } sm:pl-0 z-10`}
                 >
-
-                  <h4 className={`${zenDots.className} text-[12px]  sm:text-[18px] xl:text-[28px] lg:font-bold`}>
+                  <h4
+                    className={`${zenDots.className} text-[12px]  sm:text-[18px] xl:text-[28px] lg:font-bold`}
+                  >
                     {item.league} -
                   </h4>
                   <span className="text-[12px] sm:text-[18px] xl:text-[28px] mt-1 sm:mt-0">
@@ -157,38 +157,35 @@ export default function Milestones() {
           </div>
 
           {/* Dots Column */}
-          <div className="absolute md:static left-3 sm:left-5 md:flex flex-col items-center justify-center shrink-0">
+          <div className="absolute md:static -left-7 sm:left-5 md:flex flex-col items-center justify-center shrink-0 z-20">
             {[...Array(totalDots)].map((_, i) => {
               const dotIndex = i + 1;
-
-              // Find max visible dot index
-              const visibleIndexes = Object.entries(visibleDots)
-                .filter(([, visible]) => visible)
-                .map(([idx]) => parseInt(idx));
-
-              const maxVisibleDot = visibleIndexes.length > 0 ? Math.max(...visibleIndexes) : 0;
-
-              // Color dots up to maxVisibleDot pink, others white
-              const isActive = dotIndex <= maxVisibleDot;
+              const isActive = getIsActive(dotIndex);
 
               return (
                 <div key={i} className="flex flex-col items-center relative">
                   <div
                     id={`dot-${dotIndex}`}
-                    className={`lg:h-[43px] lg:w-[43px] h-[30px] w-[30px] rounded-full relative transition-colors duration-500 ${isActive ? "bg-pink-500" : "bg-[#585561]"
-                      }`}
+                    className={`lg:h-[43px] lg:w-[43px] h-[30px] w-[30px] rounded-full relative transition-colors duration-300 ${
+                      isActive ? "bg-pink-500" : "bg-[#585561]"
+                    }`}
                   >
                     <div
-                      className={`absolute top-1/2 left-1/2 w-[14px] h-[14px] -translate-x-1/2 -translate-y-1/2 rounded-full transition-colors duration-500 ${isActive ? "bg-white" : "bg-white"
-                        }`}
+                      className={`absolute top-1/2 left-1/2 w-[14px] h-[14px] -translate-x-1/2 -translate-y-1/2 rounded-full transition-transform duration-300 ease-out ${
+                        isActive ? "bg-white scale-100" : "bg-white scale-75"
+                      }`}
                     />
                   </div>
 
                   {i < totalDots - 1 && (
                     <div
                       id={`line-${dotIndex}`}
-                      className={`w-[4px] lg:h-[40px] md:h-[50px] h-[100px] sm:h-[120px] transition-colors duration-500 ${isActive ? "bg-pink-500" : "bg-white"
-                        }`}
+                      className={`w-[4px] lg:h-[40px] md:h-[50px] h-[100px] sm:h-[120px] transition-colors duration-300 ${
+                        isActive ? "bg-pink-500" : "bg-white"
+                      }`}
+                      style={{
+                        transformOrigin: "top center",
+                      }}
                     />
                   )}
                 </div>
@@ -196,28 +193,29 @@ export default function Milestones() {
             })}
           </div>
 
-
           {/* Right Column */}
           <div className="flex flex-col space-y-10 sm:space-y-14 md:space-y-12 w-full md:w-[480px] xl:w-[514px] mt-4 md:mt-20 px-5 md:px-0">
             {milestonesRight.map((item, idx) => (
               <div
                 key={idx}
-                ref={(el) => { rightRefs.current[idx] = el; }}
-                data-visible="false"
-                className="w-full h-[90px] sm:h-[100px] xl:h-[120px] relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-[24px] sm:rounded-[32px] md:rounded-[39px] pr-10 pl-8 lg:px-20 py-4 sm:py-5 flex items-center justify-start sm:justify-center md:justify-start lg:justify-center gap-3 sm:gap-4"
+                className="w-full h-[90px] sm:h-[100px] xl:h-[120px] relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-[24px] sm:rounded-[32px] md:rounded-[39px] px-8 py-4 sm:py-6 flex items-center justify-start gap-3 sm:gap-4"
               >
-                <div className="absolute -right-3 lg:top-3 md:top-[3.5] xl:top-0 sm:-right-5 md:-right-7 xl:-right-14 top-0 z-10 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[90px] sm:h-[105px] md:h-[90px] xl:h-[121px] w-[90px] sm:w-[105px] md:w-[90px] xl:w-[121px] rounded-full shadow-[0_4px_50px_#00000040]">
-                  <Image
-                    src={item.icon}
-                    height={90}
-                    width={60}
-                    alt={item.league}
-                    className="h-[100px] object-contain sm:h-[120px] xl:h-[137px] w-[60px] sm:w-[55px] xl:w-[74px] absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                  />
-                </div>
+                {idx !== milestonesRight.length - 1 && (
+                  <div className="absolute -right-2 sm:-right-5 md:top-3 lg:top-2 xl:top-0 md:-right-7 xl:-right-14 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[90px] sm:h-[105px] md:h-[90px] xl:h-[121px] w-[90px] sm:w-[105px] md:w-[90px] xl:w-[121px] rounded-full shadow-[0_4px_50px_#00000040]">
+                    <Image
+                      src={item.icon}
+                      height={90}
+                      width={60}
+                      alt={item.league}
+                      className="h-[100px] object-contain sm:h-[120px] xl:h-[137px] z-10 w-[60px] sm:w-[55px] xl:w-[74px] absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                    />
+                  </div>
+                )}
 
-                <div className={`flex flex-col sm:flex-row sm:items-center justify-center gap-1 sm:gap-2 text-center pr-10  z-10 ${item.league === "Platform Listings (CEXs, DEXs)" ? "sm:pr-4" : "sm:pr-0" }`}>
-                  <h4 className={`${zenDots.className} text-[12px] sm:text-[18px] xl:text-[28px] lg:font-bold`}>
+                <div className="flex flex-col sm:flex-row justify-center gap-1 sm:gap-2 text-center sm:pl-14 lg:pl-0 z-10">
+                  <h4
+                    className={`${zenDots.className} text-[12px] sm:text-[18px] xl:text-[28px] lg:font-bold`}
+                  >
                     {item.league} -
                   </h4>
                   <span className="text-[12px] sm:text-[18px] xl:text-[28px] mt-1 sm:mt-0">
