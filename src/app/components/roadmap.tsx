@@ -20,14 +20,14 @@ export default function Roadmap() {
         {/* Heading */}
         <div className="text-center">
           <h2
-            className={`${zenDots.className} text-[28px] sm:text-[36px] md:text-[44px] 2xl:text-[54px] leading-tight`}
+            className={`${zenDots.className} text-[28px] sm:text-[36px] xl:text-[44px] 2xl:text-[54px] leading-tight`}
             style={{
               textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
             }}
           >
             Roadmap
           </h2>
-          <p className={`mt-2 text-base 2xl:text-lg ${inter.className}`}>
+          <p className={`mt-2 text-[14px] xl:text-base 2xl:text-lg ${inter.className}`}>
             Gamified progress bar or milestone badges
           </p>
         </div>
@@ -40,9 +40,9 @@ export default function Roadmap() {
             {...fadeUp}
             viewport={{ once: true }}
           >
-            <Image className="w-[50px] 2xl:w-[70px]" src="/roadmap-1.svg" width={70} height={70} alt="roadmap-1" />
-            <h4 className={`${zenDots.className} 2xl:text-[28px] text-[22px] mt-3`}>Now</h4>
-            <p className={`2xl:text-base text-sm max-w-[220px] mt-1 ${inter.className}`}>
+            <Image className="xl:w-[50px] w-[40px] 2xl:w-[70px]" src="/roadmap-1.svg" width={70} height={70} alt="roadmap-1" />
+            <h4 className={`${zenDots.className} 2xl:text-[28px] text-[20px] xl:text-[22px] mt-3`}>Now</h4>
+            <p className={`2xl:text-base xl:text-sm text-[12px] max-w-[220px] mt-1 ${inter.className}`}>
               Beta Launch & Community Growth
             </p>
           </motion.div>
@@ -59,9 +59,9 @@ export default function Roadmap() {
             transition={{ delay: 0.1, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Image className="w-[50px] 2xl:w-[70px]" src="/roadmap-2.svg" width={70} height={70} alt="roadmap-2" />
-            <h4 className={`${zenDots.className} 2xl:text-[28px] text-[22px] mt-5`}>Next</h4>
-            <p className={`2xl:text-base text-sm max-w-[220px] mt-1 ${inter.className}`}>
+            <Image className="xl:w-[50px] w-[40px] 2xl:w-[70px]" src="/roadmap-2.svg" width={70} height={70} alt="roadmap-2" />
+            <h4 className={`${zenDots.className} 2xl:text-[28px] text-[20px] xl:text-[22px] mt-5`}>Next</h4>
+            <p className={`2xl:text-base xl:text-sm text-[12px] max-w-[220px] mt-1 ${inter.className}`}>
               Play-to-Earn Rewards + NFT Sales
             </p>
           </motion.div>
@@ -78,9 +78,9 @@ export default function Roadmap() {
             transition={{ delay: 0.2, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Image className="w-[50px] 2xl:w-[70px]" src="/roadmap-3.svg" width={70} height={70} alt="roadmap-3" />
-            <h4 className={`${zenDots.className} 2xl:text-[28px] text-[22px] mt-3`}>Soon</h4>
-            <p className={`2xl:text-base text-sm max-w-[220px] mt-1 ${inter.className}`}>
+            <Image className="xl:w-[50px] w-[40px] 2xl:w-[70px]" src="/roadmap-3.svg" width={70} height={70} alt="roadmap-3" />
+            <h4 className={`${zenDots.className} 2xl:text-[28px] text-[20px] xl:text-[22px] mt-3`}>Soon</h4>
+            <p className={`2xl:text-base xl:text-sm text-[12px] max-w-[220px] mt-1 ${inter.className}`}>
               Full ApeUp Ecosystem
             </p>
           </motion.div>
@@ -97,9 +97,9 @@ export default function Roadmap() {
             transition={{ delay: 0.3, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Image className="w-[50px] 2xl:w-[70px]" src="/roadmap-4.svg" width={70} height={70} alt="roadmap-4" />
-            <h4 className={`${zenDots.className} 2xl:text-[28px] text-[22px] mt-3`}>Future</h4>
-            <p className={`2xl:text-base text-sm max-w-[220px] mt-1 ${inter.className}`}>
+            <Image className="xl:w-[50px] w-[40px] 2xl:w-[70px]" src="/roadmap-4.svg" width={70} height={70} alt="roadmap-4" />
+            <h4 className={`${zenDots.className} 2xl:text-[28px] text-[20px] xl:text-[22px] mt-3`}>Future</h4>
+            <p className={`2xl:text-base xl:text-sm text-[12px] max-w-[220px] mt-1 ${inter.className}`}>
               New Game Titles, Airdrops, Marketplace
             </p>
           </motion.div>
@@ -107,7 +107,7 @@ export default function Roadmap() {
 
         {/* Milestones title */}
         <h2
-          className={`${zenDots.className} text-center text-[28px] sm:text-[36px] md:text-[44px] 2xl:text-[54px] leading-tight mt-20 sm:mt-24`}
+          className={`${zenDots.className} text-center text-[28px] sm:text-[36px] xl:text-[44px] 2xl:text-[54px] leading-tight mt-20 sm:mt-24`}
           style={{
             textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
           }}

@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-6 mb-11 md:gap-0">
           {/* Navigation Links */}
           <nav aria-label="Footer navigation" className="flex justify-center md:justify-start">
-            <ul className="flex flex-col md:flex-row gap-4 text-white text-[16px] 2xl:text-[18px] font-medium text-center justify-center md:justify-start">
+            <ul className="flex flex-col md:flex-row gap-4 text-white text-[14px] xl:text-[16px] 2xl:text-[18px] font-medium text-center justify-center md:justify-start">
               <li><Link className="hover:text-[#F8B947]" href="/#home">Home</Link></li>
               <li><Link className="hover:text-[#F8B947]" href="/#about">About</Link></li>
               <li><Link className="hover:text-[#F8B947]" href="/#roadmap">Roadmap</Link></li>
@@ -20,7 +20,7 @@ export default function Footer() {
 
           {/* Logo in the Center */}
           <div className="flex justify-center">
-            <div className="w-[180px] 2xl:w-[222px]">
+            <div className="xl:w-[180px] w-[150px] 2xl:w-[222px]">
               <Image
                 src="/logo.svg"
                 width={222}

@@ -129,7 +129,7 @@ export default function Features() {
         {/* Header and Buttons */}
         <div className="flex flex-col md:flex-row justify-between max-w-[1347px] mx-auto items-center gap-6">
           <h2
-            className={`${zenDots.className} text-[28px] sm:text-[36px] md:text-[44px] 2xl:text-[54px] text-center md:text-left leading-tight`}
+            className={`${zenDots.className} text-[28px] sm:text-[36px] xl:text-[44px] 2xl:text-[54px] text-center md:text-left leading-tight`}
             style={{
               textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
             }}
@@ -141,7 +141,7 @@ export default function Features() {
             <button
               onClick={() => handleChange(-1)}
               disabled={animating}
-              className={`bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[40px] w-[40px] text-white text-lg ${animating ? "cursor-not-allowed opacity-50" : ""
+              className={`bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[30px] w-[30px] xl:h-[40px] xl:w-[40px] text-white text-lg ${animating ? "cursor-not-allowed opacity-50" : ""
                 }`}
               style={{
                 boxShadow:
@@ -153,7 +153,7 @@ export default function Features() {
             <button
               onClick={() => handleChange(1)}
               disabled={animating}
-              className={`bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[40px] w-[40px] text-white text-lg ${animating ? "cursor-not-allowed opacity-50" : ""
+              className={`bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[30px] w-[30px] xl:h-[40px] xl:w-[40px] text-white text-lg ${animating ? "cursor-not-allowed opacity-50" : ""
                 }`}
               style={{
                 boxShadow:
@@ -184,7 +184,7 @@ export default function Features() {
                 key={i}
                 className="
                   flex-shrink-0
-                  w-[85vw] sm:w-[70vw] md:w-[42vw] lg:w-[30vw] xl:w-[20vw] 2xl:w-[30vw]
+                  w-[85vw] sm:w-[70vw] md:w-[42vw] lg:w-[22vw] xl:w-[20vw] 2xl:w-[30vw]
                   max-w-[386px] max-h-[548px] h-full
                   rounded-xl 
                   overflow-hidden

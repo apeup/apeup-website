@@ -8,10 +8,10 @@ import { motion } from "framer-motion";
 // DashedLine remains unchanged
 function DashedLine({ index }: { index: number }) {
   const baseHeights = [
-    "h-[7.5rem] sm:h-[5rem] md:h-[5.2rem] lg:h-[7.5rem] xl:h-[4.2rem] 2xl:h-[7.3rem]",
-    "h-8 sm:h-10 md:h-7 lg:h-12 xl:h-8 2xl:h-12",
-    "h-8 sm:h-8 md:h-7 lg:h-12 xl:h-8 2xl:h-12",
-    "h-8 sm:h-8 md:h-7 lg:h-12 xl:h-8 2xl:h-12",
+    "h-[7.5rem] sm:h-[5rem] md:h-[5.2rem] lg:h-[4.5rem] xl:h-[4.2rem] 2xl:h-[7.3rem]",
+    "h-8 sm:h-10 md:h-7 lg:h-8 xl:h-8 2xl:h-12",
+    "h-8 sm:h-8 md:h-7 lg:h-8 xl:h-8 2xl:h-12",
+    "h-8 sm:h-8 md:h-7 lg:h-8 xl:h-8 2xl:h-12",
   ];
   const classes = baseHeights[index] || "h-8 sm:h-8 md:h-10 lg:h-12";
   return <div className={`border-l border-dashed border-white ${classes} mt-[-4px]`} />;
@@ -63,7 +63,7 @@ export default function Preview() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className={`text-[32px] sm:text-[44px] md:text-[54px] 2xl:text-[74px] font-semibold mb-8 text-center text-white ${zenDots.className}`}
+          className={`text-[32px] sm:text-[44px] xl:text-[54px] 2xl:text-[74px] font-semibold mb-8 text-center text-white ${zenDots.className}`}
           style={{ textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C" }}
         >
           Immersive Game Preview:
@@ -76,7 +76,7 @@ export default function Preview() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="w-full md:w-[80%] flex justify-center"
+            className="w-full xl:w-[80%] lg:w-[70%] flex justify-center"
           >
             {videoUrl && (
               <video
@@ -85,7 +85,7 @@ export default function Preview() {
                 muted
                 loop
                 playsInline
-                className="w-[100%] md:w-[85%] 2xl:w-[80%] h-auto xl:max-h-[440px] 2xl:max-h-[562px] justify-center items-center object-cover max-h-[562px] rounded-[24px] sm:rounded-[32px] md:rounded-[39px]"
+                className="w-[100%] md:w-[85%] 2xl:w-[80%] h-auto lg:max-h-[400px] xl:max-h-[440px] 2xl:max-h-[562px] justify-center items-center object-cover max-h-[562px] rounded-[24px] sm:rounded-[32px] md:rounded-[39px]"
               />
             )}
           </motion.div>
@@ -96,17 +96,17 @@ export default function Preview() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="relative w-full sm:w-[80%] md:w-[70%] bg-[url(/preview-banner.png)] bg-cover bg-center max-h-[560px] max-w-[643px] bg-no-repeat rounded-[24px] sm:rounded-[32px] md:rounded-[39px] flex items-center justify-center px-4 sm:px-10 py-8 sm:py-20 lg:px-15 xl:p-15 2xl:py-20 2xl:px-15 text-center overflow-hidden"
+            className="relative w-full sm:w-[80%] md:w-[70%] lg:w-[60%] bg-[url(/preview-banner.png)] bg-cover bg-center max-h-[400px] xl:max-h-[560px] max-w-[643px] bg-no-repeat rounded-[24px] sm:rounded-[32px] md:rounded-[39px] flex items-center justify-center px-4 sm:px-10 py-8 sm:py-20 lg:px-15 xl:p-15 2xl:py-20 2xl:px-15 text-center overflow-hidden"
           >
             <Image
-              className="absolute z-10 top-0 right-0 max-w-[204px] w-32 sm:w-40 md:w-full"
+              className="absolute z-10 top-0 right-0 max-w-[204px] w-32 sm:w-40 xl:w-full"
               src="/mask.svg"
               width={120}
               height={80}
               alt="mask"
             />
             <Image
-              className="absolute z-10 bottom-0 left-0 max-w-[204px] rotate-180 w-32 sm:w-40 md:w-full"
+              className="absolute z-10 bottom-0 left-0 max-w-[204px] rotate-180 w-32 sm:w-40 xl:w-full"
               src="/mask.svg"
               width={120}
               height={80}

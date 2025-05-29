@@ -127,19 +127,19 @@ export default function Milestones() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[url('/milestones-bg.svg')] bg-[#130F1F] bg-cover bg-no-repeat bg-center pb-10 md:pb-35 xl:pb-15 2xl:pb-35 px-4 sm:px-10 lg:px-10 pt-10 sm:pt-0"
+      className="relative bg-[url('/milestones-bg.svg')] bg-[#130F1F] bg-cover bg-no-repeat bg-center pb-10 md:pb-20 xl:pb-15 2xl:pb-35 px-4 sm:px-10 lg:px-10 pt-10 sm:pt-0"
     >
       <div className="max-w-[1200px] mx-auto space-y-10 sm:pt-5">
         <div className="flex flex-col md:flex-row justify-center w-[90%] md:w-full md:mx-auto ml-auto items-center md:items-start gap-6 lg:gap-12 relative">
           {/* Left Column */}
-          <div className="flex flex-col items-center md:items-start space-y-10 sm:space-y-12 xl:space-y-9 2xl:space-y-13 w-full md:w-[480px] xl:w-[350px] 2xl:w-[514px] px-4 md:px-0">
+          <div className="flex flex-col items-center md:items-start space-y-10 sm:space-y-12 lg:space-y-8 xl:space-y-9 2xl:space-y-13 w-full md:w-[300px] xl:w-[350px] 2xl:w-[514px] px-4 md:px-0">
             {milestonesLeft.map((item, idx) => (
               <div
                 key={idx}
                 className="w-full h-[80px] 2xl:h-[120px] relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-[24px] sm:rounded-[28px] 2xl:rounded-[39px] px-8 py-4 sm:py-6 flex items-center justify-start sm:justify-center md:justify-end lg:justify-center gap-3 sm:gap-4"
               >
                 {idx !== milestonesLeft.length - 1 && (
-                  <div className="absolute -right-2 sm:-right-5 md:top-3 lg:top-2 xl:top-0 md:-left-7 xl:-left-8 2xl:-left-14 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[90px] sm:h-[105px] md:h-[90px] xl:h-[80px] 2xl:h-[121px] w-[90px] sm:w-[105px] md:w-[90px] xl:w-[80px] 2xl:w-[121px] rounded-full shadow-[0_4px_50px_#00000040]">
+                  <div className="absolute -right-2 sm:-right-5 md:top-3 lg:top-0 xl:top-0 md:-left-7 xl:-left-8 2xl:-left-14 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[90px] sm:h-[105px] md:h-[80px] xl:h-[80px] 2xl:h-[121px] w-[90px] sm:w-[105px] md:w-[80px] xl:w-[80px] 2xl:w-[121px] rounded-full shadow-[0_4px_50px_#00000040]">
                     <Image
                       src={item.icon}
                       width={100}
@@ -158,11 +158,11 @@ export default function Milestones() {
                     } sm:pr-0 z-10`}
                 >
                   <h4
-                    className={`${zenDots.className} text-[12px]  sm:text-[18px] 2xl:text-[28px] lg:font-bold`}
+                    className={`${zenDots.className} text-[12px]  sm:text-[14px] 2xl:text-[28px] lg:font-bold`}
                   >
                     {item.league}
                   </h4>
-                  <span className="text-[12px] sm:text-[18px] 2xl:text-[28px] mt-1 sm:mt-0">
+                  <span className="text-[12px] sm:text-[14px] 2xl:text-[28px] mt-1 sm:mt-0">
                     {item.mau}
                   </span>
                 </div>
@@ -197,7 +197,7 @@ export default function Milestones() {
                 <div key={i} className="flex flex-col items-center relative">
                   <div
                     id={`dot-${dotIndex}`}
-                    className={`lg:h-[43px] lg:w-[43px] xl:h-[30px] xl:w-[30px] 2xl:h-[43px] 2xl:w-[43px] h-[30px] w-[30px] rounded-full relative transition-colors duration-300 ${isActive ? "bg-pink-500" : "bg-[#585561]"
+                    className={`md:h-[30px] md:w-[30px] xl:h-[30px] xl:w-[30px] 2xl:h-[43px] 2xl:w-[43px] h-[30px] w-[30px] rounded-full relative transition-colors duration-300 ${isActive ? "bg-pink-500" : "bg-[#585561]"
                       }`}
                   >
                     <div
@@ -209,7 +209,7 @@ export default function Milestones() {
                   {i < totalDots - 1 && (
                     <div
                       id={`line-${dotIndex}`}
-                      className={`w-[4px] lg:h-[42px] md:h-[50px] h-[100px] xl:h-[26px] 2xl:h-[43px] sm:h-[120px] transition-colors duration-300 ${isActive ? "bg-pink-500" : "bg-white"
+                      className={`w-[4px] lg:h-[30px] md:h-[50px] h-[100px] xl:h-[26px] 2xl:h-[43px] sm:h-[120px] transition-colors duration-300 ${isActive ? "bg-pink-500" : "bg-white"
                         }`}
                       style={{
                         transformOrigin: "top center",
@@ -222,13 +222,13 @@ export default function Milestones() {
           </div>
 
           {/* Right Column */}
-          <div className="flex flex-col space-y-10 sm:space-y-14 md:space-y-12 xl:space-y-9 2xl:space-y-13 w-full md:w-[480px] xl:w-[350px] 2xl:w-[514px] mt-7 md:pt-20 xl:pt-5 2xl:pt-20 px-5 md:px-0">
+          <div className="flex flex-col space-y-10 sm:space-y-14 md:space-y-8 xl:space-y-9 2xl:space-y-13 w-full md:w-[300px] xl:w-[350px] 2xl:w-[514px] mt-7 md:pt-5 xl:pt-5 2xl:pt-20 px-5 md:px-0">
             {milestonesRight.map((item, idx) => (
               <div
                 key={idx}
                 className="w-full h-[80px] 2xl:h-[120px] relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-[24px] sm:rounded-[28px] 2xl:rounded-[39px] px-8 py-4 sm:py-6 flex items-center justify-start md:justify-center gap-3 sm:gap-4"
               >
-                <div className="absolute -right-2 sm:-right-5 md:top-3 lg:top-2 xl:top-0 md:-right-7 xl:-right-4 2xl:-right-14 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[90px] sm:h-[105px] md:h-[90px] xl:h-[80px] 2xl:h-[121px] w-[90px] sm:w-[105px] md:w-[90px] 2xl:w-[121px] xl:w-[80px] rounded-full shadow-[0_4px_50px_#00000040]">
+                <div className="absolute -right-2 sm:-right-5 md:top-3 lg:top-0 xl:top-0 md:-right-7 xl:-right-4 2xl:-right-14 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[90px] sm:h-[105px] md:h-[80px] xl:h-[80px] 2xl:h-[121px] w-[90px] sm:w-[105px] md:w-[80px] 2xl:w-[121px] xl:w-[80px] rounded-full shadow-[0_4px_50px_#00000040]">
                   <Image
                     src={item.icon}
                     width={100}
@@ -241,11 +241,11 @@ export default function Milestones() {
 
                 <div className={`flex flex-col sm:flex-row justify-center gap-1 sm:gap-2 text-center z-10 ${item.league === "Platform Listings (CEXs, DEXs)" ? "pr-12" : "sm:pl-14 md:pl-0 pr-10"}`}>
                   <h4
-                    className={`${zenDots.className} text-[12px] sm:text-[18px] 2xl:text-[28px] lg:font-bold`}
+                    className={`${zenDots.className} text-[12px] sm:text-[14px] 2xl:text-[28px] lg:font-bold`}
                   >
                     {item.league}
                   </h4>
-                  <span className="text-[12px] sm:text-[18px] 2xl:text-[28px] mt-1 sm:mt-0">
+                  <span className="text-[12px] sm:text-[14px] 2xl:text-[28px] mt-1 sm:mt-0">
                     {item.mau}
                   </span>
                 </div>

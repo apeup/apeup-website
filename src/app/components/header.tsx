@@ -35,7 +35,7 @@ export default function Header() {
 
           {/* Centered Navigation */}
           <nav
-            className={`hidden sm:flex absolute left-1/2 -translate-x-1/2 space-x-6 md:space-x-8 text-[14px] 2xl:text-[16px] font-medium ${inter.className}`}
+            className={`hidden sm:flex absolute left-1/2 -translate-x-1/2 space-x-6 md:space-x-8 text-[12px] xl:text-[14px] 2xl:text-[16px] font-medium ${inter.className}`}
           >
             <Link className="hover:text-[#F8B947]" href="/#home">
               Home
@@ -162,7 +162,7 @@ export default function Header() {
       </motion.header>
 
       {/* Hero Section */}
-      <section className="relative lg:mt-[200px] sm:mt-50 sm:px-10 md:px-0 mt-20 xl:px-20 xl:mt-15 2xl:mt-50">
+      <section className="relative lg:mt-20 sm:mt-50 sm:px-10 md:px-0 mt-20 xl:px-20 xl:mt-15 2xl:mt-50">
         <div className="relative z-20 flex flex-col justify-center text-center md:text-left mt-10 md:mt-0 items-center h-full text-white w-full px-4 sm:px-6 md:px-8 lg:px-20 xl:px-0 max-w-[1200px] mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -171,7 +171,7 @@ export default function Header() {
             className="w-full max-w-[652px] mr-auto"
           >
             <h2
-              className={`text-[32px] sm:text-[44px] md:text-[54px] 2xl:text-[74px] font-semibold leading-[120%] mt-16 sm:mt-24 mb-4 sm:mb-4 text-white ${zenDots.className}`}
+              className={`text-[32px] lg:text-[44px] xl:text-[54px] 2xl:text-[74px] font-semibold leading-[120%] mt-16 sm:mt-24 mb-4 sm:mb-4 text-white ${zenDots.className}`}
               style={{
                 textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
               }}
@@ -180,7 +180,7 @@ export default function Header() {
             </h2>
 
             <h4
-              className={`${inter.className} font-medium text-[18px] sm:text-[22px] md:text-[24px] 2xl:text-[28px] mt-1`}
+              className={`${inter.className} font-medium text-[18px] sm:text-[20px] xl:text-[24px] 2xl:text-[28px] mt-1`}
             >
               Jump. Tilt. Train. Earn.
             </h4>

@@ -12,8 +12,8 @@ const features = [
     icon: "/community.svg",
   },
   {
-    title: "Earn Rewards",
-    description: "Play and mine real crypto rewards through skill and activity.",
+    title: "Profit-sharing",
+    description: "Most of the profits are funneled back into the community through leagues, events, and ongoing development.",
     icon: "/profit.svg",
   },
   {
@@ -30,13 +30,31 @@ const features = [
 
 export default function About() {
   const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState<'left' | 'right'>('right');
 
   const prevSlide = () => {
+    setDirection('left');
     setIndex((prev) => (prev === 0 ? features.length - 2 : prev - 1));
   };
 
   const nextSlide = () => {
+    setDirection('right');
     setIndex((prev) => (prev + 2 >= features.length ? 0 : prev + 1));
+  };
+
+  const variants = {
+    enter: (direction: 'left' | 'right') => ({
+      x: direction === 'right' ? 100 : -10,
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction: 'left' | 'right') => ({
+      x: direction === 'right' ? -10 : 100,
+      opacity: 0,
+    }),
   };
 
   return (
@@ -81,7 +99,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
               viewport={{ once: true, amount: 0.2 }}
-              className={`text-[32px] sm:text-[40px] md:text-[48px] 2xl:text-[54px] ${zenDots.className}`}
+              className={`text-[32px] sm:text-[40px] xl:text-[48px] 2xl:text-[54px] ${zenDots.className}`}
               style={{ textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C" }}
             >
               About the Game
@@ -91,7 +109,7 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
               viewport={{ once: true, amount: 0.2 }}
-              className={`2xl:text-[18px] text-[14px] md:font-medium ${inter.className} mt-4`}
+              className={`2xl:text-[18px] xl:text-[14px] text-[12px] md:font-medium ${inter.className} mt-4`}
             >
               ApeUp is a community-driven Play & Earn mobile game where you
               control your Ape to jump, train and mine real crypto rewards.
@@ -101,7 +119,7 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
               viewport={{ once: true, amount: 0.2 }}
-              className={`2xl:text-[18px] text-[14px] md:font-medium mt-5 ${inter.className}`}
+              className={`2xl:text-[18px] xl:text-[14px] text-[12px] md:font-medium mt-5 ${inter.className}`}
             >
               We built ApeUp to ApeUp the industry — pushing beyond the limited
               experiences of previous Telegram mini-apps. This game was created
@@ -110,23 +128,25 @@ export default function About() {
           </div>
 
           <div className="">
-            <div className="bg-[url(/about-banner.svg)] z-40 bg-cover bg-center bg-no-repeat rounded-3xl mt-8 lg:p-15 p-7 xl:p-10 2xl:p-15 relative overflow-visible max-w-[500px] xl:max-w-[500px] 2xl:max-w-[779px] w-full h-full mx-auto 2xl:mx-0">
+            <div className="bg-[url(/about-banner.svg)] z-40 bg-cover bg-center bg-no-repeat rounded-3xl mt-8 lg:p-10 p-7 xl:p-10 2xl:p-15 relative overflow-visible max-w-[500px] xl:max-w-[500px] 2xl:max-w-[779px] w-full h-full mx-auto 2xl:mx-0">
               <Image className="absolute z-10 top-0 right-0" src="/mask.png" width={150} height={100} alt="mask" />
               <Image className="absolute z-10 bottom-0 left-0 rotate-180" src="/mask.png" width={150} height={100} alt="mask" />
 
-              <AnimatePresence mode="wait">
+              <AnimatePresence custom={direction} mode="popLayout">
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -30 }}
-                  transition={{ duration: 0.35, ease: 'easeOut' }}
+                  custom={direction}
+                  variants={variants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ duration: 0.7, ease: 'easeOut' }}
                   className="flex flex-col md:flex-row justify-between items-start gap-6"
                 >
                   {features.slice(index, index + 2).map((feature, i) => (
                     <div
                       key={i}
-                      className="flex flex-col items-start text-left w-[350px] sm:w-[280px] md:w-[300px]  pr-20 sm:pr-0"
+                      className="flex flex-col items-start text-left w-[350px] sm:w-[280px] md:w-[300px] pr-20 sm:pr-0"
                     >
                       <Image
                         src={feature.icon}
@@ -136,12 +156,12 @@ export default function About() {
                         className="mb-2 w-[37px]"
                       />
                       <h4
-                        className={`text-[22px] sm:text-[24px] 2xl:text-[28px] font-semibold mb-1 ${zenDots.className} text-white`}
+                        className={`text-[22px] xl:text-[24px] 2xl:text-[28px] font-semibold mb-1 ${zenDots.className} text-white`}
                       >
                         {feature.title}
                       </h4>
                       <p
-                        className={`text-[14px] sm:text-[15px] 2xl:text-[16px] text-white ${inter.className}`}
+                        className={`text-[13px] xl:text-[15px] 2xl:text-[16px] text-white ${inter.className}`}
                       >
                         {feature.description}
                       </p>
@@ -149,7 +169,6 @@ export default function About() {
                   ))}
                 </motion.div>
               </AnimatePresence>
-
 
               <div className="flex justify-center mt-8 gap-6 absolute -bottom-5 z-30 left-1/2 transform -translate-x-1/2">
                 <button onClick={prevSlide} className="bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[37px] w-[37px] text-white" aria-label="Previous" style={{ boxShadow: 'inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)' }}>
@@ -168,7 +187,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           viewport={{ once: true, amount: 0.2 }}
-          className="flex flex-row items-center gap-4 flex-1 z-10 justify-center w-[50%] mx-auto max-w-[280px] lg:max-w-[200px] 2xl:max-w-none"
+          className="flex flex-row items-center gap-4 flex-1 z-10 justify-center w-[50%] mx-auto max-w-[170px] xl:max-w-[200px] 2xl:max-w-none"
         >
           <Image src="/lucky.png" width={250} height={250} alt="Lucky Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px] h-auto mt-20" />
           <Image src="/spin.png" width={180} height={180} alt="Spin Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px]" />
