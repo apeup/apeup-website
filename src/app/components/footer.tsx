@@ -58,7 +58,7 @@ export default function Footer() {
         {/* Footer line */}
         <div className="mt-8">
           <Image
-            className="w-full h-[0.9]"
+            className="w-full h-[2px]"
             src="/footer-line.png"
             width={100}
             height={2}
