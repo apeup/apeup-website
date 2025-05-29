@@ -49,17 +49,17 @@ export default function About() {
         width={100}
         height={100}
         alt="yellow"
-        className="absolute z-10 -bottom-[100px] h-full w-[100px] sm:w-[150px] md:w-[600px] left-0"
+        className="absolute z-10 -bottom-[200px] h-full w-[100px] sm:w-[350px] left-0"
       />
       <Image
-        className="absolute lg:-bottom-10 bottom-0 left-0 z-10 lg:w-[250px] xl:w-[170px] 2xl:w-[250px] h-auto w-[150px] hidden md:block lg:hidden xl:block"
+        className="absolute lg:-bottom-10 bottom-0 left-0 z-10 xl:opacity-50 2xl:opacity-100 lg:w-[250px] xl:w-[150px] 2xl:w-[250px] h-auto w-[150px] hidden md:block lg:hidden xl:block"
         src="/hill.png"
         height={100}
         width={100}
         alt="hill"
       />
       <Image
-        className="absolute top-0 right-0 w-[500px] h-auto z-0"
+        className="absolute top-10 right-0 w-[550px] h-auto z-10"
         src="/purple.png"
         height={100}
         width={100}
@@ -73,15 +73,15 @@ export default function About() {
         alt="yellow"
       />
 
-      <div className="max-w-[1440px] 2xl:h-[70dvh] mx-auto flex flex-col lg:flex-row justify-center xl:px-10 lg:gap-30 lg:mr-25 xl:mr-20 2xl:mr-auto xl:gap-30 2xl:gap-10 items-center md:mt-10 gap-10">
+      <div className="max-w-[1440px] 2xl:h-[70dvh] mx-auto flex flex-col lg:flex-row xl:pr-20 2xl:px-0 xl:gap-20 justify-center lg:gap-30 lg:mr-25 2xl:gap-10 items-center md:mt-10 gap-10">
         <div className="flex-1 w-full max-w-lg lg:max-w-none">
-          <div className="text-white text-center 2xl:text-left xl:max-w-[592px] max-w-[500px] mx-auto 2xl:mx-0">
+          <div className="text-white text-center xl:text-left max-w-[500px] 2xl:max-w-[592px] mx-auto 2xl:mx-0">
             <motion.h2
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
               viewport={{ once: true, amount: 0.2 }}
-              className={`text-[32px] sm:text-[40px] md:text-[48px] xl:text-[54px] ${zenDots.className}`}
+              className={`text-[32px] sm:text-[40px] md:text-[48px] 2xl:text-[54px] ${zenDots.className}`}
               style={{ textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C" }}
             >
               About the Game
@@ -91,7 +91,7 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
               viewport={{ once: true, amount: 0.2 }}
-              className={`text-[18px] md:font-medium ${inter.className} mt-4`}
+              className={`2xl:text-[18px] text-[14px] md:font-medium ${inter.className} mt-4`}
             >
               ApeUp is a community-driven Play & Earn mobile game where you
               control your Ape to jump, train and mine real crypto rewards.
@@ -101,7 +101,7 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
               viewport={{ once: true, amount: 0.2 }}
-              className={`text-[18px] md:font-medium mt-5 ${inter.className}`}
+              className={`2xl:text-[18px] text-[14px] md:font-medium mt-5 ${inter.className}`}
             >
               We built ApeUp to ApeUp the industry — pushing beyond the limited
               experiences of previous Telegram mini-apps. This game was created
@@ -110,7 +110,7 @@ export default function About() {
           </div>
 
           <div className="">
-            <div className="bg-[url(/about-banner.svg)] z-40 bg-cover bg-center bg-no-repeat rounded-3xl mt-8 lg:p-15 p-7 relative overflow-visible max-w-[500px] xl:max-w-[700px] 2xl:w-[779px] w-full h-full mx-auto">
+            <div className="bg-[url(/about-banner.svg)] z-40 bg-cover bg-center bg-no-repeat rounded-3xl mt-8 lg:p-15 p-7 xl:p-10 2xl:p-15 relative overflow-visible max-w-[500px] xl:max-w-[500px] 2xl:max-w-[779px] w-full h-full mx-auto 2xl:mx-0">
               <Image className="absolute z-10 top-0 right-0" src="/mask.png" width={150} height={100} alt="mask" />
               <Image className="absolute z-10 bottom-0 left-0 rotate-180" src="/mask.png" width={150} height={100} alt="mask" />
 
@@ -126,7 +126,7 @@ export default function About() {
                   {features.slice(index, index + 2).map((feature, i) => (
                     <div
                       key={i}
-                      className="flex flex-col items-start text-left w-[350px] sm:w-[280px] md:w-[300px] pr-20 sm:pr-0"
+                      className="flex flex-col items-start text-left w-[350px] sm:w-[280px] md:w-[300px]  pr-20 sm:pr-0"
                     >
                       <Image
                         src={feature.icon}
@@ -136,12 +136,12 @@ export default function About() {
                         className="mb-2 w-[37px]"
                       />
                       <h4
-                        className={`text-[22px] sm:text-[24px] lg:text-[28px] font-semibold mb-1 ${zenDots.className} text-white`}
+                        className={`text-[22px] sm:text-[24px] 2xl:text-[28px] font-semibold mb-1 ${zenDots.className} text-white`}
                       >
                         {feature.title}
                       </h4>
                       <p
-                        className={`text-[14px] sm:text-[15px] lg:text-[16px] text-white ${inter.className}`}
+                        className={`text-[14px] sm:text-[15px] 2xl:text-[16px] text-white ${inter.className}`}
                       >
                         {feature.description}
                       </p>
@@ -168,7 +168,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           viewport={{ once: true, amount: 0.2 }}
-          className="flex flex-row items-center gap-4 flex-1 z-10 justify-center w-[50%] mx-auto max-w-[280px] lg:max-w-[200px] xl:max-w-[400px] 2xl:max-w-none"
+          className="flex flex-row items-center gap-4 flex-1 z-10 justify-center w-[50%] mx-auto max-w-[280px] lg:max-w-[200px] 2xl:max-w-none"
         >
           <Image src="/lucky.png" width={250} height={250} alt="Lucky Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px] h-auto mt-20" />
           <Image src="/spin.png" width={180} height={180} alt="Spin Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px]" />

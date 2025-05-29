@@ -20,7 +20,7 @@ export default function Header() {
       >
         <div className="relative w-full max-w-[1360px] mx-auto mt-3 px-4 xs:px-4 sm:px-6 lg:px-20 xl:px-20 py-3 text-white flex items-center">
           {/* Logo */}
-          <div className="flex-1 max-w-[100px] md:max-w-[138px]">
+          <div className="flex-1 max-w-[110px] 2xl:max-w-[138px]">
             <Link href="/#home">
               <Image
                 src="/logo.svg"
@@ -35,7 +35,7 @@ export default function Header() {
 
           {/* Centered Navigation */}
           <nav
-            className={`hidden sm:flex absolute left-1/2 -translate-x-1/2 space-x-6 md:space-x-8 text-[14px] lg:text-[16px] font-medium ${inter.className}`}
+            className={`hidden sm:flex absolute left-1/2 -translate-x-1/2 space-x-6 md:space-x-8 text-[14px] 2xl:text-[16px] font-medium ${inter.className}`}
           >
             <Link className="hover:text-[#F8B947]" href="/#home">
               Home
@@ -55,7 +55,7 @@ export default function Header() {
           <div className="flex-1 flex justify-end items-center space-x-8 sm:space-x-0">
             <div className="hidden sm:block">
               <button
-                className={`${inter.className} relative font-semibold text-[16px] text-black lg:py-[9.7px] lg:px-[45px] lg:mr-[21px] py-[8px] px-[34px] bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)]`}
+                className={`${inter.className} relative font-semibold text-[16px] text-black py-[7px] px-[35px] 2xl:py-[9.7px] 2xl:px-[46px] bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)]`}
               >
                 Join Now
                 <Image
@@ -72,7 +72,18 @@ export default function Header() {
                   height={20}
                   className="absolute top-1 right-0 rotate-180"
                 />
+              </button>{/* Mobile Menu Toggle */}
+              <button
+                type="button"
+                aria-label="Toggle menu"
+                aria-expanded={isMenuOpen}
+                aria-controls="mobile-menu"
+                onClick={() => setIsMenuOpen((prev) => !prev)}
+                className="sm:hidden flex items-center justify-center p-2 rounded-full text-white shadow-[0_4px_30px_#00000040] transition-all duration-300 ease-in-out bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)] focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              >
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
+
             </div>
 
             {/* Mobile Menu Toggle */}
@@ -81,11 +92,12 @@ export default function Header() {
               aria-label="Toggle menu"
               aria-expanded={isMenuOpen}
               aria-controls="mobile-menu"
-              className="sm:hidden text-[white] shrink-0 pr-2 sm:pr-0"
               onClick={() => setIsMenuOpen((prev) => !prev)}
+              className="sm:hidden flex items-center justify-center px-2 py-2 -translate-x-3 text-white shadow-[0_4px_30px_#00000040] transition-all duration-300 ease-in-out bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)] focus:outline-none focus:ring-2 focus:ring-yellow-400"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
+
           </div>
 
           <button
@@ -150,7 +162,7 @@ export default function Header() {
       </motion.header>
 
       {/* Hero Section */}
-      <section className="relative lg:mt-[200px] sm:mt-50 sm:px-10 md:px-0 mt-20">
+      <section className="relative lg:mt-[200px] sm:mt-50 sm:px-10 md:px-0 mt-20 xl:px-20 xl:mt-15 2xl:mt-50">
         <div className="relative z-20 flex flex-col justify-center text-center md:text-left mt-10 md:mt-0 items-center h-full text-white w-full px-4 sm:px-6 md:px-8 lg:px-20 xl:px-0 max-w-[1200px] mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -159,7 +171,7 @@ export default function Header() {
             className="w-full max-w-[652px] mr-auto"
           >
             <h2
-              className={`text-[32px] sm:text-[44px] md:text-[54px] xl:text-[64px] 2xl:text-[74px] font-semibold leading-[120%] mt-16 sm:mt-24 mb-4 sm:mb-4 text-white ${zenDots.className}`}
+              className={`text-[32px] sm:text-[44px] md:text-[54px] 2xl:text-[74px] font-semibold leading-[120%] mt-16 sm:mt-24 mb-4 sm:mb-4 text-white ${zenDots.className}`}
               style={{
                 textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
               }}
@@ -177,7 +189,7 @@ export default function Header() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.8, duration: 0.4 }}
-              className={`${inter.className} relative text-[14px] sm:text-[15px] md:text-[16px] font-semibold text-black py-[9.7px] px-[46px] bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)] mt-10`}
+              className={`${inter.className} relative text-[14px] sm:text-[15px] md:text-[16px] font-semibold text-black py-[7px] px-[35px] 2xl:py-[9.7px] 2xl:px-[46px] bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)] mt-10`}
             >
               Join Now
               <Image

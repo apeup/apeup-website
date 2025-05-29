@@ -6,12 +6,12 @@ import { motion } from "framer-motion";
 import { zenDots } from "../fonts";
 
 const featureImages = [
-  "/feature-1.svg",
-  "/feature-2.svg",
-  "/feature-3.svg",
-  "/feature-4.svg",
-  "/feature-5.svg",
-  "/feature-6.svg",
+  "/feature-1.png",
+  "/feature-2.png",
+  "/feature-3.png",
+  "/feature-4.png",
+  "/feature-5.png",
+  "/feature-6.png",
 ];
 
 export default function Features() {
@@ -109,7 +109,7 @@ export default function Features() {
 
         setTimeout(() => {
           scrollCooldown.current = false;
-        }, 700);
+        }, 1);
       }
     }
   };
@@ -118,11 +118,18 @@ export default function Features() {
     <section
       className="bg-[url('/features-bg.png')] bg-cover bg-no-repeat bg-center text-white relative overflow-hidden"
     >
+      <Image
+        src="/features-purple.png"
+        width={100}
+        height={100}
+        alt="yellow"
+        className="absolute z-10 -top-[220px] h-full w-[100px] sm:w-[350px] left-0"
+      />
       <div className="px-4 sm:px-6 md:px-10 lg:px-16 py-16 ml-auto relative z-10">
         {/* Header and Buttons */}
         <div className="flex flex-col md:flex-row justify-between max-w-[1347px] mx-auto items-center gap-6">
           <h2
-            className={`${zenDots.className} text-[28px] sm:text-[36px] md:text-[44px] xl:text-[54px] text-center md:text-left leading-tight`}
+            className={`${zenDots.className} text-[28px] sm:text-[36px] md:text-[44px] 2xl:text-[54px] text-center md:text-left leading-tight`}
             style={{
               textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
             }}
@@ -134,9 +141,8 @@ export default function Features() {
             <button
               onClick={() => handleChange(-1)}
               disabled={animating}
-              className={`bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[40px] w-[40px] text-white text-lg ${
-                animating ? "cursor-not-allowed opacity-50" : ""
-              }`}
+              className={`bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[40px] w-[40px] text-white text-lg ${animating ? "cursor-not-allowed opacity-50" : ""
+                }`}
               style={{
                 boxShadow:
                   "inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)",
@@ -147,9 +153,8 @@ export default function Features() {
             <button
               onClick={() => handleChange(1)}
               disabled={animating}
-              className={`bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[40px] w-[40px] text-white text-lg ${
-                animating ? "cursor-not-allowed opacity-50" : ""
-              }`}
+              className={`bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[40px] w-[40px] text-white text-lg ${animating ? "cursor-not-allowed opacity-50" : ""
+                }`}
               style={{
                 boxShadow:
                   "inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)",
@@ -179,7 +184,7 @@ export default function Features() {
                 key={i}
                 className="
                   flex-shrink-0
-                  w-[85vw] sm:w-[70vw] md:w-[42vw] lg:w-[30vw]
+                  w-[85vw] sm:w-[70vw] md:w-[42vw] lg:w-[30vw] xl:w-[20vw] 2xl:w-[30vw]
                   max-w-[386px] max-h-[548px] h-full
                   rounded-xl 
                   overflow-hidden

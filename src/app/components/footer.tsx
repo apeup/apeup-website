@@ -4,13 +4,13 @@ import { inter } from "../fonts";
 
 export default function Footer() {
   return (
-    <footer id="socials" className="bg-[url('/footer-bg.png')] bg-cover bg-no-repeat bg-center xl:px-20 pt-20 pb-5">
+    <footer id="socials" className="bg-[url('/footer-bg.png')] bg-cover bg-no-repeat bg-center xl:px-20 2xl:pt-20 pt-10 pb-5">
       <div className="max-w-[1400px] mx-auto px-5">
         {/* Top row: nav, logo, button */}
         <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-6 mb-11 md:gap-0">
           {/* Navigation Links */}
           <nav aria-label="Footer navigation" className="flex justify-center md:justify-start">
-            <ul className="flex flex-col md:flex-row gap-4 text-white text-[16px] lg:text-[18px] font-medium text-center justify-center md:justify-start">
+            <ul className="flex flex-col md:flex-row gap-4 text-white text-[16px] 2xl:text-[18px] font-medium text-center justify-center md:justify-start">
               <li><Link className="hover:text-[#F8B947]" href="/#home">Home</Link></li>
               <li><Link className="hover:text-[#F8B947]" href="/#about">About</Link></li>
               <li><Link className="hover:text-[#F8B947]" href="/#roadmap">Roadmap</Link></li>
@@ -20,7 +20,7 @@ export default function Footer() {
 
           {/* Logo in the Center */}
           <div className="flex justify-center">
-            <div className="w-[160px] lg:w-[222px]">
+            <div className="w-[180px] 2xl:w-[222px]">
               <Image
                 src="/logo.svg"
                 width={222}
@@ -34,7 +34,7 @@ export default function Footer() {
           {/* Button on Right */}
           <div className="flex justify-center md:justify-end">
             <button
-              className={`${inter.className} relative font-semibold text-[14px] lg:text-[16px] text-black lg:py-[9.7px] lg:px-[35px] py-[8px] px-[28px] bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)]`}
+              className={`${inter.className} relative font-semibold text-[14px] 2xl:text-[16px] text-black lg:py-[9.7px] lg:px-[35px] py-[8px] px-[28px] bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)]`}
             >
               Join the ApeUp
               <Image
@@ -69,7 +69,7 @@ export default function Footer() {
 
         {/* Bottom row */}
         <div className="flex flex-col md:flex-row justify-between items-center mt-5 gap-4 md:gap-0">
-          <p className="text-white text-[14px] lg:text-[18px] text-center md:text-left">
+          <p className="text-white text-[14px] 2xl:text-[18px] text-center md:text-left">
             © 2025 Ape Up. All rights reserved.
           </p>
           <div className="flex justify-center space-x-4">
@@ -78,7 +78,7 @@ export default function Footer() {
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox={i === 0 ? "0 0 512 512" : i === 1 ? "0 0 496 512" : "0 0 576 512"}
-                  className="w-6 h-6 lg:w-[20px] lg:h-[20px] hover:scale-110 transition-transform duration-200"
+                  className="w-4 h-4 2xl:w-[20px] 2xl:h-[20px] hover:scale-110 transition-transform duration-200"
                 >
                   <defs>
                     <radialGradient id={`grad-${i}`} cx="50%" cy="50%" r="50%">
