@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { zenDots } from "../fonts";
 
@@ -15,12 +15,10 @@ const featureImages = [
 ];
 
 export default function Features() {
-  const [startIndex, setStartIndex] = useState(0);
   const [visibleCount, setVisibleCount] = useState(3);
+  const [startIndex, setStartIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
-  const [direction, setDirection] = useState(1);
-
-  const sectionRef = useRef(null);
+  const [xOffset, setXOffset] = useState(0); // translateX in px
 
   useEffect(() => {
     const updateVisibleCount = () => {
@@ -35,27 +33,34 @@ export default function Features() {
     return () => window.removeEventListener("resize", updateVisibleCount);
   }, []);
 
-  const handleChange = (dir: number) => {
-    if (animating) return; // prevent double-click
-    setDirection(dir);
-    setAnimating(true);
-    setTimeout(() => {
-      setStartIndex((prev) => (prev + dir + featureImages.length) % featureImages.length);
-      setAnimating(false);
-    }, 300); // matches the animation duration
-  };
+  // Slide width (max width + gap)
+  const slideWidth = 386 + 32; // Adjust if your gap or max-w changes
 
-  const getVisibleImages = () => {
-    const images = [];
-    for (let i = 0; i < visibleCount; i++) {
-      images.push(featureImages[(startIndex + i) % featureImages.length]);
-    }
-    return images;
+  // Get the visible slides
+  const visibleSlides = [];
+  for (let i = 0; i < visibleCount; i++) {
+    visibleSlides.push(featureImages[(startIndex + i) % featureImages.length]);
+  }
+
+  const handleChange = (direction: 1 | -1) => {
+    if (animating) return;
+    setAnimating(true);
+
+    // Animate container to move left or right by slideWidth px
+    setXOffset(-direction * slideWidth);
+
+    // After animation duration, update startIndex and reset xOffset
+    setTimeout(() => {
+      setStartIndex((prev) =>
+        (prev + direction + featureImages.length) % featureImages.length
+      );
+      setXOffset(0);
+      setAnimating(false);
+    }, 700); // match transition duration
   };
 
   return (
     <section
-      ref={sectionRef}
       className="bg-[url('/features-bg.png')] bg-cover bg-no-repeat bg-center text-white relative overflow-hidden"
     >
       <div className="px-4 sm:px-6 md:px-10 lg:px-16 py-16 ml-auto relative z-10">
@@ -73,55 +78,64 @@ export default function Features() {
           <div className="flex gap-3 items-center">
             <button
               onClick={() => handleChange(-1)}
-              className="bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[40px] w-[40px] text-white text-lg"
-            style={{boxShadow: 'inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)'}}>
+              disabled={animating}
+              className={`bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[40px] w-[40px] text-white text-lg ${
+                animating ? "cursor-not-allowed opacity-50" : ""
+              }`}
+              style={{
+                boxShadow:
+                  "inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)",
+              }}
+            >
               ←
             </button>
             <button
               onClick={() => handleChange(1)}
-              className="bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[40px] w-[40px] text-white text-lg"
-            style={{boxShadow: 'inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)'}}>
+              disabled={animating}
+              className={`bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[40px] w-[40px] text-white text-lg ${
+                animating ? "cursor-not-allowed opacity-50" : ""
+              }`}
+              style={{
+                boxShadow:
+                  "inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)",
+              }}
+            >
               →
             </button>
-
           </div>
         </div>
 
         {/* Carousel */}
-        <div className="md:mt-15 mt-10 overflow-hidden relative h-full">
-          <AnimatePresence mode="wait">
-            {!animating && (
-              <motion.div
-                key={startIndex}
-                initial={{ x: 0, opacity: 1 }}
-                exit={{ x: direction > 0 ? -300 : 300, opacity: 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="flex gap-6 md:gap-8 justify-center lg:justify-start"
+        <div className="md:mt-15 mt-10 relative h-full overflow-hidden max-w-full mx-auto">
+          <motion.div
+            className="flex gap-6 md:gap-8 justify-center lg:justify-start"
+            style={{
+              translateX: xOffset,
+              transition: animating ? "transform 0.7s ease-in-out" : "none",
+            }}
+          >
+            {visibleSlides.map((img, i) => (
+              <div
+                key={i}
+                className="
+                  flex-shrink-0
+                  w-[85vw] sm:w-[70vw] md:w-[42vw] lg:w-[30vw]
+                  max-w-[386px] max-h-[548px] h-full
+                  rounded-xl 
+                  overflow-hidden
+                "
               >
-                {getVisibleImages().map((img, index) => (
-                  <div
-                    key={index}
-                    className="
-                      flex-shrink-0
-                      w-[85vw] sm:w-[70vw] md:w-[42vw] lg:w-[30vw]
-                      max-w-[386px] max-h-[548px] h-full
-                      rounded-xl 
-                      overflow-hidden
-                    "
-                  >
-                    <Image
-                      className="rounded-xl object-cover w-full h-full"
-                      src={img}
-                      width={600}
-                      height={800}
-                      alt={`feature ${index + 1}`}
-                      priority={index === 0}
-                    />
-                  </div>
-                ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
+                <Image
+                  className="rounded-xl object-cover w-full h-full"
+                  src={img}
+                  width={600}
+                  height={800}
+                  alt={`feature ${i + 1}`}
+                  priority={i === 0}
+                />
+              </div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>
