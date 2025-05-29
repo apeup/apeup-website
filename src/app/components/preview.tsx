@@ -36,7 +36,7 @@ export default function Preview() {
 
   return (
     <section className="relative py-10 md:py-20 xl:px-20">
-      <Image src="/blur.png" height={100} width={100} alt="blur" className="absolute z-50 -top-30 w-full h-[250px]" />
+      <Image src="/blur.png" height={100} width={100} alt="blur" className="absolute z-50 -top-30 w-full left-0 h-[250px]" />
 
       <Image
         src="/preview-yellow.png"
@@ -47,8 +47,7 @@ export default function Preview() {
       />
 
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-[url('/preview_bg.png')] bg-cover bg-no-repeat bg-center" />
-        <div className="absolute inset-0 bg-black opacity-30" />
+        <div className="absolute inset-0 bg-[url('/preview-new.png')] bg-cover bg-no-repeat" />
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}

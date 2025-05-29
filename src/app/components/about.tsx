@@ -42,7 +42,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="bg-[url('/about-bg.png')] bg-cover bg-no-repeat bg-center py-10 px-4 sm:px-8 md:px-12 relative"
+      className="bg-[url('/about-bg.png')] bg-cover bg-no-repeat py-10 px-4 sm:px-8 md:px-12 relative"
     >
       <Image
         src="/features-purple.png"
@@ -52,7 +52,7 @@ export default function About() {
         className="absolute z-10 -bottom-[100px] h-full w-[100px] sm:w-[150px] md:w-[600px] left-0"
       />
       <Image
-        className="absolute lg:-bottom-10 bottom-0 left-0 z-10 lg:w-[250px] xl:w-[170px] 2xl:w-[250px] h-auto w-[150px] hidden md:block"
+        className="absolute lg:-bottom-10 bottom-0 left-0 z-10 lg:w-[250px] xl:w-[170px] 2xl:w-[250px] h-auto w-[150px] hidden md:block lg:hidden xl:block"
         src="/hill.png"
         height={100}
         width={100}
@@ -73,15 +73,15 @@ export default function About() {
         alt="yellow"
       />
 
-      <div className="max-w-[1440px] 2xl:h-[70dvh] mx-auto flex flex-col lg:flex-row justify-center xl:px-10 items-center md:mt-10 gap-10">
+      <div className="max-w-[1440px] 2xl:h-[70dvh] mx-auto flex flex-col lg:flex-row justify-center xl:px-10 lg:gap-30 lg:mr-25 xl:mr-20 2xl:mr-auto xl:gap-30 2xl:gap-10 items-center md:mt-10 gap-10">
         <div className="flex-1 w-full max-w-lg lg:max-w-none">
-          <div className="text-white text-center 2xl:text-left lg:max-w-[592px] max-w-[500px] mx-auto 2xl:mx-0">
+          <div className="text-white text-center 2xl:text-left xl:max-w-[592px] max-w-[500px] mx-auto 2xl:mx-0">
             <motion.h2
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
               viewport={{ once: true, amount: 0.2 }}
-              className={`text-[32px] sm:text-[40px] md:text-[48px] lg:text-[54px] ${zenDots.className}`}
+              className={`text-[32px] sm:text-[40px] md:text-[48px] xl:text-[54px] ${zenDots.className}`}
               style={{ textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C" }}
             >
               About the Game
@@ -109,8 +109,8 @@ export default function About() {
             </motion.p>
           </div>
 
-          <div className="lg:hidden xl:block">
-            <div className="bg-[url(/about-banner.svg)] z-40 bg-cover bg-center bg-no-repeat rounded-3xl mt-8 lg:p-15 p-7 relative overflow-visible max-w-[500px] lg:max-w-[700px] w-full h-full mx-auto">
+          <div className="">
+            <div className="bg-[url(/about-banner.svg)] z-40 bg-cover bg-center bg-no-repeat rounded-3xl mt-8 lg:p-15 p-7 relative overflow-visible max-w-[500px] xl:max-w-[700px] 2xl:w-[779px] w-full h-full mx-auto">
               <Image className="absolute z-10 top-0 right-0" src="/mask.png" width={150} height={100} alt="mask" />
               <Image className="absolute z-10 bottom-0 left-0 rotate-180" src="/mask.png" width={150} height={100} alt="mask" />
 
@@ -168,7 +168,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           viewport={{ once: true, amount: 0.2 }}
-          className="lg:hidden xl:flex flex flex-row items-center gap-4 flex-1 z-10 justify-center w-[50%] mx-auto max-w-[280px] lg:max-w-[400px] 2xl:max-w-none"
+          className="flex flex-row items-center gap-4 flex-1 z-10 justify-center w-[50%] mx-auto max-w-[280px] lg:max-w-[200px] xl:max-w-[400px] 2xl:max-w-none"
         >
           <Image src="/lucky.png" width={250} height={250} alt="Lucky Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px] h-auto mt-20" />
           <Image src="/spin.png" width={180} height={180} alt="Spin Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px]" />
