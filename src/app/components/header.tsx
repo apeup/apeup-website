@@ -55,7 +55,7 @@ export default function Header() {
           <div className="flex-1 flex justify-end items-center space-x-8 sm:space-x-0">
             <div className="hidden sm:block">
               <button
-                className={`${inter.className} sm:hidden relative font-semibold text-[16px] text-black lg:py-[9.7px] lg:px-[45px] lg:mr-[21px] py-[8px] px-[34px] bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)]`}
+                className={`${inter.className} relative font-semibold text-[16px] text-black lg:py-[9.7px] lg:px-[45px] lg:mr-[21px] py-[8px] px-[34px] bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)]`}
               >
                 Join Now
                 <Image
@@ -89,7 +89,7 @@ export default function Header() {
           </div>
 
           <button
-            className={`${inter.className} relative text-[16px] text-black px-4 py-2 bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)]`}
+            className={`${inter.className} sm:hidden relative text-[16px] text-black px-4 py-2 bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)]`}
           >
             Join Now
             <Image
