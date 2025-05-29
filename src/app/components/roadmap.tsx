@@ -15,6 +15,7 @@ export default function Roadmap() {
       id="roadmap"
       className="text-white bg-[#100C1D] bg-cover bg-no-repeat bg-center relative"
     >
+            <Image src="/features-blur.svg" height={100} width={100} alt="features-blur" className="absolute -top-30  w-full h-auto"/>
       <div className="max-w-[1600px] mx-auto px-4 pt-20 pb-14">
         {/* Heading */}
         <div className="text-center">
