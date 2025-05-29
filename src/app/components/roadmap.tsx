@@ -13,7 +13,7 @@ export default function Roadmap() {
   return (
     <section
       id="roadmap"
-      className="text-white bg-[url('/features-bg.png')] bg-cover bg-no-repeat bg-center relative"
+      className="text-white bg-[#100C1D] bg-cover bg-no-repeat bg-center relative"
     >
       <div className="max-w-[1600px] mx-auto px-4 py-20">
         {/* Heading */}

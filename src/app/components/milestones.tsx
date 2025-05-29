@@ -212,7 +212,7 @@ export default function Milestones() {
                   </div>
                 )}
 
-                <div className={`flex flex-col sm:flex-row justify-center gap-1 sm:gap-2 text-center z-10 ${item.league === "Platform Listings (CEXs, DEXs)" ? "pl-0 sm:pl-5 md:pl-0" : "sm:pl-14 md:pl-0"}`}>
+                <div className={`flex flex-col sm:flex-row justify-center gap-1 sm:gap-2 text-center z-10 ${item.league === "Platform Listings (CEXs, DEXs)" ? "pl-0 sm:pl-5 md:pt-5" : "sm:pl-14 md:pl-0"}`}>
                   <h4
                     className={`${zenDots.className} text-[12px] sm:text-[18px] xl:text-[28px] lg:font-bold`}
                   >
