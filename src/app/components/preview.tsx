@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 // DashedLine remains unchanged
 function DashedLine({ index }: { index: number }) {
   const baseHeights = [
-    "h-[5.4rem] sm:h-[5rem] md:h-[5rem] lg:h-[4.5rem] xl:h-[4.2rem] 2xl:h-[7.3rem]",
+    "h-[5.4rem] sm:h-[5rem] md:h-[5rem] lg:h-[5.5rem] xl:h-[3.3rem] 2xl:h-[7.3rem]",
     "h-8 sm:h-10 md:h-6 lg:h-8 xl:h-8 2xl:h-12",
     "h-8 sm:h-8 md:h-7 lg:h-8 xl:h-8 2xl:h-12",
     "h-8 sm:h-8 md:h-7 lg:h-8 xl:h-8 2xl:h-12",
@@ -35,7 +35,7 @@ export default function Preview() {
   }, []);
 
   return (
-    <section className="relative py-20 md:py-20 xl:px-20">
+    <section className="relative py-20 xl:pb-28 md:py-20 xl:px-20">
       <Image src="/blur.png" height={100} width={100} alt="blur" className="absolute z-50 -top-30 w-full left-0 h-[250px]" />
 
       <Image
@@ -63,7 +63,7 @@ export default function Preview() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className={`text-[28px] lg:text-[35px] xl:text-[54px] 2xl:text-[74px] font-semibold mb-8 text-center text-white ${zenDots.className}`}
+          className={`text-[28px] lg:text-[35px] 2xl:text-[74px] font-semibold mb-8 text-center text-white ${zenDots.className}`}
           style={{ textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C" }}
         >
           Immersive Game Preview:

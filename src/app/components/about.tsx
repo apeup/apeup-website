@@ -170,7 +170,7 @@ export default function About() {
     // it is a  about section
     <section
       id="about"
-      className="bg-[url('/about-bg.png')] bg-cover bg-no-repeat py-10 px-4 sm:px-8 md:px-12 2xl:px-0 relative"
+      className="bg-[url('/about-bg.png')] bg-cover bg-no-repeat py-10 px-4 sm:px-8 lg:px-0 md:px-12 2xl:px-0 relative"
     >
       <Image
         src="/features-purple.png"
@@ -187,7 +187,7 @@ export default function About() {
         alt="hill"
       />
       <Image
-        className="absolute top-10 right-0 w-[550px] h-auto z-10"
+        className="absolute top-10 right-0 w-[550px] h-auto z-10 sm:opacity-100 opacity-30"
         src="/purple.png"
         height={100}
         width={100}
@@ -209,7 +209,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
               viewport={{ once: true, amount: 0.2 }}
-              className={`text-[28px] lg:text-[35px] xl:text-[48px] 2xl:text-[54px] ${zenDots.className}`}
+              className={`text-[28px] lg:text-[35px] 2xl:text-[54px] ${zenDots.className}`}
               style={{ textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C" }}
             >
               About the Game
@@ -219,7 +219,7 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
               viewport={{ once: true, amount: 0.2 }}
-              className={`2xl:text-[18px] xl:text-[14px] lg:text-[12px] text-[12px] md:font-medium ${inter.className} mt-4`}
+              className={`2xl:text-[18px] lg:text-[12px] text-[12px] md:font-medium ${inter.className} mt-4`}
             >
               ApeUp is a community-driven Play & Earn mobile game where you
               control your Ape to jump, train and mine real crypto rewards.
@@ -229,7 +229,7 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
               viewport={{ once: true, amount: 0.2 }}
-              className={`2xl:text-[18px] xl:text-[14px] lg:text-[12px] text-[12px] md:font-medium mt-5 ${inter.className}`}
+              className={`2xl:text-[18px] lg:text-[12px] text-[12px] md:font-medium mt-5 ${inter.className}`}
             >
               We built ApeUp to ApeUp the industry — pushing beyond the limited
               experiences of previous Telegram mini-apps. This game was created
@@ -238,7 +238,7 @@ export default function About() {
           </div>
 
           <div className="">
-            <div className="bg-[url(/about-banner.svg)] z-40 bg-cover bg-center bg-no-repeat rounded-3xl mt-8 lg:p-10 p-7 px-4 xl:p-10 2xl:p-15 relative overflow-visible max-w-[350px] lg:max-w-[500px] xl:max-w-[500px] 2xl:max-w-[779px] w-full h-full mx-auto 2xl:mx-0">
+            <div className="bg-[url(/about-banner.svg)] z-50 bg-cover bg-center bg-no-repeat rounded-3xl mt-8 lg:p-10 p-7 px-4 xl:p-10 2xl:p-15 relative overflow-visible max-w-[350px] lg:max-w-[500px] xl:max-w-[500px] 2xl:max-w-[779px] w-full h-full mx-auto 2xl:mx-0">
               <Image className="absolute z-10 top-0 right-0 lg:w-[150px] w-[120px]" src="/mask.png" width={150} height={100} alt="mask" />
               <Image className="absolute z-10 bottom-0 left-0 rotate-180 lg:w-[150px] w-[120px]" src="/mask.png" width={150} height={100} alt="mask" />
 
@@ -265,12 +265,12 @@ export default function About() {
                         className="mb-2 w-[30px] lg:w-[37px]"
                       />
                       <h4
-                        className={`text-[18px] xl:text-[24px] 2xl:text-[28px] font-semibold mb-1 ${zenDots.className} text-white`}
+                        className={`text-[18px] 2xl:text-[28px] font-semibold mb-1 ${zenDots.className} text-white`}
                       >
                         {feature.title}
                       </h4>
                       <p
-                        className={`text-[12px] xl:text-[15px] 2xl:text-[16px] text-white ${inter.className}`}
+                        className={`text-[12px] 2xl:text-[16px] text-white ${inter.className}`}
                       >
                         {feature.description}
                       </p>
@@ -320,7 +320,7 @@ export default function About() {
           {/* Header and Buttons */}
           <div className="flex flex-col md:flex-row justify-between max-w-[1347px] mx-auto items-center gap-6">
             <h2
-              className={`${zenDots.className} text-[28px] lg:text-[35px] xl:text-[44px] 2xl:text-[54px] text-center md:text-left leading-tight`}
+              className={`${zenDots.className} text-[28px] lg:text-[35px] 2xl:text-[54px] text-center md:text-left leading-tight`}
               style={{
                 textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
               }}

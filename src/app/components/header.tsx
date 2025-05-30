@@ -93,7 +93,7 @@ export default function Header() {
               aria-expanded={isMenuOpen}
               aria-controls="mobile-menu"
               onClick={() => setIsMenuOpen((prev) => !prev)}
-              className="sm:hidden flex items-center justify-center px-2 py-2 -translate-x-3 text-white shadow-[0_4px_30px_#00000040] transition-all duration-300 ease-in-out bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)] focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              className="sm:hidden flex items-center justify-center px-2 py-2 -translate-x-3 text-black bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)]"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -168,10 +168,10 @@ export default function Header() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="w-full max-w-[652px] md:max-w-[400px] xl:max-w-[652px] mr-auto"
+            className="w-full max-w-[652px] md:max-w-[400px] mr-auto"
           >
             <h2
-              className={`text-[32px] lg:text-[35px] xl:text-[54px] 2xl:text-[74px] font-semibold leading-[120%] mt-16 sm:mt-24 mb-4 sm:mb-4 text-white ${zenDots.className}`}
+              className={`text-[32px] lg:text-[35px] xl:text-[45px] 2xl:text-[74px] font-semibold leading-[120%] mt-16 sm:mt-24 mb-4 sm:mb-4 text-white ${zenDots.className}`}
               style={{
                 textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
               }}
@@ -180,7 +180,7 @@ export default function Header() {
             </h2>
 
             <h4
-              className={`${inter.className} font-medium text-[18px] sm:text-[18px] xl:text-[24px] 2xl:text-[28px] mt-1`}
+              className={`${inter.className} font-medium text-[18px] sm:text-[18px] 2xl:text-[28px] mt-1`}
             >
               Jump. Tilt. Train. Earn.
             </h4>

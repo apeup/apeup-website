@@ -136,25 +136,25 @@ export default function Roadmap() {
       <Image src="/features-blur.svg" height={100} width={100} alt="features-blur" className="absolute -top-30  w-full h-auto" />
       <div className="max-w-[1600px] mx-auto px-4 pt-10 lg:pt-20 xl:pt-10 pb-14">
         {/* Heading */}
-        <div className="text-center">
+        <div className="text-center z-30 relative">
           <h2
-            className={`${zenDots.className} text-[28px] lg:text-[35px] xl:text-[44px] 2xl:text-[54px] leading-tight`}
+            className={`${zenDots.className} text-[28px] lg:text-[35px] 2xl:text-[54px] leading-tight`}
             style={{
               textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
             }}
           >
             Roadmap
           </h2>
-          <p className={`mt-2 text-[12px] lg:text-[14px] xl:text-base 2xl:text-lg ${inter.className}`}>
+          <p className={`mt-2 text-[12px] lg:text-[14px] 2xl:text-lg ${inter.className}`}>
             Gamified progress bar or milestone badges
           </p>
         </div>
 
         {/* Steps */}
-        <div className="mt-16 flex flex-col sm:flex-row justify-center items-ceneter gap-y-12 gap-x-6 lg:gap-x-0">
+        <div className="mt-16 flex flex-col sm:flex-row justify-center items-center gap-y-12 gap-x-6 lg:gap-x-0">
           {/* Step 1 */}
           <motion.div
-            className="flex flex-col items-center text-center w-full xs:w-[80%] sm:w-[45%] md:w-[30%] lg:w-1/5"
+            className="flex flex-col items-center justify-center text-center w-full xs:w-[80%] sm:w-[45%] md:w-[30%] lg:w-1/5"
             {...fadeUp}
             viewport={{ once: true }}
           >
@@ -167,7 +167,7 @@ export default function Roadmap() {
 
           {/* Line 1 */}
           <div className="hidden sm:flex items-center justify-center w-[60px]">
-            <Image className="xl:w-[70px] w-[50px]" src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
+            <Image className="xl:w-[70px] xl:h-[250px] w-[50px]" src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
           </div>
 
           {/* Step 2 */}
@@ -178,7 +178,7 @@ export default function Roadmap() {
             viewport={{ once: true }}
           >
             <Image className="xl:w-[50px] w-[30px] lg:w-[40px]] 2xl:w-[70px]" src="/roadmap-2.svg" width={70} height={70} alt="roadmap-2" />
-            <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-5`}>Next</h4>
+            <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] mt-5`}>Next</h4>
             <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
               Play-to-Earn Rewards + NFT Sales
             </p>
@@ -186,7 +186,7 @@ export default function Roadmap() {
 
           {/* Line 2 */}
           <div className="hidden sm:flex items-center justify-center w-[60px]">
-            <Image className="xl:w-[70px] w-[50px]" src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
+            <Image className="xl:w-[70px] xl:h-[250px] w-[50px]" src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
           </div>
 
           {/* Step 3 */}
@@ -205,7 +205,7 @@ export default function Roadmap() {
 
           {/* Line 3 */}
           <div className="hidden sm:flex items-center justify-center w-[60px]">
-            <Image className="xl:w-[70px] w-[50px]" src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
+            <Image className="xl:w-[70px] xl:h-[250px] w-[50px]" src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
           </div>
 
           {/* Step 4 */}
@@ -225,7 +225,7 @@ export default function Roadmap() {
 
         {/* Milestones title */}
         <h2
-          className={`${zenDots.className} text-center text-[28px] lg:text-[35px] xl:text-[44px] 2xl:text-[54px] leading-tight mt-20 sm:mt-24`}
+          className={`${zenDots.className} text-center text-[28px] lg:text-[35px] 2xl:text-[54px] leading-tight mt-20 sm:mt-24`}
           style={{
             textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
           }}
@@ -238,7 +238,7 @@ export default function Roadmap() {
 
       <section
         ref={sectionRef}
-        className="relative pb-10 md:pb-20 xl:pb-20 2xl:pb-35 px-4 sm:px-10 lg:px-10 pt-10 sm:pt-0"
+        className="relative pb-20 md:pb-20 xl:pb-20 2xl:pb-35 px-4 sm:px-10 lg:px-10 pt-10 sm:pt-0"
       >
         <div className="max-w-[1200px] mx-auto space-y-10 sm:pt-5">
           <div className="flex flex-col md:flex-row justify-center w-[90%] md:w-full md:mx-auto ml-auto items-center md:items-start gap-6 lg:gap-12 relative">
@@ -247,10 +247,10 @@ export default function Roadmap() {
               {milestonesLeft.map((item, idx) => (
                 <div
                   key={idx}
-                  className="w-full h-[80px] 2xl:h-[120px] relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-[24px] sm:rounded-[28px] 2xl:rounded-[39px] px-8 py-4 sm:py-6 flex items-center justify-start sm:justify-center md:justify-end lg:justify-center gap-3 sm:gap-4"
+                  className="w-full h-[80px] 2xl:h-[120px] custom-shadow relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-[24px] sm:rounded-[28px] 2xl:rounded-[39px] px-8 py-4 sm:py-6 flex items-center justify-start sm:justify-center md:justify-end lg:justify-center gap-3 sm:gap-4"
                 >
                   {idx !== milestonesLeft.length - 1 && (
-                    <div className="absolute -right-2 sm:-right-5 md:top-0 lg:top-0 xl:top-0 md:-left-7 xl:-left-8 2xl:-left-14 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[90px] sm:h-[80px] md:h-[80px] xl:h-[80px] 2xl:h-[121px] w-[90px] sm:w-[80px] md:w-[80px] xl:w-[80px] 2xl:w-[121px] rounded-full shadow-[0_4px_50px_#00000040]">
+                    <div className="absolute custom-blur -right-2 sm:-right-5 md:top-0 lg:top-0 xl:top-0 md:-left-7 xl:-left-8 2xl:-left-14 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[90px] sm:h-[80px] md:h-[80px] xl:h-[80px] 2xl:h-[121px] w-[90px] sm:w-[80px] md:w-[80px] xl:w-[80px] 2xl:w-[121px] rounded-full shadow-[0_4px_50px_#00000040]">
                       <Image
                         src={item.icon}
                         width={100}
@@ -320,7 +320,7 @@ export default function Roadmap() {
                     {i < totalDots - 1 && (
                       <div
                         id={`line-${dotIndex}`}
-                        className={`w-[4px] lg:h-[30px] md:h-[30px] h-[100px] xl:h-[26px] 2xl:h-[43px] sm:h-[80px] transition-colors duration-300 ${isActive ? "bg-pink-500" : "bg-white"
+                        className={`w-[4px] lg:h-[30px] md:h-[30px] h-[85px] xl:h-[26px] 2xl:h-[43px] sm:h-[80px] transition-colors duration-300 ${isActive ? "bg-pink-500" : "bg-white"
                           }`}
                         style={{
                           transformOrigin: "top center",
@@ -333,13 +333,13 @@ export default function Roadmap() {
             </div>
 
             {/* Right Column */}
-            <div className="flex flex-col space-y-10 sm:space-y-7 lg:space-y-8 xl:space-y-9 2xl:space-y-13 w-full sm:w-[350px] md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[514px] md:pt-5 xl:pt-5 2xl:pt-20 px-5 md:px-0">
+            <div className="flex flex-col space-y-10 sm:space-y-7 lg:space-y-8 xl:space-y-9 2xl:space-y-13 mt-4 sm:mt-0 w-full sm:w-[350px] md:w-[250px] lg:w-[300px] xl:w-[350px] 2xl:w-[514px] md:pt-5 xl:pt-5 2xl:pt-20 px-5 md:px-0">
               {milestonesRight.map((item, idx) => (
                 <div
                   key={idx}
-                  className="w-full h-[80px] 2xl:h-[120px] relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-[24px] sm:rounded-[28px] 2xl:rounded-[39px] px-8 py-4 sm:py-6 flex items-center justify-start md:justify-center gap-3 sm:gap-4"
+                  className="w-full h-[80px] 2xl:h-[120px] custom-shadow relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-[24px] sm:rounded-[28px] 2xl:rounded-[39px] px-8 py-4 sm:py-6 flex items-center justify-start md:justify-center gap-3 sm:gap-4"
                 >
-                  <div className="absolute -right-2 sm:-right-5 md:top-0 lg:top-0 xl:top-0 md:-right-7 xl:-right-4 2xl:-right-14 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[90px] sm:h-[80px] md:h-[80px] xl:h-[80px] 2xl:h-[121px] w-[90px] sm:w-[80px] md:w-[80px] 2xl:w-[121px] xl:w-[80px] rounded-full shadow-[0_4px_50px_#00000040]">
+                  <div className="absolute custom-blur -right-2 sm:-right-5 md:top-0 lg:top-0 xl:top-0 md:-right-7 xl:-right-4 2xl:-right-14 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[90px] sm:h-[80px] md:h-[80px] xl:h-[80px] 2xl:h-[121px] w-[90px] sm:w-[80px] md:w-[80px] 2xl:w-[121px] xl:w-[80px] rounded-full shadow-[0_4px_50px_#00000040]">
                     <Image
                       src={item.icon}
                       width={100}
