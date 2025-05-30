@@ -150,20 +150,20 @@ export default function About() {
     setIndex((prev) => (prev + 2 >= features.length ? 0 : prev + 1));
   };
 
-  const variants = {
-    enter: (direction: 'left' | 'right') => ({
-      x: direction === 'right' ? 100 : -10,
-      opacity: 0,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-    },
-    exit: (direction: 'left' | 'right') => ({
-      x: direction === 'right' ? -10 : 100,
-      opacity: 0,
-    }),
-  };
+  // const variants = {
+  //   enter: (direction: 'left' | 'right') => ({
+  //     x: direction === 'right' ? 100 : -10,
+  //     opacity: 0,
+  //   }),
+  //   center: {
+  //     x: 0,
+  //     opacity: 1,
+  //   },
+  //   exit: (direction: 'left' | 'right') => ({
+  //     x: direction === 'right' ? -10 : 100,
+  //     opacity: 0,
+  //   }),
+  // };
 
   return (
     <section
