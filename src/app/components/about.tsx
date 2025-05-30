@@ -209,7 +209,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
               viewport={{ once: true, amount: 0.2 }}
-              className={`text-[32px] lg:text-[35px] xl:text-[48px] 2xl:text-[54px] ${zenDots.className}`}
+              className={`text-[28px] lg:text-[35px] xl:text-[48px] 2xl:text-[54px] ${zenDots.className}`}
               style={{ textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C" }}
             >
               About the Game
@@ -219,7 +219,7 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
               viewport={{ once: true, amount: 0.2 }}
-              className={`2xl:text-[18px] xl:text-[14px] lg:text-[12px] text-[10px] md:font-medium ${inter.className} mt-4`}
+              className={`2xl:text-[18px] xl:text-[14px] lg:text-[12px] text-[12px] md:font-medium ${inter.className} mt-4`}
             >
               ApeUp is a community-driven Play & Earn mobile game where you
               control your Ape to jump, train and mine real crypto rewards.
@@ -229,7 +229,7 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
               viewport={{ once: true, amount: 0.2 }}
-              className={`2xl:text-[18px] xl:text-[14px] lg:text-[12px] text-[10px] md:font-medium mt-5 ${inter.className}`}
+              className={`2xl:text-[18px] xl:text-[14px] lg:text-[12px] text-[12px] md:font-medium mt-5 ${inter.className}`}
             >
               We built ApeUp to ApeUp the industry — pushing beyond the limited
               experiences of previous Telegram mini-apps. This game was created
@@ -238,7 +238,7 @@ export default function About() {
           </div>
 
           <div className="">
-            <div className="bg-[url(/about-banner.svg)] z-40 bg-cover bg-center bg-no-repeat rounded-3xl mt-8 lg:p-10 p-7 xl:p-10 2xl:p-15 relative overflow-visible max-w-[350px] lg:max-w-[500px] xl:max-w-[500px] 2xl:max-w-[779px] w-full h-full mx-auto 2xl:mx-0">
+            <div className="bg-[url(/about-banner.svg)] z-40 bg-cover bg-center bg-no-repeat rounded-3xl mt-8 lg:p-10 p-7 px-4 xl:p-10 2xl:p-15 relative overflow-visible max-w-[350px] lg:max-w-[500px] xl:max-w-[500px] 2xl:max-w-[779px] w-full h-full mx-auto 2xl:mx-0">
               <Image className="absolute z-10 top-0 right-0 lg:w-[150px] w-[120px]" src="/mask.png" width={150} height={100} alt="mask" />
               <Image className="absolute z-10 bottom-0 left-0 rotate-180 lg:w-[150px] w-[120px]" src="/mask.png" width={150} height={100} alt="mask" />
 
@@ -370,7 +370,7 @@ export default function About() {
                   key={i}
                   className="
                         flex-shrink-0
-                        w-[85vw] sm:w-[70vw] md:w-[26vw] lg:w-[18vw] xl:w-[19vw] 2xl:w-[30vw]
+                        w-[80vw] sm:w-[50vw] md:w-[26vw] lg:w-[18vw] xl:w-[19vw] 2xl:w-[30vw]
                         max-w-[386px] max-h-[548px] h-full
                         rounded-xl 
                         overflow-hidden
