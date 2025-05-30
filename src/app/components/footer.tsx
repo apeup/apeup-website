@@ -20,7 +20,7 @@ export default function Footer() {
 
           {/* Logo in the Center */}
           <div className="flex justify-center max-w-inherit">
-            <div className="xl:w-[180px] w-[120px] lg:w-[150px] 2xl:w-[222px] object-cover">
+            <div className="xl:w-[180px] w-[120px] lg:w-[150px] 2xl:w-[222px] h-auto object-cover">
               <Image
                 src="/logo.svg"
                 width={222}
