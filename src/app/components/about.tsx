@@ -70,7 +70,7 @@ export default function About() {
         className="absolute z-10 -bottom-[200px] h-full w-[100px] sm:w-[350px] left-0"
       />
       <Image
-        className="absolute lg:-bottom-10 bottom-0 left-0 z-10 xl:opacity-50 2xl:opacity-100 lg:w-[250px] xl:w-[150px] 2xl:w-[250px] h-auto w-[150px] hidden md:block lg:hidden xl:block"
+        className="absolute lg:-bottom-10 bottom-0 left-0 z-10 xl:opacity-50 2xl:opacity-100 lg:w-[250px] xl:w-[150px] 2xl:w-[250px] h-auto w-[150px] hidden xl:block"
         src="/hill.png"
         height={100}
         width={100}
@@ -91,15 +91,15 @@ export default function About() {
         alt="yellow"
       />
 
-      <div className="max-w-[1440px] 2xl:h-[70dvh] mx-auto flex flex-col lg:flex-row xl:pr-20 2xl:px-0 xl:gap-20 justify-center lg:gap-30 lg:mr-25 2xl:gap-10 items-center md:mt-10 gap-10">
+      <div className="max-w-[1440px] 2xl:h-[70dvh] mx-auto flex md:mr-20 flex-col md:flex-row xl:pr-20 2xl:px-0 xl:gap-20 justify-center lg:gap-30 lg:mr-25 2xl:gap-10 items-center md:mt-10 gap-10">
         <div className="flex-1 w-full max-w-lg lg:max-w-none">
-          <div className="text-white text-center xl:text-left max-w-[500px] 2xl:max-w-[592px] mx-auto 2xl:mx-0">
+          <div className="text-white text-center md:text-left max-w-[320px] lg:max-w-[500px] 2xl:max-w-[592px] mx-auto 2xl:mx-0">
             <motion.h2
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
               viewport={{ once: true, amount: 0.2 }}
-              className={`text-[32px] sm:text-[40px] xl:text-[48px] 2xl:text-[54px] ${zenDots.className}`}
+              className={`text-[32px] lg:text-[40px] xl:text-[48px] 2xl:text-[54px] ${zenDots.className}`}
               style={{ textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C" }}
             >
               About the Game
@@ -109,7 +109,7 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
               viewport={{ once: true, amount: 0.2 }}
-              className={`2xl:text-[18px] xl:text-[14px] text-[12px] md:font-medium ${inter.className} mt-4`}
+              className={`2xl:text-[18px] xl:text-[14px] lg:text-[12px] text-[10px] md:font-medium ${inter.className} mt-4`}
             >
               ApeUp is a community-driven Play & Earn mobile game where you
               control your Ape to jump, train and mine real crypto rewards.
@@ -119,7 +119,7 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
               viewport={{ once: true, amount: 0.2 }}
-              className={`2xl:text-[18px] xl:text-[14px] text-[12px] md:font-medium mt-5 ${inter.className}`}
+              className={`2xl:text-[18px] xl:text-[14px] lg:text-[12px] text-[10px] md:font-medium mt-5 ${inter.className}`}
             >
               We built ApeUp to ApeUp the industry — pushing beyond the limited
               experiences of previous Telegram mini-apps. This game was created
@@ -128,9 +128,9 @@ export default function About() {
           </div>
 
           <div className="">
-            <div className="bg-[url(/about-banner.svg)] z-40 bg-cover bg-center bg-no-repeat rounded-3xl mt-8 lg:p-10 p-7 xl:p-10 2xl:p-15 relative overflow-visible max-w-[500px] xl:max-w-[500px] 2xl:max-w-[779px] w-full h-full mx-auto 2xl:mx-0">
-              <Image className="absolute z-10 top-0 right-0" src="/mask.png" width={150} height={100} alt="mask" />
-              <Image className="absolute z-10 bottom-0 left-0 rotate-180" src="/mask.png" width={150} height={100} alt="mask" />
+            <div className="bg-[url(/about-banner.svg)] z-40 bg-cover bg-center bg-no-repeat rounded-3xl mt-8 lg:p-10 p-7 xl:p-10 2xl:p-15 relative overflow-visible max-w-[350px] lg:max-w-[500px] xl:max-w-[500px] 2xl:max-w-[779px] w-full h-full mx-auto 2xl:mx-0">
+              <Image className="absolute z-10 top-0 right-0 lg:w-[150px] w-[120px]" src="/mask.png" width={150} height={100} alt="mask" />
+              <Image className="absolute z-10 bottom-0 left-0 rotate-180 lg:w-[150px] w-[120px]" src="/mask.png" width={150} height={100} alt="mask" />
 
               <AnimatePresence custom={direction} mode="popLayout">
                 <motion.div
@@ -146,22 +146,22 @@ export default function About() {
                   {features.slice(index, index + 2).map((feature, i) => (
                     <div
                       key={i}
-                      className="flex flex-col items-start text-left w-[350px] sm:w-[280px] md:w-[300px] pr-20 sm:pr-0"
+                      className="flex flex-col items-start text-left w-[350px] sm:w-[280px] lg:w-[300px] pr-20 sm:pr-0"
                     >
                       <Image
                         src={feature.icon}
                         width={30}
                         height={30}
                         alt="Feature Icon"
-                        className="mb-2 w-[37px]"
+                        className="mb-2 w-[30px] lg:w-[37px]"
                       />
                       <h4
-                        className={`text-[22px] xl:text-[24px] 2xl:text-[28px] font-semibold mb-1 ${zenDots.className} text-white`}
+                        className={`lg:text-[22px] text-[18px] xl:text-[24px] 2xl:text-[28px] font-semibold mb-1 ${zenDots.className} text-white`}
                       >
                         {feature.title}
                       </h4>
                       <p
-                        className={`text-[13px] xl:text-[15px] 2xl:text-[16px] text-white ${inter.className}`}
+                        className={`lg:text-[13px] text-[9px] xl:text-[15px] 2xl:text-[16px] text-white ${inter.className}`}
                       >
                         {feature.description}
                       </p>
@@ -171,10 +171,10 @@ export default function About() {
               </AnimatePresence>
 
               <div className="flex justify-center mt-8 gap-6 absolute -bottom-5 z-30 left-1/2 transform -translate-x-1/2">
-                <button onClick={prevSlide} className="bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[37px] w-[37px] text-white" aria-label="Previous" style={{ boxShadow: 'inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)' }}>
+                <button onClick={prevSlide} className="bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full lg:h-[37px] lg:w-[37px] h-[30px] w-[30px] text-white" aria-label="Previous" style={{ boxShadow: 'inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)' }}>
                   ←
                 </button>
-                <button onClick={nextSlide} className="bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[37px] w-[37px] text-white" aria-label="Next" style={{ boxShadow: 'inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)' }}>
+                <button onClick={nextSlide} className="bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full lg:h-[37px] lg:w-[37px] h-[30px] w-[30px] text-white" aria-label="Next" style={{ boxShadow: 'inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)' }}>
                   →
                 </button>
               </div>

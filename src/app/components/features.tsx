@@ -31,7 +31,7 @@ export default function Features() {
     const updateVisibleCount = () => {
       const width = window.innerWidth;
       if (width >= 1024) setVisibleCount(5);
-      else if (width >= 768) setVisibleCount(2);
+      else if (width >= 768) setVisibleCount(3);
       else setVisibleCount(1);
     };
 
@@ -129,7 +129,7 @@ export default function Features() {
         {/* Header and Buttons */}
         <div className="flex flex-col md:flex-row justify-between max-w-[1347px] mx-auto items-center gap-6">
           <h2
-            className={`${zenDots.className} text-[28px] sm:text-[36px] xl:text-[44px] 2xl:text-[54px] text-center md:text-left leading-tight`}
+            className={`${zenDots.className} text-[28px] lg:text-[36px] xl:text-[44px] 2xl:text-[54px] text-center md:text-left leading-tight`}
             style={{
               textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
             }}
@@ -184,7 +184,7 @@ export default function Features() {
                 key={i}
                 className="
                   flex-shrink-0
-                  w-[85vw] sm:w-[70vw] md:w-[42vw] lg:w-[22vw] xl:w-[20vw] 2xl:w-[30vw]
+                  w-[85vw] sm:w-[70vw] md:w-[26vw] lg:w-[22vw] xl:w-[20vw] 2xl:w-[30vw]
                   max-w-[386px] max-h-[548px] h-full
                   rounded-xl 
                   overflow-hidden
