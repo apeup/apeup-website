@@ -166,6 +166,8 @@ export default function About() {
   // };
 
   return (
+
+    // it is a  about section
     <section
       id="about"
       className="bg-[url('/about-bg.png')] bg-cover bg-no-repeat py-10 px-4 sm:px-8 md:px-12 2xl:px-0 relative"
@@ -192,7 +194,7 @@ export default function About() {
         alt="yellow"
       />
       <Image
-        className="absolute bottom-220 right-0 w-[200px] h-auto z-0"
+        className="absolute xl:bottom-220 lg:w-[100px] lg:bottom-150 right-0 xl:w-[200px] h-auto z-0"
         src="/banana.png"
         height={100}
         width={100}
@@ -207,7 +209,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
               viewport={{ once: true, amount: 0.2 }}
-              className={`text-[32px] lg:text-[40px] xl:text-[48px] 2xl:text-[54px] ${zenDots.className}`}
+              className={`text-[32px] lg:text-[35px] xl:text-[48px] 2xl:text-[54px] ${zenDots.className}`}
               style={{ textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C" }}
             >
               About the Game
@@ -259,12 +261,12 @@ export default function About() {
                         className="mb-2 w-[30px] lg:w-[37px]"
                       />
                       <h4
-                        className={`lg:text-[22px] text-[18px] xl:text-[24px] 2xl:text-[28px] font-semibold mb-1 ${zenDots.className} text-white`}
+                        className={`text-[18px] xl:text-[24px] 2xl:text-[28px] font-semibold mb-1 ${zenDots.className} text-white`}
                       >
                         {feature.title}
                       </h4>
                       <p
-                        className={`lg:text-[13px] text-[9px] xl:text-[15px] 2xl:text-[16px] text-white ${inter.className}`}
+                        className={`text-[12px] xl:text-[15px] 2xl:text-[16px] text-white ${inter.className}`}
                       >
                         {feature.description}
                       </p>
@@ -290,104 +292,104 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           viewport={{ once: true, amount: 0.2 }}
-          className="flex flex-row items-center gap-4 flex-1 z-10 justify-center w-[50%] mx-auto max-w-[170px] xl:max-w-[400px] 2xl:max-w-none"
+          className="flex flex-row items-center gap-4 flex-1 z-10 justify-center w-[50%] mx-auto md:max-w-[170px] xl:max-w-[400px] 2xl:max-w-none"
         >
           <Image src="/lucky.png" width={250} height={250} alt="Lucky Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px] h-auto mt-20" />
           <Image src="/spin.png" width={180} height={180} alt="Spin Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px]" />
         </motion.div>
       </div>
 
+      {/* it is a features section */}
 
-
-          <section
-            className="text-white relative overflow-hidden mt-15"
-          >
-            {/* <Image
+      <section
+        className="text-white relative overflow-hidden mt-15"
+      >
+        {/* <Image
               src="/features-purple.png"
               width={100}
               height={100}
               alt="yellow"
               className="absolute z-10 -top-[220px] h-full w-[100px] sm:w-[350px] left-0"
             /> */}
-            <div className="px-4 sm:px-6 md:px-10 lg:px-16 py-16 xl:pr-0 ml-auto relative z-10">
-              {/* Header and Buttons */}
-              <div className="flex flex-col md:flex-row justify-between max-w-[1347px] mx-auto items-center gap-6">
-                <h2
-                  className={`${zenDots.className} text-[28px] lg:text-[36px] xl:text-[44px] 2xl:text-[54px] text-center md:text-left leading-tight`}
-                  style={{
-                    textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
-                  }}
-                >
-                  GameFlow Features
-                </h2>
-      
-                <div className="flex gap-3 items-center">
-                  <button
-                    onClick={() => handleChange(-1)}
-                    disabled={animating}
-                    className={`bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[30px] w-[30px] xl:h-[40px] xl:w-[40px] text-white text-lg ${animating ? "cursor-not-allowed opacity-50" : ""
-                      }`}
-                    style={{
-                      boxShadow:
-                        "inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)",
-                    }}
-                  >
-                    ←
-                  </button>
-                  <button
-                    onClick={() => handleChange(1)}
-                    disabled={animating}
-                    className={`bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[30px] w-[30px] xl:h-[40px] xl:w-[40px] text-white text-lg ${animating ? "cursor-not-allowed opacity-50" : ""
-                      }`}
-                    style={{
-                      boxShadow:
-                        "inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)",
-                    }}
-                  >
-                    →
-                  </button>
-                </div>
-              </div>
-      
-              {/* Carousel */}
-              <div
-                className="md:mt-15 mt-10 relative h-full overflow-hidden max-w-full mx-auto"
-                onTouchStart={handleTouchStart}
-                onTouchEnd={handleTouchEnd}
-                onWheel={handleWheel}
+        <div className="px-4 sm:px-6 md:px-10 lg:px-16 py-16 lg:pr-0 ml-auto relative z-10">
+          {/* Header and Buttons */}
+          <div className="flex flex-col md:flex-row justify-between max-w-[1347px] mx-auto items-center gap-6">
+            <h2
+              className={`${zenDots.className} text-[28px] lg:text-[35px] xl:text-[44px] 2xl:text-[54px] text-center md:text-left leading-tight`}
+              style={{
+                textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
+              }}
+            >
+              GameFlow Features
+            </h2>
+
+            <div className="flex gap-3 items-center">
+              <button
+                onClick={() => handleChange(-1)}
+                disabled={animating}
+                className={`bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[30px] w-[30px] xl:h-[40px] xl:w-[40px] text-white text-lg ${animating ? "cursor-not-allowed opacity-50" : ""
+                  }`}
+                style={{
+                  boxShadow:
+                    "inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)",
+                }}
               >
-                <motion.div
-                  className="flex gap-6 justify-center lg:justify-start"
-                  style={{
-                    translateX: xOffset,
-                    transition: animating ? "transform 0.7s ease-in-out" : "none",
-                  }}
-                >
-                  {visibleSlides.map((img, i) => (
-                    <div
-                      key={i}
-                      className="
+                ←
+              </button>
+              <button
+                onClick={() => handleChange(1)}
+                disabled={animating}
+                className={`bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full h-[30px] w-[30px] xl:h-[40px] xl:w-[40px] text-white text-lg ${animating ? "cursor-not-allowed opacity-50" : ""
+                  }`}
+                style={{
+                  boxShadow:
+                    "inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)",
+                }}
+              >
+                →
+              </button>
+            </div>
+          </div>
+
+          {/* Carousel */}
+          <div
+            className="md:mt-15 mt-10 relative h-full overflow-hidden max-w-full mx-auto"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+            onWheel={handleWheel}
+          >
+            <motion.div
+              className="flex gap-6 justify-center lg:justify-start"
+              style={{
+                translateX: xOffset,
+                transition: animating ? "transform 0.7s ease-in-out" : "none",
+              }}
+            >
+              {visibleSlides.map((img, i) => (
+                <div
+                  key={i}
+                  className="
                         flex-shrink-0
-                        w-[85vw] sm:w-[70vw] md:w-[26vw] lg:w-[20vw] xl:w-[19vw] 2xl:w-[30vw]
+                        w-[85vw] sm:w-[70vw] md:w-[26vw] lg:w-[18vw] xl:w-[19vw] 2xl:w-[30vw]
                         max-w-[386px] max-h-[548px] h-full
                         rounded-xl 
                         overflow-hidden
                       "
-                    >
-                      <Image
-                        className="rounded-xl object-cover w-full h-full"
-                        src={img}
-                        width={600}
-                        height={800}
-                        alt={`feature ${i + 1}`}
-                        priority={i === 0}
-                      />
-                    </div>
-                  ))}
-                </motion.div>
-              </div>
-            </div>
-          </section>
+                >
+                  <Image
+                    className="rounded-xl object-cover w-full h-full"
+                    src={img}
+                    width={600}
+                    height={800}
+                    alt={`feature ${i + 1}`}
+                    priority={i === 0}
+                  />
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
     </section>
   );
 }

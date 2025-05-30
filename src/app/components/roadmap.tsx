@@ -138,7 +138,7 @@ export default function Roadmap() {
         {/* Heading */}
         <div className="text-center">
           <h2
-            className={`${zenDots.className} text-[28px] lg:text-[36px] xl:text-[44px] 2xl:text-[54px] leading-tight`}
+            className={`${zenDots.className} text-[28px] lg:text-[35px] xl:text-[44px] 2xl:text-[54px] leading-tight`}
             style={{
               textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
             }}
@@ -225,7 +225,7 @@ export default function Roadmap() {
 
         {/* Milestones title */}
         <h2
-          className={`${zenDots.className} text-center text-[28px] lg:text-[36px] xl:text-[44px] 2xl:text-[54px] leading-tight mt-20 sm:mt-24`}
+          className={`${zenDots.className} text-center text-[28px] lg:text-[35px] xl:text-[44px] 2xl:text-[54px] leading-tight mt-20 sm:mt-24`}
           style={{
             textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
           }}

@@ -55,7 +55,7 @@ export default function Header() {
           <div className="flex-1 flex justify-end items-center space-x-8 sm:space-x-0">
             <div className="hidden sm:block">
               <button
-                className={`${inter.className} cursor-pointer relative font-semibold text-[16px] text-black py-[5px] px-[25px] lg:py-[7px] lg:px-[35px] 2xl:py-[9.7px] 2xl:px-[46px] bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)]`}
+                className={`${inter.className} cursor-pointer relative font-semibold text-[14px] xl:text-[16px] text-black py-[5px] px-[25px] lg:py-[7px] lg:px-[35px] 2xl:py-[9.7px] 2xl:px-[46px] bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)]`}
               >
                 Join Now
                 <Image
@@ -171,7 +171,7 @@ export default function Header() {
             className="w-full max-w-[652px] md:max-w-[400px] xl:max-w-[652px] mr-auto"
           >
             <h2
-              className={`text-[32px] lg:text-[44px] xl:text-[54px] 2xl:text-[74px] font-semibold leading-[120%] mt-16 sm:mt-24 mb-4 sm:mb-4 text-white ${zenDots.className}`}
+              className={`text-[32px] lg:text-[35px] xl:text-[54px] 2xl:text-[74px] font-semibold leading-[120%] mt-16 sm:mt-24 mb-4 sm:mb-4 text-white ${zenDots.className}`}
               style={{
                 textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
               }}
