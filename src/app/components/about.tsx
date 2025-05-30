@@ -5,7 +5,7 @@ import { zenDots } from "../fonts";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import { inter } from "../fonts";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion} from "framer-motion";
 
 const featureImages = [
   "/feature-1.png",
@@ -40,14 +40,14 @@ const features = [
 ];
 
 export default function About() {
-  const [index, setIndex] = useState(0);
-  const [direction, setDirection] = useState<'left' | 'right'>('right');
+  // const [index, setIndex] = useState(0);
+  // const [direction, setDirection] = useState<'left' | 'right'>('right');
   const [visibleCount, setVisibleCount] = useState(3);
   const [startIndex, setStartIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
   const [xOffset, setXOffset] = useState(0);
 
-  const sliderRef = useRef(null);
+  // const sliderRef = useRef(null);
   const [sliderInstanceRef, slider] = useKeenSlider<HTMLDivElement>({
     loop: true,
     slides: {
@@ -151,15 +151,15 @@ export default function About() {
     }
   };
 
-  const prevSlide = () => {
-    setDirection('left');
-    setIndex((prev) => (prev === 0 ? features.length - 2 : prev - 1));
-  };
+  // const prevSlide = () => {
+  //   setDirection('left');
+  //   setIndex((prev) => (prev === 0 ? features.length - 2 : prev - 1));
+  // };
 
-  const nextSlide = () => {
-    setDirection('right');
-    setIndex((prev) => (prev + 2 >= features.length ? 0 : prev + 1));
-  };
+  // const nextSlide = () => {
+  //   setDirection('right');
+  //   setIndex((prev) => (prev + 2 >= features.length ? 0 : prev + 1));
+  // };
 
   // const variants = {
   //   enter: (direction: 'left' | 'right') => ({
@@ -254,15 +254,7 @@ export default function About() {
               <Image className="absolute z-10 top-0 right-0 lg:w-[150px] w-[120px]" src="/mask.png" width={150} height={100} alt="mask" />
               <Image className="absolute z-10 bottom-0 left-0 rotate-180 lg:w-[150px] w-[120px]" src="/mask.png" width={150} height={100} alt="mask" />
 
-              <AnimatePresence custom={direction} mode="wait">
-                <motion.div
-                  key={index}
-                  custom={direction}
-                  className="flex flex-col md:flex-row justify-between items-start gap-6"
-                  initial={{ x: direction === 'right' ? 100 : -100, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  exit={{ x: direction === 'right' ? -100 : 100, opacity: 0 }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                <div
                 >
                   <div ref={sliderInstanceRef} className="keen-slider">
                     {features.map((feature, i) => (
@@ -290,8 +282,8 @@ export default function About() {
                       </div>
                     ))}
                   </div>
-                </motion.div>
-              </AnimatePresence>
+                </div>
+
 
 
               <div className="flex justify-center mt-8 gap-6 absolute -bottom-5 z-30 left-1/2 transform -translate-x-1/2">
