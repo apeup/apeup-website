@@ -168,7 +168,7 @@ export default function Header() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="w-full max-w-[652px] md:max-w-[400px] mr-auto"
+            className="w-full max-w-[652px] md:max-w-[400px] xl:max-w-[500px] 2xl:max-w-[700px] mr-auto"
           >
             <h2
               className={`text-[32px] lg:text-[35px] xl:text-[45px] 2xl:text-[74px] font-semibold leading-[120%] mt-16 sm:mt-24 mb-4 sm:mb-4 text-white ${zenDots.className}`}
@@ -180,7 +180,7 @@ export default function Header() {
             </h2>
 
             <h4
-              className={`${inter.className} font-medium text-[18px] sm:text-[18px] 2xl:text-[28px] mt-1`}
+              className={`${inter.className} font-medium text-[18px] sm:text-[18px] xl:text-[24px] 2xl:text-[28px] mt-1`}
             >
               Jump. Tilt. Train. Earn.
             </h4>
