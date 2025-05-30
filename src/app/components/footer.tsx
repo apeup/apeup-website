@@ -19,14 +19,14 @@ export default function Footer() {
           </nav>
 
           {/* Logo in the Center */}
-          <div className="flex justify-center">
-            <div className="xl:w-[180px] w-[120px] lg:w-[150px] 2xl:w-[222px]">
+          <div className="flex justify-center max-w-inherit">
+            <div className="xl:w-[180px] w-[120px] lg:w-[150px] 2xl:w-[222px] object-cover">
               <Image
                 src="/logo.svg"
                 width={222}
                 height={150}
                 alt="Logo"
-                className="w-full h-auto"
+                className="w-full h-auto object-cover"
               />
             </div>
           </div>

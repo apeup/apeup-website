@@ -162,7 +162,7 @@ export default function Header() {
       </motion.header>
 
       {/* Hero Section */}
-      <section className="relative lg:mt-8 sm:mt-50 md:mt-10 sm:px-10 md:px-0 mt-20 xl:px-20 xl:mt-15 2xl:mt-50">
+      <section className="relative lg:mt-8 sm:mt-50 md:mt-10 sm:px-10 md:px-0 mt-20 xl:px-20 xl:mt-10 2xl:mt-50">
         <div className="relative z-20 flex flex-col justify-center text-center md:text-left mt-10 md:mt-0 items-center h-full text-white w-full px-4 sm:px-6 md:px-8 lg:px-20 xl:px-0 max-w-[1200px] mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

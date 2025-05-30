@@ -133,7 +133,6 @@ export default function Roadmap() {
       id="roadmap"
       className="text-white bg-[url('/new-milestonese.png')] bg-[#130F1F] bg-cover bg-no-repeat bg-center relative"
     >
-      <Image src="/features-blur.svg" height={100} width={100} alt="features-blur" className="absolute -top-30  w-full h-auto" />
       <div className="max-w-[1600px] mx-auto px-4 pt-10 lg:pt-20 xl:pt-10 pb-14">
         {/* Heading */}
         <div className="text-center z-30 relative">
@@ -150,8 +149,9 @@ export default function Roadmap() {
           </p>
         </div>
 
-        {/* Steps */}
-        <div className="mt-16 flex flex-col sm:flex-row justify-center items-center gap-y-12 gap-x-6 lg:gap-x-0">
+        {/* Desktop Steps */}
+        <div className="hidden mt-16 sm:flex flex-col sm:flex-row justify-center items-center gap-y-12 gap-x-6 lg:gap-x-0">
+
           {/* Step 1 */}
           <motion.div
             className="flex flex-col items-center justify-center text-center w-full xs:w-[80%] sm:w-[45%] md:w-[30%] lg:w-1/5"
@@ -191,7 +191,7 @@ export default function Roadmap() {
 
           {/* Step 3 */}
           <motion.div
-            className="flex flex-col items-center text-center w-full xs:w-[80%] sm:w-[45%] md:w-[30%] lg:w-1/5"
+            className="flex flex-col items-center text-center w-full xs:w-[80%] xl:mb-6 sm:w-[45%] md:w-[30%] lg:w-1/5"
             {...fadeUp}
             transition={{ delay: 0.2, duration: 0.5 }}
             viewport={{ once: true }}
@@ -223,9 +223,89 @@ export default function Roadmap() {
           </motion.div>
         </div>
 
+
+        {/* Mobile Steps */}
+        <div className="sm:hidden mt-16 flex flex-col sm:flex-row justify-center items-center gap-y-12 gap-x-6 lg:gap-x-0">
+
+          {/* Step 1 */}
+          <div className="flex justify-center gap-5 items-center">
+            <motion.div
+              className="flex flex-col items-center justify-center text-center w-full xs:w-[80%] sm:w-[45%] md:w-[30%] lg:w-1/5"
+              {...fadeUp}
+              viewport={{ once: true }}
+            >
+              <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src="/roadmap-1.svg" width={70} height={70} alt="roadmap-1" />
+              <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>Now</h4>
+              <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
+                Beta Launch & Community Growth
+              </p>
+            </motion.div>
+
+            {/* Line 1 */}
+            <div className="hidden sm:flex items-center justify-center w-[60px]">
+              <Image className="xl:w-[70px] xl:h-[250px] w-[50px]" src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
+            </div>
+
+            {/* Step 2 */}
+            <motion.div
+              className="flex flex-col items-center text-center w-full xs:w-[80%] sm:w-[45%] md:w-[30%] lg:w-1/5"
+              {...fadeUp}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <Image className="xl:w-[50px] w-[30px] lg:w-[40px]] 2xl:w-[70px]" src="/roadmap-2.svg" width={70} height={70} alt="roadmap-2" />
+              <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] mt-5`}>Next</h4>
+              <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
+                Play-to-Earn Rewards + NFT Sales
+              </p>
+            </motion.div>
+
+            {/* Line 2 */}
+            <div className="hidden sm:flex items-center justify-center w-[60px]">
+              <Image className="xl:w-[70px] xl:h-[250px] w-[50px]" src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
+            </div>
+          </div>
+
+          {/* Step 3 */}
+          <div className="flex justify-center items-center gap-5">
+            <motion.div
+              className="flex flex-col items-center text-center w-full xs:w-[80%] xl:mb-6 sm:w-[45%] md:w-[30%] lg:w-1/5"
+              {...fadeUp}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src="/roadmap-3.svg" width={70} height={70} alt="roadmap-3" />
+              <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>Soon</h4>
+              <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
+                Full ApeUp Ecosystem
+              </p>
+            </motion.div>
+
+            {/* Line 3 */}
+            <div className="hidden sm:flex items-center justify-center w-[60px]">
+              <Image className="xl:w-[70px] xl:h-[250px] w-[50px]" src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
+            </div>
+
+            {/* Step 4 */}
+            <motion.div
+              className="flex flex-col items-center text-center w-full xs:w-[80%] sm:w-[45%] md:w-[30%] lg:w-1/5"
+              {...fadeUp}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+
+              <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src="/roadmap-4.svg" width={70} height={70} alt="roadmap-4" />
+              <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>Future</h4>
+              <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
+                New Game Titles, Airdrops, Marketplace
+              </p>
+            </motion.div>
+          </div>
+        </div>
+
         {/* Milestones title */}
         <h2
-          className={`${zenDots.className} text-center text-[28px] lg:text-[35px] 2xl:text-[54px] leading-tight mt-20 sm:mt-24`}
+          className={`${zenDots.className} text-center text-[28px] lg:text-[35px] 2xl:text-[54px] leading-tight mt-20 sm:mt-28`}
           style={{
             textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
           }}
@@ -247,7 +327,7 @@ export default function Roadmap() {
               {milestonesLeft.map((item, idx) => (
                 <div
                   key={idx}
-                  className="w-full h-[80px] 2xl:h-[120px] custom-shadow relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-[24px] sm:rounded-[28px] 2xl:rounded-[39px] px-8 py-4 sm:py-6 flex items-center justify-start sm:justify-center md:justify-end lg:justify-center gap-3 sm:gap-4"
+                  className="w-full h-[80px] 2xl:h-[120px] custom-shadow relative bg-[url(/milestones-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-[24px] sm:rounded-[28px] 2xl:rounded-[39px] px-8 py-4 sm:py-6 flex items-center justify-start sm:justify-center md:justify-end lg:justify-center gap-3 sm:gap-4"
                 >
                   {idx !== milestonesLeft.length - 1 && (
                     <div className="absolute custom-blur -right-2 sm:-right-5 md:top-0 lg:top-0 xl:top-0 md:-left-7 xl:-left-8 2xl:-left-14 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[90px] sm:h-[80px] md:h-[80px] xl:h-[80px] 2xl:h-[121px] w-[90px] sm:w-[80px] md:w-[80px] xl:w-[80px] 2xl:w-[121px] rounded-full shadow-[0_4px_50px_#00000040]">

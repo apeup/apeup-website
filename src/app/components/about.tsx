@@ -170,8 +170,9 @@ export default function About() {
     // it is a  about section
     <section
       id="about"
-      className="bg-[url('/about-bg.png')] bg-cover bg-no-repeat py-10 px-4 sm:px-8 lg:px-0 md:px-12 2xl:px-0 relative"
+      className="bg-[url('/about-bg.png')] bg-cover bg-no-repeat py-10 px-4 sm:px-8 lg:px-0 md:px-12 xl:px-20 2xl:px-0 2xl:px-0 relative"
     >
+      <Image src="/blur.png" height={100} width={100} alt="blur" className="absolute -bottom-30 z-10 w-full h-[300px] left-0"/>
       <Image
         src="/features-purple.png"
         width={100}
@@ -201,7 +202,7 @@ export default function About() {
         alt="yellow"
       />
 
-      <div className="max-w-[1440px] 2xl:h-[70dvh] mx-auto flex md:mr-20 flex-col md:flex-row xl:px-20 xl:mr-0 2xl:mr-35 2xl:px-0 xl:gap-20 justify-center lg:gap-30 lg:mr-25 2xl:gap-0 items-center md:mt-10 gap-10">
+      <div className="max-w-[1440px] 2xl:h-[70dvh] mx-auto flex md:mr-20 flex-col md:flex-row xl:px-20 xl:mr-20 2xl:mr-35 2xl:px-0 xl:gap-20 justify-center lg:gap-30 lg:mr-25 2xl:gap-0 items-center md:mt-10 gap-10">
         <div className="flex-1 w-full max-w-lg lg:max-w-none">
           <div className="text-white text-center md:text-left max-w-[350px] lg:max-w-[500px] 2xl:max-w-[592px] mx-auto 2xl:mx-0">
             <motion.h2
@@ -297,7 +298,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           viewport={{ once: true, amount: 0.2 }}
-          className="flex flex-row items-center gap-4 flex-1 z-10 justify-center w-[50%] mx-auto md:max-w-[170px] xl:max-w-[400px] 2xl:max-w-none"
+          className="flex flex-row items-center gap-4 flex-1 z-10 justify-center w-[50%] mx-auto md:max-w-[170px] xl:max-w-[200px] 2xl:max-w-none"
         >
           <Image src="/lucky.png" width={250} height={250} alt="Lucky Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px] h-auto mt-20" />
           <Image src="/spin.png" width={180} height={180} alt="Spin Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px]" />
@@ -328,7 +329,7 @@ export default function About() {
               GameFlow Features
             </h2>
 
-            <div className="flex gap-3 items-center">
+            <div className="flex gap-3 items-center xl:pr-20">
               <button
                 onClick={() => handleChange(-1)}
                 disabled={animating}
