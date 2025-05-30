@@ -167,7 +167,7 @@ export default function Roadmap() {
 
           {/* Line 1 */}
           <div className="hidden md:flex items-center justify-center w-[60px]">
-            <Image src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
+            <Image className="xl:w-[70px] w-[50px]" src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
           </div>
 
           {/* Step 2 */}
@@ -186,7 +186,7 @@ export default function Roadmap() {
 
           {/* Line 2 */}
           <div className="hidden md:flex items-center justify-center w-[60px]">
-            <Image src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
+            <Image className="xl:w-[70px] w-[50px]" src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
           </div>
 
           {/* Step 3 */}
@@ -205,7 +205,7 @@ export default function Roadmap() {
 
           {/* Line 3 */}
           <div className="hidden md:flex items-center justify-center w-[60px]">
-            <Image src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
+            <Image className="xl:w-[70px] w-[50px]" src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
           </div>
 
           {/* Step 4 */}

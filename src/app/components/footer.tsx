@@ -42,14 +42,14 @@ export default function Footer() {
                 alt="Button"
                 width={18}
                 height={20}
-                className="absolute top-1 lg:w-[18px] lg:h-[20px] w-[15px] h-auto left-0"
+                className="absolute top-1 lg:w-[18px] lg:h-auto w-[15px] h-auto left-0"
               />
               <Image
                 src="/btn.png"
                 alt="Button"
                 width={18}
                 height={20}
-                className="absolute top-1 right-0 lg:w-[18px] lg:h-[20px] w-[15px] h-auto rotate-180"
+                className="absolute top-1 right-0 lg:w-[18px] lg:h-auto w-[15px] h-auto rotate-180"
               />
             </button>
           </div>

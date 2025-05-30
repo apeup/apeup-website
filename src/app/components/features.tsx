@@ -116,15 +116,15 @@ export default function Features() {
 
   return (
     <section
-      className="bg-[url('/features-bg.png')] bg-cover bg-no-repeat bg-center text-white relative overflow-hidden"
+      className="text-white relative overflow-hidden"
     >
-      <Image
+      {/* <Image
         src="/features-purple.png"
         width={100}
         height={100}
         alt="yellow"
         className="absolute z-10 -top-[220px] h-full w-[100px] sm:w-[350px] left-0"
-      />
+      /> */}
       <div className="px-4 sm:px-6 md:px-10 lg:px-16 py-16 ml-auto relative z-10">
         {/* Header and Buttons */}
         <div className="flex flex-col md:flex-row justify-between max-w-[1347px] mx-auto items-center gap-6">

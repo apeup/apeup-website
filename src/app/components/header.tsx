@@ -55,7 +55,7 @@ export default function Header() {
           <div className="flex-1 flex justify-end items-center space-x-8 sm:space-x-0">
             <div className="hidden sm:block">
               <button
-                className={`${inter.className} relative font-semibold text-[16px] text-black py-[5px] px-[25px] lg:py-[7px] lg:px-[35px] 2xl:py-[9.7px] 2xl:px-[46px] bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)]`}
+                className={`${inter.className} cursor-pointer relative font-semibold text-[16px] text-black py-[5px] px-[25px] lg:py-[7px] lg:px-[35px] 2xl:py-[9.7px] 2xl:px-[46px] bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)]`}
               >
                 Join Now
                 <Image
@@ -63,14 +63,14 @@ export default function Header() {
                   alt="Button"
                   width={18}
                   height={20}
-                  className="absolute top-1 lg:w-[18px] lg:h-[20px] w-[16px] h-[25px] left-0"
+                  className="absolute top-1 xl:w-[18px] lg:h-auto w-[16px] h-[25px] left-0"
                 />
                 <Image
                   src="/btn.png"
                   alt="Button"
                   width={18}
                   height={20}
-                  className="absolute top-1 right-0 lg:w-[18px] lg:h-[20px] w-[16px] h-[25px] rotate-180"
+                  className="absolute top-1 right-0 xl:w-[18px] lg:h-auto w-[16px] h-[25px] rotate-180"
                 />
               </button>{/* Mobile Menu Toggle */}
               <button
@@ -101,7 +101,7 @@ export default function Header() {
           </div>
 
           <button
-            className={`${inter.className} sm:hidden relative text-[16px] text-black px-4 py-2 bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)]`}
+            className={`${inter.className} cursor-pointer sm:hidden relative text-[16px] text-black px-4 py-2 bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)]`}
           >
             Join Now
             <Image
@@ -162,13 +162,13 @@ export default function Header() {
       </motion.header>
 
       {/* Hero Section */}
-      <section className="relative lg:mt-20 sm:mt-50 md:mt-10 sm:px-10 md:px-0 mt-20 xl:px-20 xl:mt-15 2xl:mt-50">
+      <section className="relative lg:mt-8 sm:mt-50 md:mt-10 sm:px-10 md:px-0 mt-20 xl:px-20 xl:mt-15 2xl:mt-50">
         <div className="relative z-20 flex flex-col justify-center text-center md:text-left mt-10 md:mt-0 items-center h-full text-white w-full px-4 sm:px-6 md:px-8 lg:px-20 xl:px-0 max-w-[1200px] mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="w-full max-w-[652px] md:max-w-[400px] lg:max-w-[652px] mr-auto"
+            className="w-full max-w-[652px] md:max-w-[400px] xl:max-w-[652px] mr-auto"
           >
             <h2
               className={`text-[32px] lg:text-[44px] xl:text-[54px] 2xl:text-[74px] font-semibold leading-[120%] mt-16 sm:mt-24 mb-4 sm:mb-4 text-white ${zenDots.className}`}
@@ -189,7 +189,7 @@ export default function Header() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.8, duration: 0.4 }}
-              className={`${inter.className} relative text-[14px] sm:text-[13px] font-semibold text-black py-[7px] px-[35px] 2xl:py-[9.7px] 2xl:px-[46px] bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)] mt-10`}
+              className={`${inter.className} cursor-pointer relative xl:text-[16px] sm:text-[13px] font-semibold text-black py-[7px] px-[35px] 2xl:py-[9.7px] 2xl:px-[46px] bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)] mt-10`}
             >
               Join Now
               <Image
@@ -197,14 +197,14 @@ export default function Header() {
                 alt="Button"
                 width={18}
                 height={20}
-                className="absolute top-1 left-0 w-[14px] lg:w-[18px]"
+                className="absolute top-1 left-0 w-[14px] xl:w-[18px]"
               />
               <Image
                 src="/btn.png"
                 alt="Button"
                 width={18}
                 height={20}
-                className="absolute top-1 right-0 rotate-180 w-[14px] lg:w-[18px]"
+                className="absolute top-1 right-0 rotate-180 w-[14px] xl:w-[18px]"
               />
             </motion.button>
           </motion.div>
