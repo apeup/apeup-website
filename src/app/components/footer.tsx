@@ -5,9 +5,9 @@ import { inter } from "../fonts";
 export default function Footer() {
   return (
     <footer id="socials" className="bg-[url('/footer-bg.png')] bg-cover bg-no-repeat bg-center xl:px-20 2xl:pt-20 pt-10 pb-5">
-      <div className="max-w-[1400px] mx-auto px-5">
+      <div className="">
         {/* Top row: nav, logo, button */}
-        <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-6 mb-11 md:gap-0">
+        <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-6 mb-11 md:gap-0 max-w-[1400px] mx-auto px-5">
           {/* Navigation Links */}
           <nav aria-label="Footer navigation" className="flex justify-center md:justify-start">
             <ul className="flex flex-col md:flex-row gap-4 text-white text-[12px] lg:text-[14px] xl:text-[16px] 2xl:text-[18px] font-medium text-center justify-center md:justify-start">
@@ -19,7 +19,7 @@ export default function Footer() {
           </nav>
 
           {/* Logo in the Center */}
-          <div className="flex justify-center max-w-inherit">
+          <div className="flex justify-center">
             <div className="xl:w-[180px] w-[120px] lg:w-[150px] 2xl:w-[222px] h-auto object-cover">
               <Image
                 src="/logo.svg"
@@ -58,7 +58,7 @@ export default function Footer() {
         {/* Footer line */}
         <div className="mt-8">
           <Image
-            className="w-full h-[1px] lg:h-[2px]"
+            className="w-full xl:w-[90%] mx-auto h-[1px] lg:h-[2px]"
             src="/footer-line.png"
             width={100}
             height={2}
@@ -68,7 +68,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom row */}
-        <div className="flex flex-col md:flex-row justify-between items-center mt-5 gap-4 md:gap-0">
+        <div className="flex flex-col md:flex-row justify-between items-center mt-5 gap-4 md:gap-0 max-w-[1400px] mx-auto px-5">
           <p className="text-white text-[12px] lg:text-[14px] 2xl:text-[18px] text-center md:text-left">
             © 2025 Ape Up. All rights reserved.
           </p>

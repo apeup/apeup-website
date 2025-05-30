@@ -2,6 +2,8 @@
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { zenDots } from "../fonts";
+import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
 import { inter } from "../fonts";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -44,6 +46,15 @@ export default function About() {
   const [startIndex, setStartIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
   const [xOffset, setXOffset] = useState(0);
+
+  const sliderRef = useRef(null);
+  const [sliderInstanceRef, slider] = useKeenSlider<HTMLDivElement>({
+    loop: true,
+    slides: {
+      perView: 2,
+      spacing: 59,
+    },
+  });
 
 
   const touchStartX = useRef<number | null>(null);
@@ -170,9 +181,9 @@ export default function About() {
     // it is a  about section
     <section
       id="about"
-      className="bg-[url('/about-bg.png')] bg-cover bg-no-repeat py-10 px-4 sm:px-8 lg:px-0 md:px-12 xl:px-20 2xl:px-0 2xl:px-0 relative"
+      className="bg-[url('/about-bg.png')] bg-cover bg-no-repeat py-10 px-4 sm:px-8 lg:px-0 md:px-12 xl:px-20 xl:pr-0 2xl:px-0 relative"
     >
-      <Image src="/blur.png" height={100} width={100} alt="blur" className="absolute -bottom-30 z-10 w-full h-[300px] left-0"/>
+      <Image src="/blur.png" height={100} width={100} alt="blur" className="absolute -bottom-30 z-10 w-full h-[300px] left-0" />
       <Image
         src="/features-purple.png"
         width={100}
@@ -239,7 +250,7 @@ export default function About() {
           </div>
 
           <div className="">
-            <div className="bg-[url(/about-banner.svg)] z-50 bg-cover bg-center bg-no-repeat rounded-3xl mt-8 lg:p-10 p-7 px-4 xl:p-10 2xl:p-15 relative overflow-visible max-w-[350px] lg:max-w-[500px] xl:max-w-[500px] 2xl:max-w-[779px] w-full h-full mx-auto 2xl:mx-0">
+            <div className="bg-[url(/about-banner.svg)] z-50 bg-cover bg-center bg-no-repeat rounded-3xl mt-8 lg:p-10 p-7 px-4 xl:p-10 2xl:p-14 relative overflow-visible max-w-[350px] lg:max-w-[500px] xl:max-w-[500px] 2xl:max-w-[779px] w-full h-full mx-auto 2xl:mx-0">
               <Image className="absolute z-10 top-0 right-0 lg:w-[150px] w-[120px]" src="/mask.png" width={150} height={100} alt="mask" />
               <Image className="absolute z-10 bottom-0 left-0 rotate-180 lg:w-[150px] w-[120px]" src="/mask.png" width={150} height={100} alt="mask" />
 
@@ -253,39 +264,41 @@ export default function About() {
                   exit={{ x: direction === 'right' ? -100 : 100, opacity: 0 }}
                   transition={{ duration: 0.4, ease: "easeInOut" }}
                 >
-                  {features.slice(index, index + 2).map((feature, i) => (
-                    <div
-                      key={i}
-                      className="flex flex-col items-start text-left w-[350px] sm:w-[280px] lg:w-[300px] pr-20 sm:pr-0"
-                    >
-                      <Image
-                        src={feature.icon}
-                        width={30}
-                        height={30}
-                        alt="Feature Icon"
-                        className="mb-2 w-[30px] lg:w-[37px]"
-                      />
-                      <h4
-                        className={`text-[18px] 2xl:text-[28px] font-semibold mb-1 ${zenDots.className} text-white`}
+                  <div ref={sliderInstanceRef} className="keen-slider">
+                    {features.map((feature, i) => (
+                      <div
+                        key={i}
+                        className="keen-slider__slide flex flex-col items-start text-left w-[350px] sm:w-[280px] lg:w-[300px] pr-20 sm:pr-0"
                       >
-                        {feature.title}
-                      </h4>
-                      <p
-                        className={`text-[12px] 2xl:text-[16px] text-white ${inter.className}`}
-                      >
-                        {feature.description}
-                      </p>
-                    </div>
-                  ))}
+                        <Image
+                          src={feature.icon}
+                          width={30}
+                          height={30}
+                          alt="Feature Icon"
+                          className="mb-2 w-[30px] lg:w-[37px]"
+                        />
+                        <h4
+                          className={`text-[18px] 2xl:text-[28px] font-semibold mb-1 ${zenDots.className} text-white`}
+                        >
+                          {feature.title}
+                        </h4>
+                        <p
+                          className={`text-[12px] 2xl:text-[16px] text-white ${inter.className}`}
+                        >
+                          {feature.description}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
                 </motion.div>
               </AnimatePresence>
 
 
               <div className="flex justify-center mt-8 gap-6 absolute -bottom-5 z-30 left-1/2 transform -translate-x-1/2">
-                <button onClick={prevSlide} className="bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full lg:h-[37px] lg:w-[37px] h-[30px] w-[30px] text-white" aria-label="Previous" style={{ boxShadow: 'inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)' }}>
+                <button onClick={() => slider.current?.prev()} className="bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full lg:h-[37px] lg:w-[37px] h-[30px] w-[30px] text-white" aria-label="Previous" style={{ boxShadow: 'inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)' }}>
                   ←
                 </button>
-                <button onClick={nextSlide} className="bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full lg:h-[37px] lg:w-[37px] h-[30px] w-[30px] text-white" aria-label="Next" style={{ boxShadow: 'inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)' }}>
+                <button onClick={() => slider.current?.next()} className="bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full lg:h-[37px] lg:w-[37px] h-[30px] w-[30px] text-white" aria-label="Next" style={{ boxShadow: 'inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)' }}>
                   →
                 </button>
               </div>
