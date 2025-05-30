@@ -242,11 +242,15 @@ export default function About() {
               <Image className="absolute z-10 top-0 right-0 lg:w-[150px] w-[120px]" src="/mask.png" width={150} height={100} alt="mask" />
               <Image className="absolute z-10 bottom-0 left-0 rotate-180 lg:w-[150px] w-[120px]" src="/mask.png" width={150} height={100} alt="mask" />
 
-              <AnimatePresence custom={direction} mode="popLayout">
+              <AnimatePresence custom={direction} mode="wait">
                 <motion.div
                   key={index}
                   custom={direction}
                   className="flex flex-col md:flex-row justify-between items-start gap-6"
+                  initial={{ x: direction === 'right' ? 100 : -100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: direction === 'right' ? -100 : 100, opacity: 0 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
                 >
                   {features.slice(index, index + 2).map((feature, i) => (
                     <div
@@ -274,6 +278,7 @@ export default function About() {
                   ))}
                 </motion.div>
               </AnimatePresence>
+
 
               <div className="flex justify-center mt-8 gap-6 absolute -bottom-5 z-30 left-1/2 transform -translate-x-1/2">
                 <button onClick={prevSlide} className="bg-[radial-gradient(circle,_#F5B201,_#F9C301)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFD93B,_#FFB800)] rounded-full lg:h-[37px] lg:w-[37px] h-[30px] w-[30px] text-white" aria-label="Previous" style={{ boxShadow: 'inset 0 -5px 0 rgba(250, 94, 7, 0.4), 0 4px 4px rgba(0, 0, 0, 0.25)' }}>
