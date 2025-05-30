@@ -15,7 +15,7 @@ export default function Home() {
       <About/>
       <Features/>
       <Roadmap/>
-      <Milestones/>
+      {/* <Milestones/> */}
       <Footer/>
     </div>
   );

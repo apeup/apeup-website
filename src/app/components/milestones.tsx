@@ -127,7 +127,7 @@ export default function Milestones() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[url('/milestones-bg.svg')] bg-[#130F1F] bg-cover bg-no-repeat bg-center pb-10 md:pb-20 xl:pb-15 2xl:pb-35 px-4 sm:px-10 lg:px-10 pt-10 sm:pt-0"
+      className="relative pb-10 md:pb-20 xl:pb-15 2xl:pb-35 px-4 sm:px-10 lg:px-10 pt-10 sm:pt-0"
     >
       <div className="max-w-[1200px] mx-auto space-y-10 sm:pt-5">
         <div className="flex flex-col md:flex-row justify-center w-[90%] md:w-full md:mx-auto ml-auto items-center md:items-start gap-6 lg:gap-12 relative">
