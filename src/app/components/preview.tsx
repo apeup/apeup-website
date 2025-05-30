@@ -106,8 +106,8 @@ export default function Preview() {
               alt="mask"
             />
             <Image
-              className="absolute z-10 bottom-0 left-0 max-w-[204px] rotate-180 w-32 lg:w-40 xl:w-full"
-              src="/mask.svg"
+              className="absolute z-10 bottom-0 left-0 max-w-[204px] w-32 lg:w-40 xl:w-full"
+              src="/bottom-mask.svg"
               width={120}
               height={80}
               alt="mask"
