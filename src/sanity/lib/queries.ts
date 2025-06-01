@@ -1,0 +1,144 @@
+export function getHomeData() {
+    return `*[_type == "homepage"][0]{
+  logo {
+    asset->{
+      url
+    }
+  },
+  link1,
+  link2,
+  link3,
+  link4,
+  href1,
+  href2,
+  href3,
+  href4,
+  buttonText,
+  heroTitle,
+  heroSubTitle
+}
+`
+}
+
+export function getPreviewData() {
+    return `*[_type == "preview"][0] {
+  point1,
+  point2,
+  point3,
+  point4,
+  point5,
+  Title,
+  "videoUrl": video.asset->url
+}
+
+`
+}
+export function getAboutData() {
+    return `*[_type == "sectionFeaturesWithIcons"][0] {
+  title,
+  title2,
+  description1,
+  description2,
+  lucky {
+    asset->{
+      _id,
+      url
+    }
+  },
+  spin {
+    asset->{
+      _id,
+      url
+    }
+  },
+  image1 { asset->{_id, url} },
+  image2 { asset->{_id, url} },
+  image3 { asset->{_id, url} },
+  image4 { asset->{_id, url} },
+  image5 { asset->{_id, url} },
+  image6 { asset->{_id, url} },
+
+  icon1 { asset->{_id, url} },
+  iconTitle1,
+  iconDescription1,
+
+  icon2 { asset->{_id, url} },
+  iconTitle2,
+  iconDescription2,
+
+  icon3 { asset->{_id, url} },
+  iconTitle3,
+  iconDescription3,
+
+  icon4 { asset->{_id, url} },
+  iconTitle4,
+  iconDescription4
+}
+`;
+
+}
+export function getRoadmapData() {
+    return `*[_type == "roadmap"][0]{
+  title1,
+  title2,
+  subtitle,
+  
+  // Icons
+  "icon1": icon1.asset->url,
+  iconTitle1,
+  iconSubtitle1,
+
+  "icon2": icon2.asset->url,
+  iconTitle2,
+  iconSubtitle2,
+
+  "icon3": icon3.asset->url,
+  iconTitle3,
+  iconSubtitle3,
+
+  "icon4": icon4.asset->url,
+  iconTitle4,
+  iconSubtitle4,
+
+  // Leagues
+  league1,
+  league2,
+  league3,
+  league4,
+  league5,
+  league6,
+  league7,
+  league8,
+  league9,
+
+  // MAUs
+  mau1,
+  mau2,
+  mau3,
+  mau4,
+  mau5,
+  mau6
+}
+
+`;
+
+}
+export function getFooterData() {
+    return `*[_type == "footerSection"][0] {
+  logo,
+  linkTitle1,
+  linkUrl1,
+  linkTitle2,
+  linkUrl2,
+  linkTitle3,
+  linkUrl3,
+  linkTitle4,
+  linkUrl4,
+  buttonText,
+  copyright
+}
+
+
+`;
+
+}

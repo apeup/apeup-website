@@ -4,6 +4,7 @@ import { client } from '@/sanity/lib/client';
 import Image from "next/image";
 import { zenDots } from "../fonts";
 import { motion } from "framer-motion";
+import { getPreviewData } from "@/sanity/lib/queries";
 
 // DashedLine remains unchanged
 function DashedLine({ index }: { index: number }) {
@@ -17,22 +18,31 @@ function DashedLine({ index }: { index: number }) {
   return <div className={`border-l border-dashed border-white ${classes} mt-[-4px]`} />;
 }
 
-export default function Preview() {
-  const points = [
-    "A daily&weekly leaderboards Where you Compete on the global",
-    "Gym mining area",
-    "Spin wheel",
-    "Slot machine",
-    "Mini Airdrops the higher your rank, the bigger payout",
-  ];
+type PreviewData = {
+  Title: string;
+  videoUrl?: string;
+  point1?: string;
+  point2?: string;
+  point3?: string;
+  point4?: string;
+  point5?: string;
+};
 
-  const [videoUrl, setVideoUrl] = useState<string | null>(null);
+export default function Preview() {
+  const [preview, setPreview] = useState<PreviewData | null>(null);
 
   useEffect(() => {
-    client
-      .fetch(`*[_type == "video"][0]{"videoUrl": videoFile.asset->url}`)
-      .then((data) => setVideoUrl(data.videoUrl));
+    client.fetch(getPreviewData()).then((data: PreviewData) => setPreview(data));
   }, []);
+  if (!preview) return <div>Loading ...</div>;
+
+  const points = [
+    preview.point1,
+    preview.point2,
+    preview.point3,
+    preview.point4,
+    preview.point5,
+  ];
 
   return (
     <section className="relative py-20 xl:pb-28 md:py-20 xl:px-20">
@@ -66,7 +76,7 @@ export default function Preview() {
           className={`text-[28px] lg:text-[35px] 2xl:text-[74px] font-semibold mb-8 text-center text-white ${zenDots.className}`}
           style={{ textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C" }}
         >
-          Immersive Game Preview:
+          {preview.Title}
         </motion.h2>
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-10 lg:mr-10 xl:mr-0">
@@ -78,9 +88,9 @@ export default function Preview() {
             viewport={{ once: true }}
             className="w-full xl:w-[80%] lg:w-[70%] sm:w-[70%] flex justify-center"
           >
-            {videoUrl && (
+            {preview.videoUrl && (
               <video
-                src={videoUrl}
+                src={preview.videoUrl}
                 autoPlay
                 muted
                 loop

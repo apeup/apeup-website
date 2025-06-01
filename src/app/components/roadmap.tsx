@@ -3,68 +3,11 @@ import Image from "next/image";
 import { inter, zenDots } from "../fonts";
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
+import { client } from "@/sanity/lib/client";
+import { getRoadmapData } from "@/sanity/lib/queries";
 
 
-const milestonesLeft = [
-  {
-    league: "League 1 -",
-    mau: "0.5M MAU",
-    icon: "/1.png",
-    size: "w-[40px] h-[85px] sm:w-[40px] sm:h-[90px] 2xl:w-[64px] 2xl:h-[137px]",
-  },
-  {
-    league: "League 3 -",
-    mau: "2M MAU",
-    icon: "/3.png",
-    size: "w-[56px] h-[96px] sm:w-[55px] sm:h-[100px] 2xl:w-[86px] 2xl:h-[149px]",
-  },
-  {
-    league: "League 5 -",
-    mau: "4M MAU",
-    icon: "/5.png",
-    size: "w-[60px] h-[100px] sm:w-[60px] sm:h-[105px] 2xl:w-[94px] 2xl:h-[152px]",
-  },
-  {
-    league: "Airdrop Phase",
-    mau: "",
-    icon: "/7.png",
-    size: "w-[60px] h-[100px] sm:w-[60px] sm:h-[105px] 2xl:w-[94px] 2xl:h-[152px]",
-  },
-  {
-    league: "NFT Marketplace & Staking Launch",
-    mau: "",
-    icon: "/nft.png",
-    size: "w-[44px] h-[70px] sm:w-[56px] sm:h-[92px] md:w-[70px] md:h-[115px]",
-  },
-];
 
-
-const milestonesRight = [
-  {
-    league: "League 2 -",
-    mau: "1M MAU",
-    icon: "/2.png",
-    size: "w-[40px] h-[85px] sm:w-[40px] sm:h-[90px] 2xl:w-[64px] 2xl:h-[135px]",
-  },
-  {
-    league: "League 4 -",
-    mau: "3M MAU",
-    icon: "/4.png",
-    size: "w-[56px] h-[85px] sm:w-[60px] sm:h-[90px] 2xl:w-[86px] 2xl:h-[126px]",
-  },
-  {
-    league: "League 6 -",
-    mau: "5M MAU",
-    icon: "/6.png",
-    size: "w-[52px] h-[80px] sm:w-[60px] sm:h-[85px] 2xl:w-[83px] 2xl:h-[125px]",
-  },
-  {
-    league: "Platform Listings (CEXs, DEXs)",
-    mau: "",
-    icon: "/8.png",
-    size: "w-[50px] h-[90px] sm:w-[55px] sm:h-[90px] 2xl:w-[79px] 2xl:h-[135px]",
-  },
-];
 
 const fadeUp = {
   initial: { opacity: 0, y: 50 },
@@ -76,6 +19,42 @@ export default function Roadmap() {
 
   const sectionRef = useRef<HTMLElement | null>(null);
   const [progress, setProgress] = useState(0); // 0 to 1 progress of scroll inside section
+  type RoadmapType = {
+    league1: string;
+    league2: string;
+    league3: string;
+    league4: string;
+    league5: string;
+    league6: string;
+    league7: string;
+    league8: string;
+    league9: string;
+    mau1: string;
+    mau2: string;
+    mau3: string;
+    mau4: string;
+    mau5: string;
+    mau6: string;
+    mau7: string;
+    mau8: string;
+    mau9: string;
+    icon1: string;
+    icon2: string;
+    icon3: string;
+    icon4: string;
+    iconTitle1: string;
+    iconTitle2: string;
+    iconTitle3: string;
+    iconTitle4: string;
+    iconSubtitle1: string;
+    iconSubtitle2: string;
+    iconSubtitle3: string;
+    iconSubtitle4: string;
+    title1: string;
+    title2: string;
+    subtitle: string;
+  };
+  const [roadmap, setRoadmap] = useState<RoadmapType | null>(null);
 
   const totalDots = 9;
   const ANIMATION_SPEED_FACTOR = 1.1; // Increase animation speed by 10%
@@ -128,6 +107,77 @@ export default function Roadmap() {
     const progressIndex = boostedProgress * totalDots;
     return index <= progressIndex;
   };
+
+
+
+  useEffect(() => {
+    const query = client.fetch(getRoadmapData())
+    query.then((data) => setRoadmap(data))
+  }, []);
+  if (!roadmap) return <div>Loading...</div>;
+
+
+
+  const milestonesLeft = [
+  {
+    league: roadmap.league1,
+    mau: roadmap.mau1,
+    icon: "/1.png",
+    size: "w-[40px] h-[85px] sm:w-[40px] sm:h-[90px] 2xl:w-[64px] 2xl:h-[137px]",
+  },
+  {
+    league: roadmap.league3,
+    mau: roadmap.mau3,
+    icon: "/3.png",
+    size: "w-[56px] h-[96px] sm:w-[55px] sm:h-[100px] 2xl:w-[86px] 2xl:h-[149px]",
+  },
+  {
+    league: roadmap.league5,
+    mau: roadmap.mau5,
+    icon: "/5.png",
+    size: "w-[60px] h-[100px] sm:w-[60px] sm:h-[105px] 2xl:w-[94px] 2xl:h-[152px]",
+  },
+  {
+    league: roadmap.league7,
+    mau: "",
+    icon: "/7.png",
+    size: "w-[60px] h-[100px] sm:w-[60px] sm:h-[105px] 2xl:w-[94px] 2xl:h-[152px]",
+  },
+  {
+    league: roadmap.league9,
+    mau: "",
+    icon: "/nft.png",
+    size: "w-[44px] h-[70px] sm:w-[56px] sm:h-[92px] md:w-[70px] md:h-[115px]",
+  },
+];
+
+
+const milestonesRight = [
+  {
+    league: roadmap.league2,
+    mau: roadmap.mau2,
+    icon: "/2.png",
+    size: "w-[40px] h-[85px] sm:w-[40px] sm:h-[90px] 2xl:w-[64px] 2xl:h-[135px]",
+  },
+  {
+    league: roadmap.league4,
+    mau: roadmap.mau4,
+    icon: "/4.png",
+    size: "w-[56px] h-[85px] sm:w-[60px] sm:h-[90px] 2xl:w-[86px] 2xl:h-[126px]",
+  },
+  {
+    league: roadmap.league6,
+    mau: roadmap.mau6,
+    icon: "/6.png",
+    size: "w-[52px] h-[80px] sm:w-[60px] sm:h-[85px] 2xl:w-[83px] 2xl:h-[125px]",
+  },
+  {
+    league: roadmap.league8,
+    mau: "",
+    icon: "/8.png",
+    size: "w-[50px] h-[90px] sm:w-[55px] sm:h-[90px] 2xl:w-[79px] 2xl:h-[135px]",
+  },
+];
   return (
     <section
       id="roadmap"
@@ -142,10 +192,10 @@ export default function Roadmap() {
               textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
             }}
           >
-            Roadmap
+            {roadmap.title1}
           </h2>
           <p className={`mt-2 text-[12px] lg:text-[14px] 2xl:text-lg ${inter.className}`}>
-            Gamified progress bar or milestone badges
+            {roadmap.subtitle}
           </p>
         </div>
 
@@ -158,10 +208,10 @@ export default function Roadmap() {
             {...fadeUp}
             viewport={{ once: true }}
           >
-            <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src="/roadmap-1.svg" width={70} height={70} alt="roadmap-1" />
-            <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>Now</h4>
+            <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={roadmap.icon1} width={70} height={70} alt="roadmap-1" />
+            <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap.iconTitle1}</h4>
             <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
-              Beta Launch & Community Growth
+              {roadmap.iconSubtitle1}
             </p>
           </motion.div>
 
@@ -177,10 +227,10 @@ export default function Roadmap() {
             transition={{ delay: 0.1, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Image className="xl:w-[50px] w-[30px] lg:w-[40px]] 2xl:w-[70px]" src="/roadmap-2.svg" width={70} height={70} alt="roadmap-2" />
-            <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] mt-5`}>Next</h4>
+            <Image className="xl:w-[50px] w-[30px] lg:w-[40px]] 2xl:w-[70px]" src={roadmap.icon2} width={70} height={70} alt="roadmap-2" />
+            <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] mt-5`}>{roadmap.iconTitle2}</h4>
             <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
-              Play-to-Earn Rewards + NFT Sales
+              {roadmap.iconSubtitle2}
             </p>
           </motion.div>
 
@@ -196,10 +246,10 @@ export default function Roadmap() {
             transition={{ delay: 0.2, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src="/roadmap-3.svg" width={70} height={70} alt="roadmap-3" />
-            <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>Soon</h4>
+            <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={roadmap.icon3} width={70} height={70} alt="roadmap-3" />
+            <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap.iconTitle3}</h4>
             <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
-              Full ApeUp Ecosystem
+              {roadmap.iconSubtitle3}
             </p>
           </motion.div>
 
@@ -215,10 +265,10 @@ export default function Roadmap() {
             transition={{ delay: 0.3, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src="/roadmap-4.svg" width={70} height={70} alt="roadmap-4" />
-            <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>Future</h4>
+            <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={roadmap.icon4} width={70} height={70} alt="roadmap-4" />
+            <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap.iconTitle4}</h4>
             <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
-              New Game Titles, Airdrops, Marketplace
+              {roadmap.iconSubtitle4}
             </p>
           </motion.div>
         </div>
@@ -234,10 +284,10 @@ export default function Roadmap() {
               {...fadeUp}
               viewport={{ once: true }}
             >
-              <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src="/roadmap-1.svg" width={70} height={70} alt="roadmap-1" />
-              <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>Now</h4>
+              <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={roadmap.icon1} width={70} height={70} alt="roadmap-1" />
+              <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap.iconTitle1}</h4>
               <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
-                Beta Launch & Community Growth
+                {roadmap.iconSubtitle1}
               </p>
             </motion.div>
 
@@ -253,10 +303,10 @@ export default function Roadmap() {
               transition={{ delay: 0.1, duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <Image className="xl:w-[50px] w-[30px] lg:w-[40px]] 2xl:w-[70px]" src="/roadmap-2.svg" width={70} height={70} alt="roadmap-2" />
-              <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] mt-5`}>Next</h4>
+              <Image className="xl:w-[50px] w-[30px] lg:w-[40px]] 2xl:w-[70px]" src={roadmap.icon2} width={70} height={70} alt="roadmap-2" />
+              <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] mt-5`}>{roadmap.iconTitle2}</h4>
               <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
-                Play-to-Earn Rewards + NFT Sales
+                {roadmap.iconSubtitle2}
               </p>
             </motion.div>
 
@@ -274,10 +324,10 @@ export default function Roadmap() {
               transition={{ delay: 0.2, duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src="/roadmap-3.svg" width={70} height={70} alt="roadmap-3" />
-              <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>Soon</h4>
+              <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={roadmap.icon3} width={70} height={70} alt="roadmap-3" />
+              <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap.iconTitle3}</h4>
               <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
-                Full ApeUp Ecosystem
+                {roadmap.iconSubtitle3}
               </p>
             </motion.div>
 
@@ -294,10 +344,10 @@ export default function Roadmap() {
               viewport={{ once: true }}
             >
 
-              <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src="/roadmap-4.svg" width={70} height={70} alt="roadmap-4" />
-              <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>Future</h4>
+              <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={roadmap.icon4} width={70} height={70} alt="roadmap-4" />
+              <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap.iconTitle4}</h4>
               <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
-                New Game Titles, Airdrops, Marketplace
+                {roadmap.iconSubtitle4}
               </p>
             </motion.div>
           </div>
@@ -310,7 +360,7 @@ export default function Roadmap() {
             textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
           }}
         >
-          League Milestones - MAU Unlocks
+          {roadmap.title2}
         </h2>
       </div>
 

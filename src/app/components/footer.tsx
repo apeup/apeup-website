@@ -1,8 +1,34 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import { inter } from "../fonts";
+import { useEffect, useState } from "react";
+import { client } from "@/sanity/lib/client";
+import { getFooterData } from "@/sanity/lib/queries";
+import { urlFor } from "@/sanity/lib/image";
+
+type FooterData = {
+  logo: string;
+  linkUrl1: string;
+  linkTitle1: string;
+  linkUrl2: string;
+  linkTitle2: string;
+  linkUrl3: string;
+  linkTitle3: string;
+  linkUrl4: string;
+  linkTitle4: string;
+  buttonText: string;
+  copyright: string;
+};
 
 export default function Footer() {
+  const [footer, setFooter] = useState<FooterData | null>(null);
+
+  useEffect(() => {
+    const query = client.fetch(getFooterData())
+    query.then((data) => setFooter(data))
+  }, []);
+  if (!footer) return <div>Loading...</div>;
   return (
     <footer id="socials" className="bg-[url('/footer-bg.png')] bg-cover bg-no-repeat bg-center xl:px-20 2xl:pt-20 pt-10 pb-5">
       <div className="">
@@ -11,10 +37,10 @@ export default function Footer() {
           {/* Navigation Links */}
           <nav aria-label="Footer navigation" className="flex justify-center md:justify-start">
             <ul className="flex flex-col md:flex-row gap-4 text-white text-[12px] lg:text-[14px] xl:text-[16px] 2xl:text-[18px] font-medium text-center justify-center md:justify-start">
-              <li><Link className="hover:text-[#F8B947]" href="/#home">Home</Link></li>
-              <li><Link className="hover:text-[#F8B947]" href="/#about">About</Link></li>
-              <li><Link className="hover:text-[#F8B947]" href="/#roadmap">Roadmap</Link></li>
-              <li><Link className="hover:text-[#F8B947]" href="/#socials">Socials</Link></li>
+              <li><Link className="hover:text-[#F8B947]" href={footer.linkUrl1}>{footer.linkTitle1}</Link></li>
+              <li><Link className="hover:text-[#F8B947]" href={footer.linkUrl2}>{footer.linkTitle2}</Link></li>
+              <li><Link className="hover:text-[#F8B947]" href={footer.linkUrl3}>{footer.linkTitle3}</Link></li>
+              <li><Link className="hover:text-[#F8B947]" href={footer.linkUrl4}>{footer.linkTitle4}</Link></li>
             </ul>
           </nav>
 
@@ -22,7 +48,7 @@ export default function Footer() {
           <div className="flex justify-center">
             <div className="xl:w-[180px] w-[120px] lg:w-[150px] 2xl:w-[222px] h-auto object-cover">
               <Image
-                src="/logo.svg"
+                src={urlFor(footer.logo).url()}
                 width={222}
                 height={150}
                 alt="Logo"
@@ -36,7 +62,7 @@ export default function Footer() {
             <button
               className={`${inter.className} relative font-semibold text-[12px] lg:text-[14px] 2xl:text-[16px] text-black lg:py-[9.7px] lg:px-[35px] py-[8px] px-[28px] bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)]`}
             >
-              Join the ApeUp
+              {footer.buttonText}
               <Image
                 src="/btn.png"
                 alt="Button"
@@ -70,7 +96,7 @@ export default function Footer() {
         {/* Bottom row */}
         <div className="flex flex-col md:flex-row justify-between items-center mt-5 gap-4 md:gap-0 max-w-[1400px] mx-auto px-5">
           <p className="text-white text-[12px] lg:text-[14px] 2xl:text-[18px] text-center md:text-left">
-            © 2025 Ape Up. All rights reserved.
+            {footer.copyright}
           </p>
           <div className="flex justify-center space-x-4">
             {[...Array(4)].map((_, i) => (

@@ -1,15 +1,38 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { inter, zenDots } from "../fonts";
+import { client } from "@/sanity/lib/client";
+import { getHomeData } from "@/sanity/lib/queries";
+
+type HomeData = {
+  logo: { asset: { url: string } };
+  link1: string;
+  link2: string;
+  link3: string;
+  link4: string;
+  href1: string;
+  href2: string;
+  href3: string;
+  href4: string;
+  buttonText: string;
+  heroTitle: string;
+  heroSubTitle: string;
+};
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [home , setHome] = useState<HomeData | null>(null);
 
+  useEffect(() => {
+    const query = client.fetch(getHomeData())
+    query.then((data) => setHome(data))
+  }, []);
+  if (!home) return <div>Loading...</div>;
   return (
     <div className="bg-[url('/banner-bg.png')] bg-cover bg-[position:75%_center] py-1 h-[500px] sm:h-[105dvh] w-full">
       <motion.header
@@ -23,7 +46,7 @@ export default function Header() {
           <div className="flex-1 md:max-w-[100px] lg:max-w-[110px] 2xl:max-w-[138px]">
             <Link href="/#home">
               <Image
-                src="/logo.svg"
+                src={home.logo.asset.url}
                 alt="Logo"
                 width={138}
                 height={0}
@@ -37,17 +60,17 @@ export default function Header() {
           <nav
             className={`hidden sm:flex absolute left-1/2 -translate-x-1/2 space-x-6 md:space-x-8 md:text-[11px] lg:text-[12px] xl:text-[14px] 2xl:text-[16px] font-medium ${inter.className}`}
           >
-            <Link className="hover:text-[#F8B947]" href="/#home">
-              Home
+            <Link className="hover:text-[#F8B947]" href={home.href1}>
+              {home.link1}
             </Link>
-            <Link className="hover:text-[#F8B947]" href="/#about">
-              About
+            <Link className="hover:text-[#F8B947]" href={home.href2}>
+              {home.link2}
             </Link>
-            <Link className="hover:text-[#F8B947]" href="/#roadmap">
-              Roadmap
+            <Link className="hover:text-[#F8B947]" href={home.href3}>
+              {home.link3}
             </Link>
-            <Link className="hover:text-[#F8B947]" href="/#socials">
-              Socials
+            <Link className="hover:text-[#F8B947]" href={home.href4}>
+              {home.link4}
             </Link>
           </nav>
 
@@ -57,7 +80,7 @@ export default function Header() {
               <button
                 className={`${inter.className} cursor-pointer relative font-semibold text-[14px] xl:text-[16px] text-black py-[5px] px-[25px] lg:py-[7px] lg:px-[35px] 2xl:py-[9.7px] 2xl:px-[46px] bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)]`}
               >
-                Join Now
+                {home.buttonText}
                 <Image
                   src="/btn.png"
                   alt="Button"
@@ -103,7 +126,7 @@ export default function Header() {
           <button
             className={`${inter.className} cursor-pointer sm:hidden relative text-[16px] text-black px-4 py-2 bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)]`}
           >
-            Join Now
+            {home.buttonText}
             <Image
               src="/btn.png"
               alt="Button"
@@ -136,10 +159,10 @@ export default function Header() {
                 className="absolute top-full left-1/2 -translate-x-1/2 sm:hidden mt-3 w-11/12 max-w-xs bg-black/80 border border-white/10 backdrop-blur-md rounded-xl px-6 py-5 text-white text-left text-sm space-y-4 shadow-lg z-40"
               >
                 {[
-                  { label: "Home", href: "/#home" },
-                  { label: "About", href: "/#about" },
-                  { label: "Roadmap", href: "/#roadmap" },
-                  { label: "Socials", href: "/#socials" },
+                  { label: home.link1, href: home.href1 },
+                  { label: home.link2, href: home.href2 },
+                  { label: home.link3, href: home.href3 },
+                  { label: home.link4, href: home.href4 },
                 ].map((item, index) => (
                   <div key={item.href}>
                     <Link
@@ -176,13 +199,13 @@ export default function Header() {
                 textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
               }}
             >
-              ApeUp - Play & Earn Game
+              {home.heroTitle}
             </h2>
 
             <h4
               className={`${inter.className} font-medium text-[18px] sm:text-[18px] xl:text-[24px] 2xl:text-[28px] mt-1`}
             >
-              Jump. Tilt. Train. Earn.
+              {home.heroSubTitle}
             </h4>
 
             <motion.button
@@ -191,7 +214,7 @@ export default function Header() {
               transition={{ delay: 0.8, duration: 0.4 }}
               className={`${inter.className} cursor-pointer relative xl:text-[16px] sm:text-[13px] font-semibold text-black py-[7px] px-[35px] 2xl:py-[9.7px] 2xl:px-[46px] bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)] mt-10`}
             >
-              Join Now
+              {home.buttonText}
               <Image
                 src="/btn.png"
                 alt="Button"

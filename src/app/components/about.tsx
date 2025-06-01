@@ -5,39 +5,13 @@ import { zenDots } from "../fonts";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import { inter } from "../fonts";
-import { motion} from "framer-motion";
+import { motion } from "framer-motion";
+import { getAboutData } from "@/sanity/lib/queries";
+import { client } from "@/sanity/lib/client";
 
-const featureImages = [
-  "/feature-1.png",
-  "/feature-2.png",
-  "/feature-3.png",
-  "/feature-4.png",
-  "/feature-5.png",
-  "/feature-6.png",
-];
 
-const features = [
-  {
-    title: "Community-first",
-    description: "Players vote, shape development, and drive the ecosystem forward.",
-    icon: "/community.svg",
-  },
-  {
-    title: "Profit-sharing",
-    description: "Most of the profits are funneled back into the community through leagues, events, and ongoing development.",
-    icon: "/profit.svg",
-  },
-  {
-    title: "Player Driven",
-    description: "Built by players, for players. Every decision is community-powered.",
-    icon: "/community.svg",
-  },
-  {
-    title: "Cross-Platform",
-    description: "Play seamlessly across mobile and future desktop support.",
-    icon: "/profit.svg",
-  },
-];
+
+
 
 export default function About() {
   // const [index, setIndex] = useState(0);
@@ -46,6 +20,34 @@ export default function About() {
   const [startIndex, setStartIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
   const [xOffset, setXOffset] = useState(0);
+  type AboutData = {
+    title: string;
+    description1: string;
+    description2: string;
+    title2: string;
+    iconTitle1: string;
+    iconDescription1: string;
+    icon1: { asset: { url: string } };
+    iconTitle2: string;
+    iconDescription2: string;
+    icon2: { asset: { url: string } };
+    iconTitle3: string;
+    iconDescription3: string;
+    icon3: { asset: { url: string } };
+    iconTitle4: string;
+    iconDescription4: string;
+    icon4: { asset: { url: string } };
+    lucky: { asset: { url: string } };
+    spin: { asset: { url: string } };
+    image1: { asset: { url: string } };
+    image2: { asset: { url: string } };
+    image3: { asset: { url: string } };
+    image4: { asset: { url: string } };
+    image5: { asset: { url: string } };
+    image6: { asset: { url: string } };
+  };
+  const [about, setAbout] = useState<AboutData | null>(null);
+
 
   // const sliderRef = useRef(null);
   const [sliderInstanceRef, slider] = useKeenSlider<HTMLDivElement>({
@@ -78,6 +80,45 @@ export default function About() {
   }, []);
 
   const slideWidth = 386 + 32;
+
+
+  useEffect(() => {
+    const query = client.fetch(getAboutData())
+    query.then((data) => setAbout(data))
+  }, []);
+  if (!about) return <div>Loading...</div>;
+
+
+  const features = [
+    {
+      title: about.iconTitle1,
+      description: about.iconDescription1,
+      icon: about.icon1.asset.url,
+    },
+    {
+      title: about.iconTitle2,
+      description: about.iconDescription2,
+      icon: about.icon2.asset.url,
+    },
+    {
+      title: about.iconTitle3,
+      description: about.iconDescription3,
+      icon: about.icon3.asset.url,
+    },
+    {
+      title: about.iconTitle4,
+      description: about.iconDescription4,
+      icon: about.icon4.asset.url,
+    },
+  ];
+  const featureImages = [
+    about.image1.asset.url,
+    about.image2.asset.url,
+    about.image3.asset.url,
+    about.image4.asset.url,
+    about.image5.asset.url,
+    about.image6.asset.url,
+  ];
 
   const visibleSlides = [];
   for (let i = 0; i < visibleCount; i++) {
@@ -176,6 +217,13 @@ export default function About() {
   //   }),
   // };
 
+
+
+
+
+
+
+
   return (
 
     // it is a  about section
@@ -224,7 +272,7 @@ export default function About() {
               className={`text-[28px] lg:text-[35px] 2xl:text-[54px] ${zenDots.className}`}
               style={{ textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C" }}
             >
-              About the Game
+              {about.title}
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, x: -80 }}
@@ -233,8 +281,7 @@ export default function About() {
               viewport={{ once: true, amount: 0.2 }}
               className={`2xl:text-[18px] lg:text-[12px] text-[12px] md:font-medium ${inter.className} mt-4`}
             >
-              ApeUp is a community-driven Play & Earn mobile game where you
-              control your Ape to jump, train and mine real crypto rewards.
+              {about.description1}
             </motion.p>
             <motion.p
               initial={{ opacity: 0, x: -80 }}
@@ -243,9 +290,7 @@ export default function About() {
               viewport={{ once: true, amount: 0.2 }}
               className={`2xl:text-[18px] lg:text-[12px] text-[12px] md:font-medium mt-5 ${inter.className}`}
             >
-              We built ApeUp to ApeUp the industry — pushing beyond the limited
-              experiences of previous Telegram mini-apps. This game was created
-              by players, for players.
+              {about.description2}
             </motion.p>
           </div>
 
@@ -254,35 +299,35 @@ export default function About() {
               <Image className="absolute z-10 top-0 right-0 lg:w-[150px] w-[120px]" src="/mask.png" width={150} height={100} alt="mask" />
               <Image className="absolute z-10 bottom-0 left-0 rotate-180 lg:w-[150px] w-[120px]" src="/mask.png" width={150} height={100} alt="mask" />
 
-                <div
-                >
-                  <div ref={sliderInstanceRef} className="keen-slider">
-                    {features.map((feature, i) => (
-                      <div
-                        key={i}
-                        className="keen-slider__slide flex flex-col items-start text-left w-[350px] sm:w-[280px] lg:w-[300px] pr-20 sm:pr-0"
+              <div
+              >
+                <div ref={sliderInstanceRef} className="keen-slider">
+                  {features.map((feature, i) => (
+                    <div
+                      key={i}
+                      className="keen-slider__slide flex flex-col items-start text-left w-[350px] sm:w-[280px] lg:w-[300px] pr-20 sm:pr-0"
+                    >
+                      <Image
+                        src={feature.icon}
+                        width={30}
+                        height={30}
+                        alt="Feature Icon"
+                        className="mb-2 w-[30px] lg:w-[37px]"
+                      />
+                      <h4
+                        className={`text-[18px] 2xl:text-[28px] font-semibold mb-1 ${zenDots.className} text-white`}
                       >
-                        <Image
-                          src={feature.icon}
-                          width={30}
-                          height={30}
-                          alt="Feature Icon"
-                          className="mb-2 w-[30px] lg:w-[37px]"
-                        />
-                        <h4
-                          className={`text-[18px] 2xl:text-[28px] font-semibold mb-1 ${zenDots.className} text-white`}
-                        >
-                          {feature.title}
-                        </h4>
-                        <p
-                          className={`text-[12px] 2xl:text-[16px] text-white ${inter.className}`}
-                        >
-                          {feature.description}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
+                        {feature.title}
+                      </h4>
+                      <p
+                        className={`text-[12px] 2xl:text-[16px] text-white ${inter.className}`}
+                      >
+                        {feature.description}
+                      </p>
+                    </div>
+                  ))}
                 </div>
+              </div>
 
 
 
@@ -305,8 +350,8 @@ export default function About() {
           viewport={{ once: true, amount: 0.2 }}
           className="flex flex-row items-center gap-4 flex-1 z-10 justify-center w-[50%] mx-auto md:max-w-[170px] xl:max-w-[200px] 2xl:max-w-none"
         >
-          <Image src="/lucky.png" width={250} height={250} alt="Lucky Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px] h-auto mt-20" />
-          <Image src="/spin.png" width={180} height={180} alt="Spin Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px]" />
+          <Image src={about.lucky.asset.url} width={250} height={250} alt="Lucky Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px] h-auto mt-20" />
+          <Image src={about.spin.asset.url} width={180} height={180} alt="Spin Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px]" />
         </motion.div>
       </div>
 
@@ -331,7 +376,7 @@ export default function About() {
                 textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
               }}
             >
-              GameFlow Features
+              {about.title2}
             </h2>
 
             <div className="flex gap-3 items-center xl:pr-20">
