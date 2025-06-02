@@ -28,7 +28,7 @@ export default function Footer() {
     const query = client.fetch(getFooterData())
     query.then((data) => setFooter(data))
   }, []);
-  if (!footer) return <div>Loading...</div>;
+  if (!footer) return null;
   return (
     <footer id="socials" className="bg-[url('/footer-bg.png')] bg-cover bg-no-repeat bg-center xl:px-20 2xl:pt-20 pt-10 pb-5">
       <div className="">

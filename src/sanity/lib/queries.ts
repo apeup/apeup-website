@@ -1,5 +1,5 @@
 export function getHomeData() {
-    return `*[_type == "homepage"][0]{
+  return `*[_type == "homepage"][0]{
   logo {
     asset->{
       url
@@ -21,7 +21,7 @@ export function getHomeData() {
 }
 
 export function getPreviewData() {
-    return `*[_type == "preview"][0] {
+  return `*[_type == "preview"][0] {
   point1,
   point2,
   point3,
@@ -34,97 +34,91 @@ export function getPreviewData() {
 `
 }
 export function getAboutData() {
-    return `*[_type == "sectionFeaturesWithIcons"][0] {
+  return `*[_type == "sectionFeaturesWithIcons"][0] {
   title,
   title2,
   description1,
   description2,
-  lucky {
+  images[]{
     asset->{
       _id,
       url
     }
   },
-  spin {
+  icon1{
     asset->{
       _id,
       url
     }
   },
-  image1 { asset->{_id, url} },
-  image2 { asset->{_id, url} },
-  image3 { asset->{_id, url} },
-  image4 { asset->{_id, url} },
-  image5 { asset->{_id, url} },
-  image6 { asset->{_id, url} },
-
-  icon1 { asset->{_id, url} },
   iconTitle1,
   iconDescription1,
-
-  icon2 { asset->{_id, url} },
+  icon2{
+    asset->{
+      _id,
+      url
+    }
+  },
   iconTitle2,
   iconDescription2,
-
-  icon3 { asset->{_id, url} },
+  icon3{
+    asset->{
+      _id,
+      url
+    }
+  },
   iconTitle3,
   iconDescription3,
-
-  icon4 { asset->{_id, url} },
+  icon4{
+    asset->{
+      _id,
+      url
+    }
+  },
   iconTitle4,
   iconDescription4
 }
+
 `;
 
 }
 export function getRoadmapData() {
-    return `*[_type == "roadmap"][0]{
+  return `*[_type == "roadmap"]{
+  _id,
   title1,
   title2,
   subtitle,
   
-  // Icons
-  "icon1": icon1.asset->url,
-  iconTitle1,
-  iconSubtitle1,
-
-  "icon2": icon2.asset->url,
-  iconTitle2,
-  iconSubtitle2,
-
-  "icon3": icon3.asset->url,
-  iconTitle3,
-  iconSubtitle3,
-
-  "icon4": icon4.asset->url,
-  iconTitle4,
-  iconSubtitle4,
-
+  // Icons with titles and subtitles
+  icon1{asset->{url}}, iconTitle1, iconSubtitle1,
+  icon2{asset->{url}}, iconTitle2, iconSubtitle2,
+  icon3{asset->{url}}, iconTitle3, iconSubtitle3,
+  icon4{asset->{url}}, iconTitle4, iconSubtitle4,
+  
   // Leagues
-  league1,
-  league2,
-  league3,
-  league4,
-  league5,
-  league6,
-  league7,
-  league8,
-  league9,
-
+  league1, league2, league3, league4, league5, league6, league7, league8, league9,
+  
   // MAUs
-  mau1,
-  mau2,
-  mau3,
-  mau4,
-  mau5,
-  mau6
+  mau1, mau2, mau3, mau4, mau5, mau6,
+  
+  // Images with alt texts
+  image1{asset->{url}, alt},
+  image2{asset->{url}, alt},
+  image3{asset->{url}, alt},
+  image4{asset->{url}, alt},
+  image5{asset->{url}, alt},
+  image6{asset->{url}, alt},
+  image7{asset->{url}, alt},
+  image8{asset->{url}, alt}
 }
+
+
 
 `;
 
 }
 export function getFooterData() {
-    return `*[_type == "footerSection"][0] {
+  return `*[_type == "footerSection"][0] {
   logo,
   linkTitle1,
   linkUrl1,

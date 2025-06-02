@@ -29,57 +29,13 @@ export default defineType({
       type: 'text',
     }),
 
-    // Images from both schemas
     defineField({
-      name: 'lucky',
-      title: 'Lucky',
-      type: 'image',
-      options: { hotspot: true },
+      name: 'images',
+      title: 'Images',
+      type: 'array',
+      of: [{ type: 'image', options: { hotspot: true } }],
     }),
-    // Images from both schemas
-    defineField({
-      name: 'spin',
-      title: 'Spin',
-      type: 'image',
-      options: { hotspot: true },
-    }),
-    // Images from both schemas
-    defineField({
-      name: 'image1',
-      title: 'Image 1',
-      type: 'image',
-      options: { hotspot: true },
-    }),
-    defineField({
-      name: 'image2',
-      title: 'Image 2',
-      type: 'image',
-      options: { hotspot: true },
-    }),
-    defineField({
-      name: 'image3',
-      title: 'Image 3',
-      type: 'image',
-      options: { hotspot: true },
-    }),
-    defineField({
-      name: 'image4',
-      title: 'Image 4',
-      type: 'image',
-      options: { hotspot: true },
-    }),
-    defineField({
-      name: 'image5',
-      title: 'Image 5',
-      type: 'image',
-      options: { hotspot: true },
-    }),
-    defineField({
-      name: 'image6',
-      title: 'Image 6',
-      type: 'image',
-      options: { hotspot: true },
-    }),
+
 
     // Icon + Title + Description 1
     defineField({

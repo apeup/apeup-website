@@ -20,7 +20,7 @@ export default function About() {
   const [startIndex, setStartIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
   const [xOffset, setXOffset] = useState(0);
-  type AboutData = {
+  type AboutType = {
     title: string;
     description1: string;
     description2: string;
@@ -37,16 +37,10 @@ export default function About() {
     iconTitle4: string;
     iconDescription4: string;
     icon4: { asset: { url: string } };
-    lucky: { asset: { url: string } };
-    spin: { asset: { url: string } };
-    image1: { asset: { url: string } };
-    image2: { asset: { url: string } };
-    image3: { asset: { url: string } };
-    image4: { asset: { url: string } };
-    image5: { asset: { url: string } };
-    image6: { asset: { url: string } };
+    images: { asset: { url: string } }[];
   };
-  const [about, setAbout] = useState<AboutData | null>(null);
+
+  const [about, setAbout] = useState<AboutType | null>(null);
 
 
   // const sliderRef = useRef(null);
@@ -57,6 +51,8 @@ export default function About() {
       spacing: 59,
     },
   });
+
+  
 
 
   const touchStartX = useRef<number | null>(null);
@@ -86,7 +82,7 @@ export default function About() {
     const query = client.fetch(getAboutData())
     query.then((data) => setAbout(data))
   }, []);
-  if (!about) return <div>Loading...</div>;
+  if (!about) return null
 
 
   const features = [
@@ -111,14 +107,10 @@ export default function About() {
       icon: about.icon4.asset.url,
     },
   ];
-  const featureImages = [
-    about.image1.asset.url,
-    about.image2.asset.url,
-    about.image3.asset.url,
-    about.image4.asset.url,
-    about.image5.asset.url,
-    about.image6.asset.url,
-  ];
+const featureImages = about.images.map((image: { asset: { url: string } }) => image.asset.url);
+
+
+
 
   const visibleSlides = [];
   for (let i = 0; i < visibleCount; i++) {
@@ -350,8 +342,8 @@ export default function About() {
           viewport={{ once: true, amount: 0.2 }}
           className="flex flex-row items-center gap-4 flex-1 z-10 justify-center w-[50%] mx-auto md:max-w-[170px] xl:max-w-[200px] 2xl:max-w-none"
         >
-          <Image src={about.lucky.asset.url} width={250} height={250} alt="Lucky Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px] h-auto mt-20" />
-          <Image src={about.spin.asset.url} width={180} height={180} alt="Spin Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px]" />
+          <Image src="/lucky.png" width={250} height={250} alt="Lucky Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px] h-auto mt-20" />
+          <Image src="/spin.png" width={180} height={180} alt="Spin Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px]" />
         </motion.div>
       </div>
 
@@ -421,7 +413,7 @@ export default function About() {
                 transition: animating ? "transform 0.7s ease-in-out" : "none",
               }}
             >
-              {visibleSlides.map((img, i) => (
+              {visibleSlides.map((url:string, i:number) => (
                 <div
                   key={i}
                   className="
@@ -434,7 +426,7 @@ export default function About() {
                 >
                   <Image
                     className="rounded-xl object-cover w-full h-full"
-                    src={img}
+                    src={url}
                     width={600}
                     height={800}
                     alt={`feature ${i + 1}`}

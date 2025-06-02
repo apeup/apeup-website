@@ -34,7 +34,7 @@ export default function Preview() {
   useEffect(() => {
     client.fetch(getPreviewData()).then((data: PreviewData) => setPreview(data));
   }, []);
-  if (!preview) return <div>Loading ...</div>;
+  if (!preview) return null
 
   const points = [
     preview.point1,

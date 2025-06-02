@@ -105,6 +105,72 @@ export default defineType({
         defineField({ name: 'mau4', title: 'MAU 4', type: 'string' }),
         defineField({ name: 'mau5', title: 'MAU 5', type: 'string' }),
         defineField({ name: 'mau6', title: 'MAU 6', type: 'string' }),
+        {
+            name: "image1",
+            title: "Image 1",
+            type: "image",
+            options: {
+                hotspot: true, // allows cropping hotspot
+            },
+            fields: [
+                {
+                    name: "alt",
+                    title: "Alternative text",
+                    type: "string",
+                    description: "Important for SEO and accessibility",
+                    validation: Rule => Rule.required(),
+                },
+            ],
+        },
+        {
+            name: "image2",
+            title: "Image 2",
+            type: "image",
+            options: { hotspot: true },
+            fields: [{ name: "alt", title: "Alternative text", type: "string" }],
+        },
+        {
+            name: "image3",
+            title: "Image 3",
+            type: "image",
+            options: { hotspot: true },
+            fields: [{ name: "alt", title: "Alternative text", type: "string" }],
+        },
+        {
+            name: "image4",
+            title: "Image 4",
+            type: "image",
+            options: { hotspot: true },
+            fields: [{ name: "alt", title: "Alternative text", type: "string" }],
+        },
+        {
+            name: "image5",
+            title: "Image 5",
+            type: "image",
+            options: { hotspot: true },
+            fields: [{ name: "alt", title: "Alternative text", type: "string" }],
+        },
+        {
+            name: "image6",
+            title: "Image 6",
+            type: "image",
+            options: { hotspot: true },
+            fields: [{ name: "alt", title: "Alternative text", type: "string" }],
+        },
+        {
+            name: "image7",
+            title: "Image 7",
+            type: "image",
+            options: { hotspot: true },
+            fields: [{ name: "alt", title: "Alternative text", type: "string" }],
+        },
+        {
+            name: "image8",
+            title: "Image 8",
+            type: "image",
+            options: { hotspot: true },
+            fields: [{ name: "alt", title: "Alternative text", type: "string" }],
+        },
 
     ],
 })

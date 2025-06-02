@@ -19,7 +19,8 @@ export default function Roadmap() {
 
   const sectionRef = useRef<HTMLElement | null>(null);
   const [progress, setProgress] = useState(0); // 0 to 1 progress of scroll inside section
-  type RoadmapType = {
+
+  type RoadmapItem = {
     league1: string;
     league2: string;
     league3: string;
@@ -35,13 +36,22 @@ export default function Roadmap() {
     mau4: string;
     mau5: string;
     mau6: string;
-    mau7: string;
-    mau8: string;
-    mau9: string;
-    icon1: string;
-    icon2: string;
-    icon3: string;
-    icon4: string;
+    mau7?: string;
+    mau8?: string;
+    mau9?: string;
+    image1: { asset: { url: string } };
+    image2: { asset: { url: string } };
+    image3: { asset: { url: string } };
+    image4: { asset: { url: string } };
+    image5: { asset: { url: string } };
+    image6: { asset: { url: string } };
+    image7: { asset: { url: string } };
+    image8: { asset: { url: string } };
+    image9?: { asset: { url: string } };
+    icon1: { asset: { url: string } };
+    icon2: { asset: { url: string } };
+    icon3: { asset: { url: string } };
+    icon4: { asset: { url: string } };
     iconTitle1: string;
     iconTitle2: string;
     iconTitle3: string;
@@ -54,7 +64,7 @@ export default function Roadmap() {
     title2: string;
     subtitle: string;
   };
-  const [roadmap, setRoadmap] = useState<RoadmapType | null>(null);
+  const [roadmap, setRoadmap] = useState<RoadmapItem[] | null>(null);
 
   const totalDots = 9;
   const ANIMATION_SPEED_FACTOR = 1.1; // Increase animation speed by 10%
@@ -114,37 +124,37 @@ export default function Roadmap() {
     const query = client.fetch(getRoadmapData())
     query.then((data) => setRoadmap(data))
   }, []);
-  if (!roadmap) return <div>Loading...</div>;
+  if (!roadmap) return null
 
 
 
   const milestonesLeft = [
   {
-    league: roadmap.league1,
-    mau: roadmap.mau1,
-    icon: "/1.png",
+    league: roadmap[0].league1,
+    mau: roadmap[0].mau1,
+    icon: roadmap[0].image1.asset.url,
     size: "w-[40px] h-[85px] sm:w-[40px] sm:h-[90px] 2xl:w-[64px] 2xl:h-[137px]",
   },
   {
-    league: roadmap.league3,
-    mau: roadmap.mau3,
-    icon: "/3.png",
+    league: roadmap[0].league3,
+    mau: roadmap[0].mau3,
+    icon: roadmap[0].image3.asset.url,
     size: "w-[56px] h-[96px] sm:w-[55px] sm:h-[100px] 2xl:w-[86px] 2xl:h-[149px]",
   },
   {
-    league: roadmap.league5,
-    mau: roadmap.mau5,
-    icon: "/5.png",
+    league: roadmap[0].league5,
+    mau: roadmap[0].mau5,
+    icon: roadmap[0].image5.asset.url,
     size: "w-[60px] h-[100px] sm:w-[60px] sm:h-[105px] 2xl:w-[94px] 2xl:h-[152px]",
   },
   {
-    league: roadmap.league7,
+    league: roadmap[0].league7,
     mau: "",
-    icon: "/7.png",
+    icon: roadmap[0].image7.asset.url,
     size: "w-[60px] h-[100px] sm:w-[60px] sm:h-[105px] 2xl:w-[94px] 2xl:h-[152px]",
   },
   {
-    league: roadmap.league9,
+    league: roadmap[0].league9,
     mau: "",
     icon: "/nft.png",
     size: "w-[44px] h-[70px] sm:w-[56px] sm:h-[92px] md:w-[70px] md:h-[115px]",
@@ -154,27 +164,27 @@ export default function Roadmap() {
 
 const milestonesRight = [
   {
-    league: roadmap.league2,
-    mau: roadmap.mau2,
-    icon: "/2.png",
+    league: roadmap[0].league2,
+    mau: roadmap[0].mau2,
+    icon: roadmap[0].image2.asset.url,
     size: "w-[40px] h-[85px] sm:w-[40px] sm:h-[90px] 2xl:w-[64px] 2xl:h-[135px]",
   },
   {
-    league: roadmap.league4,
-    mau: roadmap.mau4,
-    icon: "/4.png",
+    league: roadmap[0].league4,
+    mau: roadmap[0].mau4,
+    icon: roadmap[0].image4.asset.url,
     size: "w-[56px] h-[85px] sm:w-[60px] sm:h-[90px] 2xl:w-[86px] 2xl:h-[126px]",
   },
   {
-    league: roadmap.league6,
-    mau: roadmap.mau6,
-    icon: "/6.png",
+    league: roadmap[0].league6,
+    mau: roadmap[0].mau6,
+    icon: roadmap[0].image6.asset.url,
     size: "w-[52px] h-[80px] sm:w-[60px] sm:h-[85px] 2xl:w-[83px] 2xl:h-[125px]",
   },
   {
-    league: roadmap.league8,
+    league: roadmap[0].league8,
     mau: "",
-    icon: "/8.png",
+    icon: roadmap[0].image8.asset.url,
     size: "w-[50px] h-[90px] sm:w-[55px] sm:h-[90px] 2xl:w-[79px] 2xl:h-[135px]",
   },
 ];
@@ -192,10 +202,10 @@ const milestonesRight = [
               textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
             }}
           >
-            {roadmap.title1}
+            {roadmap[0].title1}
           </h2>
           <p className={`mt-2 text-[12px] lg:text-[14px] 2xl:text-lg ${inter.className}`}>
-            {roadmap.subtitle}
+            {roadmap[0].subtitle}
           </p>
         </div>
 
@@ -208,10 +218,10 @@ const milestonesRight = [
             {...fadeUp}
             viewport={{ once: true }}
           >
-            <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={roadmap.icon1} width={70} height={70} alt="roadmap-1" />
-            <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap.iconTitle1}</h4>
+            <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={roadmap[0].icon1.asset.url} width={70} height={70} alt="roadmap-1" />
+            <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap[0].iconTitle1}</h4>
             <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
-              {roadmap.iconSubtitle1}
+              {roadmap[0].iconSubtitle1}
             </p>
           </motion.div>
 
@@ -227,10 +237,10 @@ const milestonesRight = [
             transition={{ delay: 0.1, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Image className="xl:w-[50px] w-[30px] lg:w-[40px]] 2xl:w-[70px]" src={roadmap.icon2} width={70} height={70} alt="roadmap-2" />
-            <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] mt-5`}>{roadmap.iconTitle2}</h4>
+            <Image className="xl:w-[50px] w-[30px] lg:w-[40px]] 2xl:w-[70px]" src={roadmap[0].icon2.asset.url} width={70} height={70} alt="roadmap-2" />
+            <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] mt-5`}>{roadmap[0].iconTitle2}</h4>
             <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
-              {roadmap.iconSubtitle2}
+              {roadmap[0].iconSubtitle2}
             </p>
           </motion.div>
 
@@ -246,10 +256,10 @@ const milestonesRight = [
             transition={{ delay: 0.2, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={roadmap.icon3} width={70} height={70} alt="roadmap-3" />
-            <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap.iconTitle3}</h4>
+            <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={roadmap[0].icon3.asset.url} width={70} height={70} alt="roadmap-3" />
+            <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap[0].iconTitle3}</h4>
             <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
-              {roadmap.iconSubtitle3}
+              {roadmap[0].iconSubtitle3}
             </p>
           </motion.div>
 
@@ -265,10 +275,10 @@ const milestonesRight = [
             transition={{ delay: 0.3, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={roadmap.icon4} width={70} height={70} alt="roadmap-4" />
-            <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap.iconTitle4}</h4>
+            <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={roadmap[0].icon4.asset.url} width={70} height={70} alt="roadmap-4" />
+            <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap[0].iconTitle4}</h4>
             <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
-              {roadmap.iconSubtitle4}
+              {roadmap[0].iconSubtitle4}
             </p>
           </motion.div>
         </div>
@@ -284,10 +294,10 @@ const milestonesRight = [
               {...fadeUp}
               viewport={{ once: true }}
             >
-              <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={roadmap.icon1} width={70} height={70} alt="roadmap-1" />
-              <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap.iconTitle1}</h4>
+              <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={roadmap[0].icon1.asset.url} width={70} height={70} alt="roadmap-1" />
+              <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap[0].iconTitle1}</h4>
               <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
-                {roadmap.iconSubtitle1}
+                {roadmap[0].iconSubtitle1}
               </p>
             </motion.div>
 
@@ -303,10 +313,10 @@ const milestonesRight = [
               transition={{ delay: 0.1, duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <Image className="xl:w-[50px] w-[30px] lg:w-[40px]] 2xl:w-[70px]" src={roadmap.icon2} width={70} height={70} alt="roadmap-2" />
-              <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] mt-5`}>{roadmap.iconTitle2}</h4>
+              <Image className="xl:w-[50px] w-[30px] lg:w-[40px]] 2xl:w-[70px]" src={roadmap[0].icon2.asset.url} width={70} height={70} alt="roadmap-2" />
+              <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] mt-5`}>{roadmap[0].iconTitle2}</h4>
               <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
-                {roadmap.iconSubtitle2}
+                {roadmap[0].iconSubtitle2}
               </p>
             </motion.div>
 
@@ -324,10 +334,10 @@ const milestonesRight = [
               transition={{ delay: 0.2, duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={roadmap.icon3} width={70} height={70} alt="roadmap-3" />
-              <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap.iconTitle3}</h4>
+              <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={roadmap[0].icon3.asset.url} width={70} height={70} alt="roadmap-3" />
+              <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap[0].iconTitle3}</h4>
               <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
-                {roadmap.iconSubtitle3}
+                {roadmap[0].iconSubtitle3}
               </p>
             </motion.div>
 
@@ -344,10 +354,10 @@ const milestonesRight = [
               viewport={{ once: true }}
             >
 
-              <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={roadmap.icon4} width={70} height={70} alt="roadmap-4" />
-              <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap.iconTitle4}</h4>
+              <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={roadmap[0].icon4.asset.url} width={70} height={70} alt="roadmap-4" />
+              <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap[0].iconTitle4}</h4>
               <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
-                {roadmap.iconSubtitle4}
+                {roadmap[0].iconSubtitle4}
               </p>
             </motion.div>
           </div>
@@ -360,7 +370,7 @@ const milestonesRight = [
             textShadow: "0 0 20px #EB319C, 0 0 0px #EB319C",
           }}
         >
-          {roadmap.title2}
+          {roadmap[0].title2}
         </h2>
       </div>
 
