@@ -409,7 +409,7 @@ const featureImages = about.images.map((image: { asset: { url: string } }) => im
             onWheel={handleWheel}
           >
             <motion.div
-              className="flex gap-6 justify-center lg:justify-start"
+              className="flex gap-6 justify-center md:justify-start"
               style={{
                 translateX: xOffset,
                 transition: animating ? "transform 0.7s ease-in-out" : "none",
