@@ -24,6 +24,8 @@ export default function About() {
     title: string;
     description1: string;
     description2: string;
+    image1: { asset: { url: string } };
+    image2: { asset: { url: string } };
     title2: string;
     iconTitle1: string;
     iconDescription1: string;
@@ -233,7 +235,7 @@ const featureImages = about.images.map((image: { asset: { url: string } }) => im
       />
       <Image
         className="absolute lg:bottom-190 bottom-0 left-0 z-10 xl:opacity-50 2xl:opacity-100 lg:w-[250px] xl:w-[150px] 2xl:w-[250px] h-auto w-[150px] hidden xl:block"
-        src="/hill.png"
+        src="/hill.svg"
         height={100}
         width={100}
         alt="hill"
@@ -342,8 +344,8 @@ const featureImages = about.images.map((image: { asset: { url: string } }) => im
           viewport={{ once: true, amount: 0.2 }}
           className="flex flex-row items-center gap-4 flex-1 z-10 justify-center w-[50%] mx-auto md:max-w-[170px] xl:max-w-[200px] 2xl:max-w-none"
         >
-          <Image src="/lucky.png" width={250} height={250} alt="Lucky Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px] h-auto mt-20" />
-          <Image src="/spin.png" width={180} height={180} alt="Spin Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px]" />
+          <Image src={about.image1.asset.url} width={250} height={250} alt="Lucky Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px] h-auto mt-20" />
+          <Image src={about.image2.asset.url} width={180} height={180} alt="Spin Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px]" />
         </motion.div>
       </div>
 
@@ -425,7 +427,7 @@ const featureImages = about.images.map((image: { asset: { url: string } }) => im
                       "
                 >
                   <Image
-                    className="rounded-xl object-cover w-full h-full"
+                    className="rounded-xl object-contain w-full h-full"
                     src={url}
                     width={600}
                     height={800}

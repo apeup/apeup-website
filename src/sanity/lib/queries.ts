@@ -34,43 +34,55 @@ export function getPreviewData() {
 `
 }
 export function getAboutData() {
-  return `*[_type == "sectionFeaturesWithIcons"][0] {
+  return `*[_type == "sectionFeaturesWithIcons"][0]{
   title,
   title2,
   description1,
   description2,
-  images[]{
-    asset->{
+  image1 {
+    asset -> {
       _id,
       url
     }
   },
-  icon1{
-    asset->{
+  image2 {
+    asset -> {
+      _id,
+      url
+    }
+  },
+  images[] {
+    asset -> {
+      _id,
+      url
+    }
+  },
+  icon1 {
+    asset -> {
       _id,
       url
     }
   },
   iconTitle1,
   iconDescription1,
-  icon2{
-    asset->{
+  icon2 {
+    asset -> {
       _id,
       url
     }
   },
   iconTitle2,
   iconDescription2,
-  icon3{
-    asset->{
+  icon3 {
+    asset -> {
       _id,
       url
     }
   },
   iconTitle3,
   iconDescription3,
-  icon4{
-    asset->{
+  icon4 {
+    asset -> {
       _id,
       url
     }

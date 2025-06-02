@@ -44,17 +44,14 @@ export default function Footer() {
             </ul>
           </nav>
 
-          {/* Logo in the Center */}
           <div className="flex justify-center">
-            <div className="xl:w-[180px] w-[120px] lg:w-[150px] 2xl:w-[222px] h-auto object-cover">
-              <Image
-                src={urlFor(footer.logo).url()}
-                width={222}
-                height={150}
-                alt="Logo"
-                className="w-full h-auto object-cover"
-              />
-            </div>
+            <Image
+              src={urlFor(footer.logo).width(500).auto('format').url()}
+              width={222}
+              height={150}
+              alt="Logo"
+              className="w-[120px] lg:w-[150px] xl:w-[180px] 2xl:w-[222px] h-auto"
+            />
           </div>
 
           {/* Button on Right */}

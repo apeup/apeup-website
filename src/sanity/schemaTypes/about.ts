@@ -28,6 +28,18 @@ export default defineType({
       title: 'Description 2',
       type: 'text',
     }),
+    defineField({
+      name: 'image1',
+      title: 'Image 1',
+      type: 'image',
+      options: { hotspot: true },
+    }),
+    defineField({
+      name: 'image2',
+      title: 'Image 2',
+      type: 'image',
+      options: { hotspot: true },
+    }),
 
     defineField({
       name: 'images',
