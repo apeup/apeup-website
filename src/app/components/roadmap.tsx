@@ -77,7 +77,7 @@ export default function Roadmap() {
       const rect = sectionRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      const startTrigger = windowHeight * 0.6;
+      const startTrigger = windowHeight * 0.8;
       const endTrigger = windowHeight;
 
       if (rect.bottom <= 0) {
