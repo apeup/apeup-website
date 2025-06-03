@@ -260,7 +260,7 @@ export default function About() {
         alt="yellow"
       />
 
-      <div className="max-w-[1440px] 2xl:h-[70dvh] mx-auto flex md:mr-20 flex-col md:flex-row xl:px-20 xl:mr-20 2xl:mr-35 2xl:px-0 xl:gap-20 justify-center lg:gap-30 lg:mr-25 2xl:gap-0 items-center md:mt-10 gap-10">
+      <div className="max-w-[1440px] 2xl:h-[70dvh] mx-auto flex md:mr-20 flex-col md:flex-row xl:px-20 xl:mr-20 2xl:mr-35 2xl:px-0 xl:gap-20 justify-center lg:gap-30 lg:mr-28 2xl:gap-0 items-center md:mt-10 gap-10 md:gap-20">
         <div className="flex-1 w-full max-w-lg lg:max-w-none">
           <div className="text-white text-center md:text-left max-w-[350px] lg:max-w-[500px] 2xl:max-w-[592px] mx-auto 2xl:mx-0">
             <motion.h2
