@@ -52,9 +52,14 @@ export default function About() {
       perView: 2,
       spacing: 59,
     },
+    breakpoints: {
+      "(max-width: 639px)": {
+        slides: { perView: 1 },
+      },
+    }
   });
 
-  
+
 
 
   const touchStartX = useRef<number | null>(null);
@@ -109,7 +114,7 @@ export default function About() {
       icon: about.icon4.asset.url,
     },
   ];
-const featureImages = about.images.map((image: { asset: { url: string } }) => image.asset.url);
+  const featureImages = about.images.map((image: { asset: { url: string } }) => image.asset.url);
 
 
 
@@ -415,7 +420,7 @@ const featureImages = about.images.map((image: { asset: { url: string } }) => im
                 transition: animating ? "transform 0.7s ease-in-out" : "none",
               }}
             >
-              {visibleSlides.map((url:string, i:number) => (
+              {visibleSlides.map((url: string, i: number) => (
                 <div
                   key={i}
                   className="
