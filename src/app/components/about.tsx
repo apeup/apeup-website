@@ -20,26 +20,20 @@ export default function About() {
   const [startIndex, setStartIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
   const [xOffset, setXOffset] = useState(0);
+
   type AboutType = {
     title: string;
     description1: string;
     description2: string;
+    title2: string;
+    features: {
+      title: string;
+      description: string;
+      icon: { asset: { url: string } };
+    }[];
+    images: { asset: { url: string } }[];
     image1: { asset: { url: string } };
     image2: { asset: { url: string } };
-    title2: string;
-    iconTitle1: string;
-    iconDescription1: string;
-    icon1: { asset: { url: string } };
-    iconTitle2: string;
-    iconDescription2: string;
-    icon2: { asset: { url: string } };
-    iconTitle3: string;
-    iconDescription3: string;
-    icon3: { asset: { url: string } };
-    iconTitle4: string;
-    iconDescription4: string;
-    icon4: { asset: { url: string } };
-    images: { asset: { url: string } }[];
   };
 
   const [about, setAbout] = useState<AboutType | null>(null);
@@ -92,28 +86,11 @@ export default function About() {
   if (!about) return null
 
 
-  const features = [
-    {
-      title: about.iconTitle1,
-      description: about.iconDescription1,
-      icon: about.icon1.asset.url,
-    },
-    {
-      title: about.iconTitle2,
-      description: about.iconDescription2,
-      icon: about.icon2.asset.url,
-    },
-    {
-      title: about.iconTitle3,
-      description: about.iconDescription3,
-      icon: about.icon3.asset.url,
-    },
-    {
-      title: about.iconTitle4,
-      description: about.iconDescription4,
-      icon: about.icon4.asset.url,
-    },
-  ];
+  const features = about.features?.map((feature) => ({
+    title: feature.title,
+    description: feature.description,
+    icon: feature.icon?.asset?.url,
+  }));
   const featureImages = about.images.map((image: { asset: { url: string } }) => image.asset.url);
 
 

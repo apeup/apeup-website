@@ -40,55 +40,33 @@ export function getAboutData() {
   description1,
   description2,
   image1 {
-    asset -> {
+    asset->{
       _id,
       url
     }
   },
   image2 {
-    asset -> {
+    asset->{
       _id,
       url
     }
   },
   images[] {
-    asset -> {
+    asset->{
       _id,
       url
     }
   },
-  icon1 {
-    asset -> {
-      _id,
-      url
+  features[] {
+    title,
+    description,
+    icon {
+      asset->{
+        _id,
+        url
+      }
     }
-  },
-  iconTitle1,
-  iconDescription1,
-  icon2 {
-    asset -> {
-      _id,
-      url
-    }
-  },
-  iconTitle2,
-  iconDescription2,
-  icon3 {
-    asset -> {
-      _id,
-      url
-    }
-  },
-  iconTitle3,
-  iconDescription3,
-  icon4 {
-    asset -> {
-      _id,
-      url
-    }
-  },
-  iconTitle4,
-  iconDescription4
+  }
 }
 
 `;
