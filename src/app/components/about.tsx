@@ -14,8 +14,6 @@ import { client } from "@/sanity/lib/client";
 
 
 export default function About() {
-  // const [index, setIndex] = useState(0);
-  // const [direction, setDirection] = useState<'left' | 'right'>('right');
   const [visibleCount, setVisibleCount] = useState(3);
   const [startIndex, setStartIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
@@ -168,31 +166,6 @@ export default function About() {
     }
   };
 
-  // const prevSlide = () => {
-  //   setDirection('left');
-  //   setIndex((prev) => (prev === 0 ? features.length - 2 : prev - 1));
-  // };
-
-  // const nextSlide = () => {
-  //   setDirection('right');
-  //   setIndex((prev) => (prev + 2 >= features.length ? 0 : prev + 1));
-  // };
-
-  // const variants = {
-  //   enter: (direction: 'left' | 'right') => ({
-  //     x: direction === 'right' ? 100 : -10,
-  //     opacity: 0,
-  //   }),
-  //   center: {
-  //     x: 0,
-  //     opacity: 1,
-  //   },
-  //   exit: (direction: 'left' | 'right') => ({
-  //     x: direction === 'right' ? -10 : 100,
-  //     opacity: 0,
-  //   }),
-  // };
-
 
 
 
@@ -336,13 +309,6 @@ export default function About() {
       <section
         className="text-white relative overflow-hidden mt-15"
       >
-        {/* <Image
-              src="/features-purple.png"
-              width={100}
-              height={100}
-              alt="yellow"
-              className="absolute z-10 -top-[220px] h-full w-[100px] sm:w-[350px] left-0"
-            /> */}
         <div className="px-4 sm:px-6 md:px-10 lg:px-16 py-16 lg:pr-0 ml-auto relative z-10">
           {/* Header and Buttons */}
           <div className="flex flex-col md:flex-row justify-between max-w-[1347px] mx-auto items-center gap-6">
