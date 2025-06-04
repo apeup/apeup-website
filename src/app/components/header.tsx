@@ -34,7 +34,7 @@ export default function Header() {
   }, []);
   if (!home) return null
   return (
-    <div className="bg-[url('/banner-bg.png')] bg-cover bg-[position:75%_center] py-1 h-[500px] sm:h-[105dvh] w-full">
+    <div className="header-background py-1 h-[500px] sm:h-[105dvh] w-full">
       <motion.header
         className=""
         initial={{ y: -50, opacity: 0 }}

@@ -191,7 +191,7 @@ const milestonesRight = [
   return (
     <section
       id="roadmap"
-      className="text-white bg-[url('/new-milestonese.png')] bg-[#130F1F] bg-cover bg-no-repeat bg-center relative"
+      className="text-white roadmap-background bg-[#130F1F] relative"
     >
       <div className="max-w-[1600px] mx-auto px-4 pt-10 lg:pt-20 xl:pt-10 pb-14">
         {/* Heading */}

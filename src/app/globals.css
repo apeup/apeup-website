@@ -34,3 +34,65 @@ body {
 .custom-blur{
       box-shadow: inset 0px -5px 1px 0px #f89a06;
 }
+
+
+@layer utilities {
+  .footer-background {
+    @apply bg-no-repeat bg-cover bg-center;
+    background-image: url('/mob-footer-bg.png');
+  }
+
+  @media (min-width: 768px) {
+    .footer-background {
+      background-image: url('/footer-bg.png');
+    }
+  }
+}
+@layer utilities {
+  .header-background {
+    @apply bg-cover bg-[position:75%_center];
+    background-image: url('/mob-banner-bg.png');
+  }
+
+  @media (min-width: 768px) {
+    .header-background {
+      background-image: url('/banner-bg.png');
+    }
+  }
+}
+@layer utilities {
+  .preview-background {
+    @apply bg-cover bg-no-repeat;
+    background-image: url('/mob-preview-new.png');
+  }
+
+  @media (min-width: 768px) {
+    .preview-background {
+      background-image: url('/preview-new.png');
+    }
+  }
+}
+@layer utilities {
+  .about-background {
+    @apply bg-cover bg-no-repeat;
+    background-image: url('/mob-about-bg.png');
+  }
+
+  @media (min-width: 768px) {
+    .about-background {
+      background-image: url('/about-bg.png');
+    }
+  }
+}
+@layer utilities {
+  .roadmap-background {
+    @apply bg-cover bg-no-repeat bg-center;
+    background-image: url('/mob-new-milestonese.png');
+  }
+
+  @media (min-width: 768px) {
+    .roadmap-background {
+      background-image: url('/new-milestonese.png');
+    }
+  }
+}

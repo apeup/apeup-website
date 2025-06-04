@@ -178,7 +178,7 @@ export default function About() {
     // it is a  about section
     <section
       id="about"
-      className="bg-[url('/about-bg.png')] bg-cover bg-no-repeat py-10 px-4 sm:px-8 lg:px-0 md:px-12 xl:px-20 xl:pr-0 2xl:px-0 relative"
+      className="about-background py-10 px-4 sm:px-8 lg:px-0 md:px-12 xl:px-20 xl:pr-0 2xl:px-0 relative"
     >
       <Image src="/blur.png" height={100} width={100} alt="blur" className="absolute -bottom-30 z-10 w-full h-[300px] left-0" />
       <Image

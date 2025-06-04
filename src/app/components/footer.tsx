@@ -30,7 +30,7 @@ export default function Footer() {
   }, []);
   if (!footer) return null;
   return (
-    <footer id="socials" className="bg-[url('/footer-bg.png')] bg-cover bg-no-repeat bg-center xl:px-20 2xl:pt-20 pt-10 pb-5">
+    <footer id="socials" className="footer-background xl:px-20 2xl:pt-20 pt-10 pb-5">
       <div className="">
         {/* Top row: nav, logo, button */}
         <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-6 mb-11 md:gap-0 max-w-[1400px] mx-auto px-5">

@@ -57,7 +57,7 @@ export default function Preview() {
       />
 
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-[url('/preview-new.png')] bg-cover bg-no-repeat" />
+        <div className="absolute inset-0 preview-background" />
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
