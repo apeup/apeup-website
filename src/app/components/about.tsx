@@ -245,8 +245,8 @@ export default function About() {
 
           <div className="">
             <div className="bg-[url(/about-banner.svg)] z-50 bg-cover bg-center bg-no-repeat rounded-3xl mt-8 lg:p-10 p-7 px-4 xl:p-10 2xl:p-14 relative overflow-visible max-w-[350px] lg:max-w-[500px] xl:max-w-[500px] 2xl:max-w-[779px] w-full h-full mx-auto 2xl:mx-0">
-              <Image className="absolute z-10 top-0 right-0 lg:w-[150px] w-[120px]" src="/mask.png" width={150} height={100} alt="mask" />
-              <Image className="absolute z-10 bottom-0 left-0 rotate-180 lg:w-[150px] w-[120px]" src="/mask.png" width={150} height={100} alt="mask" />
+              <Image className="absolute z-10 top-0 right-0 lg:w-[150px] rotate-180 w-[120px]" src="/bottom-mask.svg" width={150} height={100} alt="mask" />
+              <Image className="absolute z-10 bottom-0 left-0 lg:w-[150px] w-[120px]" src="/bottom-mask.svg" width={150} height={100} alt="mask" />
 
               <div
               >
