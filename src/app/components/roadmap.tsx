@@ -5,6 +5,7 @@ import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { client } from "@/sanity/lib/client";
 import { getRoadmapData } from "@/sanity/lib/queries";
+import { urlFor } from "@/sanity/lib/image";
 
 
 
@@ -218,7 +219,7 @@ const milestonesRight = [
             {...fadeUp}
             viewport={{ once: true }}
           >
-            <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={roadmap[0].icon1.asset.url} width={70} height={70} alt="roadmap-1" />
+            <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={urlFor(roadmap[0].icon1).auto('format').url()} width={70} height={70} alt="roadmap-1" />
             <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap[0].iconTitle1}</h4>
             <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
               {roadmap[0].iconSubtitle1}
@@ -237,7 +238,7 @@ const milestonesRight = [
             transition={{ delay: 0.1, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Image className="xl:w-[50px] w-[30px] lg:w-[40px]] 2xl:w-[70px]" src={roadmap[0].icon2.asset.url} width={70} height={70} alt="roadmap-2" />
+            <Image className="xl:w-[50px] w-[30px] lg:w-[40px]] 2xl:w-[70px]" src={urlFor(roadmap[0].icon2).auto('format').url()} width={70} height={70} alt="roadmap-2" />
             <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] mt-5`}>{roadmap[0].iconTitle2}</h4>
             <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
               {roadmap[0].iconSubtitle2}
@@ -256,7 +257,7 @@ const milestonesRight = [
             transition={{ delay: 0.2, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={roadmap[0].icon3.asset.url} width={70} height={70} alt="roadmap-3" />
+            <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={urlFor(roadmap[0].icon3).auto('format').url()} width={70} height={70} alt="roadmap-3" />
             <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap[0].iconTitle3}</h4>
             <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
               {roadmap[0].iconSubtitle3}
@@ -275,7 +276,7 @@ const milestonesRight = [
             transition={{ delay: 0.3, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={roadmap[0].icon4.asset.url} width={70} height={70} alt="roadmap-4" />
+            <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={urlFor(roadmap[0].icon4).auto('format').url()} width={70} height={70} alt="roadmap-4" />
             <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap[0].iconTitle4}</h4>
             <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
               {roadmap[0].iconSubtitle4}
@@ -294,7 +295,7 @@ const milestonesRight = [
               {...fadeUp}
               viewport={{ once: true }}
             >
-              <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={roadmap[0].icon1.asset.url} width={70} height={70} alt="roadmap-1" />
+              <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={urlFor(roadmap[0].icon1).auto('format').url()} width={70} height={70} alt="roadmap-1" />
               <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap[0].iconTitle1}</h4>
               <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
                 {roadmap[0].iconSubtitle1}
@@ -313,7 +314,7 @@ const milestonesRight = [
               transition={{ delay: 0.1, duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <Image className="xl:w-[50px] w-[30px] lg:w-[40px]] 2xl:w-[70px]" src={roadmap[0].icon2.asset.url} width={70} height={70} alt="roadmap-2" />
+              <Image className="xl:w-[50px] w-[30px] lg:w-[40px]] 2xl:w-[70px]" src={urlFor(roadmap[0].icon2).auto('format').url()} width={70} height={70} alt="roadmap-2" />
               <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] mt-5`}>{roadmap[0].iconTitle2}</h4>
               <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
                 {roadmap[0].iconSubtitle2}
@@ -334,7 +335,7 @@ const milestonesRight = [
               transition={{ delay: 0.2, duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={roadmap[0].icon3.asset.url} width={70} height={70} alt="roadmap-3" />
+              <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={urlFor(roadmap[0].icon3).auto('format').url()} width={70} height={70} alt="roadmap-3" />
               <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap[0].iconTitle3}</h4>
               <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
                 {roadmap[0].iconSubtitle3}
@@ -354,7 +355,7 @@ const milestonesRight = [
               viewport={{ once: true }}
             >
 
-              <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={roadmap[0].icon4.asset.url} width={70} height={70} alt="roadmap-4" />
+              <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={urlFor(roadmap[0].icon4).auto('format').url()} width={70} height={70} alt="roadmap-4" />
               <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap[0].iconTitle4}</h4>
               <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
                 {roadmap[0].iconSubtitle4}
@@ -392,7 +393,7 @@ const milestonesRight = [
                   {idx !== milestonesLeft.length - 1 && (
                     <div className="absolute custom-blur -right-2 sm:-right-5 md:top-0 lg:top-0 xl:top-0 md:-left-7 xl:-left-8 2xl:-left-14 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[90px] sm:h-[80px] md:h-[80px] xl:h-[80px] 2xl:h-[121px] w-[90px] sm:w-[80px] md:w-[80px] xl:w-[80px] 2xl:w-[121px] rounded-full shadow-[0_4px_50px_#00000040]">
                       <Image
-                        src={item.icon}
+                        src={urlFor(item.icon).auto('format').url()}
                         width={100}
                         height={100}
                         alt={item.league}
@@ -481,7 +482,7 @@ const milestonesRight = [
                 >
                   <div className="absolute custom-blur -right-2 sm:-right-5 md:top-0 lg:top-0 xl:top-0 md:-right-7 xl:-right-4 2xl:-right-14 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[90px] sm:h-[80px] md:h-[80px] xl:h-[80px] 2xl:h-[121px] w-[90px] sm:w-[80px] md:w-[80px] 2xl:w-[121px] xl:w-[80px] rounded-full shadow-[0_4px_50px_#00000040]">
                     <Image
-                      src={item.icon}
+                      src={urlFor(item.icon).auto('format').url()}
                       width={100}
                       height={100}
                       alt={item.league}

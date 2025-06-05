@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { inter, zenDots } from "../fonts";
 import { client } from "@/sanity/lib/client";
 import { getHomeData } from "@/sanity/lib/queries";
+import { urlFor } from "@/sanity/lib/image";
 
 type HomeData = {
   logo: { asset: { url: string } };
@@ -46,7 +47,7 @@ export default function Header() {
           <div className="flex-1 md:max-w-[100px] lg:max-w-[110px] 2xl:max-w-[138px]">
             <Link href="/#home">
               <Image
-                src={home.logo.asset.url}
+                src={urlFor(home.logo).auto('format').url()}
                 alt="Logo"
                 width={138}
                 height={0}
