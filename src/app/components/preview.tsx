@@ -44,6 +44,19 @@ export default function Preview() {
     preview.point5,
   ];
 
+ if (!preview?.desVideoUrl || !preview?.mobVideoUrl) {
+  return (
+    <motion.div
+      className="flex justify-center items-center py-20"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
+    >
+      <div className="w-12 h-12 border-4 border-yellow-400 border-dashed rounded-full animate-spin" />
+    </motion.div>
+  );
+}
+
   return (
     <section className="relative py-20 xl:pb-28 md:py-20 xl:px-20">
       <img src="/blur.png" height={100} width={100} alt="blur" className="absolute z-50 -top-30 w-full left-0 h-[250px]" />
@@ -102,7 +115,7 @@ export default function Preview() {
             )}
 
             {/* video for desktop */}
-            {preview.mobVideoUrl && (
+            {preview.desVideoUrl && (
               <video
                 src={preview.desVideoUrl}
                 autoPlay

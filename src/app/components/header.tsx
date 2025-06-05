@@ -44,7 +44,6 @@ export default function Header() {
         <div className="relative w-full max-w-[1360px] mx-auto mt-3 px-4 xs:px-4 sm:px-6 lg:px-20 xl:px-20 py-3 text-white flex items-center">
           {/* Logo */}
           <div className="flex-1 md:max-w-[100px] lg:max-w-[110px] 2xl:max-w-[138px]">
-            <Link href="/#home">
               <img
                 src={urlFor(home.logo).auto('format').url()}
                 alt="Logo"
@@ -52,7 +51,6 @@ export default function Header() {
                 height={0}
                 className="h-auto w-[100px] md:w-[138px]"
               />
-            </Link>
           </div>
 
           {/* Centered Navigation */}
