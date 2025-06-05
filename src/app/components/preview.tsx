@@ -45,7 +45,7 @@ export default function Preview() {
     preview.point5,
   ];
 
-  if (!preview.mobVideoUrl || !preview.desVideoUrl) {
+  if (!preview.mobVideoUrl) {
     return <Loader/>
   }
 
