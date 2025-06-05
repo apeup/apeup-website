@@ -92,7 +92,6 @@ export default function Preview() {
               <video
                 src={preview.videoUrl}
                 autoPlay
-                preload="metadata"
                 muted
                 loop
                 playsInline
