@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { inter, zenDots } from "../fonts";
 import { client } from "@/sanity/lib/client";
 import { getHomeData } from "@/sanity/lib/queries";
-import { urlFor } from "@/sanity/lib/image";
 import Loader from "./loader";
 
 type HomeData = {
