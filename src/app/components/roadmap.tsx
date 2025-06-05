@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import img from "next/image";
 import { inter, zenDots } from "../fonts";
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
@@ -219,7 +219,7 @@ const milestonesRight = [
             {...fadeUp}
             viewport={{ once: true }}
           >
-            <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={urlFor(roadmap[0].icon1).auto('format').url()} width={70} height={70} alt="roadmap-1" />
+            <img className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={urlFor(roadmap[0].icon1).auto('format').url()} width={70} height={70} alt="roadmap-1" />
             <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap[0].iconTitle1}</h4>
             <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
               {roadmap[0].iconSubtitle1}
@@ -228,7 +228,7 @@ const milestonesRight = [
 
           {/* Line 1 */}
           <div className="hidden sm:flex items-center justify-center w-[60px]">
-            <Image className="xl:w-[70px] xl:h-[250px] w-[50px]" src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
+            <img className="xl:w-[70px] xl:h-[250px] w-[50px]" src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
           </div>
 
           {/* Step 2 */}
@@ -238,7 +238,7 @@ const milestonesRight = [
             transition={{ delay: 0.1, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Image className="xl:w-[50px] w-[30px] lg:w-[40px]] 2xl:w-[70px]" src={urlFor(roadmap[0].icon2).auto('format').url()} width={70} height={70} alt="roadmap-2" />
+            <img className="xl:w-[50px] w-[30px] lg:w-[40px]] 2xl:w-[70px]" src={urlFor(roadmap[0].icon2).auto('format').url()} width={70} height={70} alt="roadmap-2" />
             <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] mt-5`}>{roadmap[0].iconTitle2}</h4>
             <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
               {roadmap[0].iconSubtitle2}
@@ -247,7 +247,7 @@ const milestonesRight = [
 
           {/* Line 2 */}
           <div className="hidden sm:flex items-center justify-center w-[60px]">
-            <Image className="xl:w-[70px] xl:h-[250px] w-[50px]" src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
+            <img className="xl:w-[70px] xl:h-[250px] w-[50px]" src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
           </div>
 
           {/* Step 3 */}
@@ -257,7 +257,7 @@ const milestonesRight = [
             transition={{ delay: 0.2, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={urlFor(roadmap[0].icon3).auto('format').url()} width={70} height={70} alt="roadmap-3" />
+            <img className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={urlFor(roadmap[0].icon3).auto('format').url()} width={70} height={70} alt="roadmap-3" />
             <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap[0].iconTitle3}</h4>
             <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
               {roadmap[0].iconSubtitle3}
@@ -266,7 +266,7 @@ const milestonesRight = [
 
           {/* Line 3 */}
           <div className="hidden sm:flex items-center justify-center w-[60px]">
-            <Image className="xl:w-[70px] xl:h-[250px] w-[50px]" src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
+            <img className="xl:w-[70px] xl:h-[250px] w-[50px]" src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
           </div>
 
           {/* Step 4 */}
@@ -276,7 +276,7 @@ const milestonesRight = [
             transition={{ delay: 0.3, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={urlFor(roadmap[0].icon4).auto('format').url()} width={70} height={70} alt="roadmap-4" />
+            <img className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={urlFor(roadmap[0].icon4).auto('format').url()} width={70} height={70} alt="roadmap-4" />
             <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap[0].iconTitle4}</h4>
             <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
               {roadmap[0].iconSubtitle4}
@@ -295,7 +295,7 @@ const milestonesRight = [
               {...fadeUp}
               viewport={{ once: true }}
             >
-              <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={urlFor(roadmap[0].icon1).auto('format').url()} width={70} height={70} alt="roadmap-1" />
+              <img className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={urlFor(roadmap[0].icon1).auto('format').url()} width={70} height={70} alt="roadmap-1" />
               <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap[0].iconTitle1}</h4>
               <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
                 {roadmap[0].iconSubtitle1}
@@ -304,7 +304,7 @@ const milestonesRight = [
 
             {/* Line 1 */}
             <div className="hidden sm:flex items-center justify-center w-[60px]">
-              <Image className="xl:w-[70px] xl:h-[250px] w-[50px]" src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
+              <img className="xl:w-[70px] xl:h-[250px] w-[50px]" src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
             </div>
 
             {/* Step 2 */}
@@ -314,7 +314,7 @@ const milestonesRight = [
               transition={{ delay: 0.1, duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <Image className="xl:w-[50px] w-[30px] lg:w-[40px]] 2xl:w-[70px]" src={urlFor(roadmap[0].icon2).auto('format').url()} width={70} height={70} alt="roadmap-2" />
+              <img className="xl:w-[50px] w-[30px] lg:w-[40px]] 2xl:w-[70px]" src={urlFor(roadmap[0].icon2).auto('format').url()} width={70} height={70} alt="roadmap-2" />
               <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] mt-5`}>{roadmap[0].iconTitle2}</h4>
               <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
                 {roadmap[0].iconSubtitle2}
@@ -323,7 +323,7 @@ const milestonesRight = [
 
             {/* Line 2 */}
             <div className="hidden sm:flex items-center justify-center w-[60px]">
-              <Image className="xl:w-[70px] xl:h-[250px] w-[50px]" src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
+              <img className="xl:w-[70px] xl:h-[250px] w-[50px]" src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
             </div>
           </div>
 
@@ -335,7 +335,7 @@ const milestonesRight = [
               transition={{ delay: 0.2, duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={urlFor(roadmap[0].icon3).auto('format').url()} width={70} height={70} alt="roadmap-3" />
+              <img className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={urlFor(roadmap[0].icon3).auto('format').url()} width={70} height={70} alt="roadmap-3" />
               <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap[0].iconTitle3}</h4>
               <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
                 {roadmap[0].iconSubtitle3}
@@ -344,7 +344,7 @@ const milestonesRight = [
 
             {/* Line 3 */}
             <div className="hidden sm:flex items-center justify-center w-[60px]">
-              <Image className="xl:w-[70px] xl:h-[250px] w-[50px]" src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
+              <img className="xl:w-[70px] xl:h-[250px] w-[50px]" src="/roadmap-line.png" width={70} height={70} alt="roadmap-line" />
             </div>
 
             {/* Step 4 */}
@@ -355,7 +355,7 @@ const milestonesRight = [
               viewport={{ once: true }}
             >
 
-              <Image className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={urlFor(roadmap[0].icon4).auto('format').url()} width={70} height={70} alt="roadmap-4" />
+              <img className="xl:w-[50px] w-[30px] lg:w-[40px] 2xl:w-[70px]" src={urlFor(roadmap[0].icon4).auto('format').url()} width={70} height={70} alt="roadmap-4" />
               <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] xl:text-[22px] mt-3`}>{roadmap[0].iconTitle4}</h4>
               <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
                 {roadmap[0].iconSubtitle4}
@@ -392,7 +392,7 @@ const milestonesRight = [
                 >
                   {idx !== milestonesLeft.length - 1 && (
                     <div className="absolute custom-blur -right-2 sm:-right-5 md:top-0 lg:top-0 xl:top-0 md:-left-7 xl:-left-8 2xl:-left-14 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[90px] sm:h-[80px] md:h-[80px] xl:h-[80px] 2xl:h-[121px] w-[90px] sm:w-[80px] md:w-[80px] xl:w-[80px] 2xl:w-[121px] rounded-full shadow-[0_4px_50px_#00000040]">
-                      <Image
+                      <img
                         src={urlFor(item.icon).auto('format').url()}
                         width={100}
                         height={100}
@@ -419,21 +419,19 @@ const milestonesRight = [
                     </span>
                   </div>
 
-                  <Image
+                  <img
                     className="absolute top-0 right-0 max-w-[100px] sm:max-w-[100px] 2xl:max-w-[136px] w-full pointer-events-none"
                     src="/mask.svg"
                     width={64}
                     height={64}
                     alt="mask top"
-                    priority
                   />
-                  <Image
+                  <img
                     className="absolute bottom-0 left-0 max-w-[100px] sm:max-w-[100px] 2xl:max-w-[136px] w-full pointer-events-none"
                     src="/bottom-mask.svg"
                     width={64}
                     height={64}
                     alt="mask bottom"
-                    priority
                   />
                 </div>
               ))}
@@ -481,7 +479,7 @@ const milestonesRight = [
                   className="w-full h-[80px] 2xl:h-[120px] custom-shadow relative bg-[url(/preview-banner.png)] bg-center bg-cover bg-no-repeat text-white rounded-[24px] sm:rounded-[28px] 2xl:rounded-[39px] px-8 py-4 sm:py-6 flex items-center justify-start md:justify-center gap-3 sm:gap-4"
                 >
                   <div className="absolute custom-blur -right-2 sm:-right-5 md:top-0 lg:top-0 xl:top-0 md:-right-7 xl:-right-4 2xl:-right-14 bg-[radial-gradient(circle,_#F5B201,_#F9C301)] h-[90px] sm:h-[80px] md:h-[80px] xl:h-[80px] 2xl:h-[121px] w-[90px] sm:w-[80px] md:w-[80px] 2xl:w-[121px] xl:w-[80px] rounded-full shadow-[0_4px_50px_#00000040]">
-                    <Image
+                    <img
                       src={urlFor(item.icon).auto('format').url()}
                       width={100}
                       height={100}
@@ -502,21 +500,19 @@ const milestonesRight = [
                     </span>
                   </div>
 
-                  <Image
+                  <img
                     className="absolute top-0 right-0 max-w-[100px] sm:max-w-[100px] 2xl:max-w-[136px] w-full pointer-events-none"
                     src="/mask.svg"
                     width={64}
                     height={64}
                     alt="mask top"
-                    priority
                   />
-                  <Image
+                  <img
                     className="absolute bottom-0 left-0 max-w-[100px] sm:max-w-[100px] 2xl:max-w-[136px] w-full pointer-events-none"
                     src="/bottom-mask.svg"
                     width={64}
                     height={64}
                     alt="mask bottom"
-                    priority
                   />
                 </div>
               ))}

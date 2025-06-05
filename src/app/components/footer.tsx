@@ -1,5 +1,5 @@
 "use client"
-import Image from "next/image";
+import img from "next/image";
 import Link from "next/link";
 import { inter } from "../fonts";
 import { useEffect, useState } from "react";
@@ -45,7 +45,7 @@ export default function Footer() {
           </nav>
 
           <div className="flex justify-center">
-            <Image
+            <img
               src={urlFor(footer.logo).width(500).auto('format').url()}
               width={222}
               height={150}
@@ -60,14 +60,14 @@ export default function Footer() {
               className={`${inter.className} relative font-semibold text-[12px] lg:text-[14px] 2xl:text-[16px] text-black lg:py-[9.7px] lg:px-[35px] py-[8px] px-[28px] bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)]`}
             >
               {footer.buttonText}
-              <Image
+              <img
                 src="/btn.png"
                 alt="Button"
                 width={18}
                 height={20}
                 className="absolute top-1 lg:w-[18px] lg:h-auto w-[15px] h-auto left-0"
               />
-              <Image
+              <img
                 src="/btn.png"
                 alt="Button"
                 width={18}
@@ -80,13 +80,12 @@ export default function Footer() {
 
         {/* Footer line */}
         <div className="mt-8">
-          <Image
+          <img
             className="w-full xl:w-[90%] mx-auto h-[1px] lg:h-[2px]"
             src="/footer-line.png"
             width={100}
             height={2}
             alt="Footer Line"
-            priority
           />
         </div>
 

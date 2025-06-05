@@ -181,29 +181,29 @@ export default function About() {
       id="about"
       className="about-background py-10 px-4 sm:px-8 lg:px-0 md:px-12 xl:px-20 xl:pr-0 2xl:px-0 relative"
     >
-      <Image src="/blur.png" height={100} width={100} alt="blur" className="absolute -bottom-30 z-10 w-full h-[300px] left-0" />
-      <Image
+      <img src="/blur.png" height={100} width={100} alt="blur" className="absolute -bottom-30 z-10 w-full h-[300px] left-0" />
+      <img
         src="/features-purple.png"
         width={100}
         height={100}
         alt="yellow"
         className="absolute z-10 -bottom-[140px] h-full w-[100px] sm:w-[350px] left-0"
       />
-      <Image
+      <img
         className="absolute lg:bottom-190 bottom-0 left-0 z-10 xl:opacity-50 2xl:opacity-100 lg:w-[250px] xl:w-[150px] 2xl:w-[250px] h-auto w-[150px] hidden xl:block"
         src="/hill.svg"
         height={100}
         width={100}
         alt="hill"
       />
-      <Image
+      <img
         className="absolute top-10 right-0 w-[550px] h-auto z-10 sm:opacity-100 opacity-30"
         src="/purple.png"
         height={100}
         width={100}
         alt="yellow"
       />
-      <Image
+      <img
         className="absolute xl:bottom-220 lg:w-[100px] lg:bottom-150 right-0 xl:w-[200px] h-auto z-0"
         src="/banana.png"
         height={100}
@@ -246,8 +246,8 @@ export default function About() {
 
           <div className="">
             <div className="bg-[url(/about-banner.svg)] z-50 bg-cover bg-center bg-no-repeat rounded-3xl mt-8 lg:p-10 p-7 px-4 xl:p-10 2xl:p-14 relative overflow-visible max-w-[350px] lg:max-w-[500px] xl:max-w-[500px] 2xl:max-w-[779px] w-full h-full mx-auto 2xl:mx-0">
-              <Image className="absolute z-10 top-0 right-0 lg:w-[150px] rotate-180 w-[120px]" src="/bottom-mask.svg" width={150} height={100} alt="mask" />
-              <Image className="absolute z-10 bottom-0 left-0 lg:w-[150px] w-[120px]" src="/bottom-mask.svg" width={150} height={100} alt="mask" />
+              <img className="absolute z-10 top-0 right-0 lg:w-[150px] rotate-180 w-[120px]" src="/bottom-mask.svg" width={150} height={100} alt="mask" />
+              <img className="absolute z-10 bottom-0 left-0 lg:w-[150px] w-[120px]" src="/bottom-mask.svg" width={150} height={100} alt="mask" />
 
               <div
               >
@@ -257,7 +257,7 @@ export default function About() {
                       key={i}
                       className="keen-slider__slide flex flex-col items-start text-left w-[350px] sm:w-[280px] lg:w-[300px] pr-20 sm:pr-0"
                     >
-                      <Image
+                      <img
                         src={urlFor(feature.icon).auto('format').url()}
                         width={30}
                         height={30}
@@ -300,8 +300,8 @@ export default function About() {
           viewport={{ once: true, amount: 0.2 }}
           className="flex flex-row items-center gap-4 flex-1 z-10 justify-center w-[50%] mx-auto md:max-w-[170px] xl:max-w-[200px] 2xl:max-w-none"
         >
-          <Image src={urlFor(about.image1).auto('format').url()} width={250} height={250} alt="Lucky Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px] h-auto mt-20" />
-          <Image src={urlFor(about.image2).auto('format').url()} width={180} height={180} alt="Spin Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px]" />
+          <img src={urlFor(about.image1).auto('format').url()} width={250} height={250} alt="Lucky Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px] h-auto mt-20" />
+          <img src={urlFor(about.image2).auto('format').url()} width={180} height={180} alt="Spin Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px]" />
         </motion.div>
       </div>
 
@@ -375,13 +375,12 @@ export default function About() {
                         overflow-hidden
                       "
                 >
-                  <Image
+                  <img
                     className="rounded-xl object-contain w-full h-full"
                     src={urlFor(url).auto('format').url()}
                     width={600}
                     height={800}
                     alt={`feature ${i + 1}`}
-                    priority={i === 0}
                   />
                 </div>
               ))}

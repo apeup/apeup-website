@@ -47,9 +47,9 @@ export default function Preview() {
 
   return (
     <section className="relative py-20 xl:pb-28 md:py-20 xl:px-20">
-      <Image src="/blur.png" height={100} width={100} alt="blur" className="absolute z-50 -top-30 w-full left-0 h-[250px]" />
+      <img src="/blur.png" height={100} width={100} alt="blur" className="absolute z-50 -top-30 w-full left-0 h-[250px]" />
 
-      <Image
+      <img
         src="/preview-yellow.png"
         alt="yellow"
         className="absolute left-0 top-0 z-10 h-full w-[30%] sm:w-[20%] object-cover"
@@ -89,6 +89,8 @@ export default function Preview() {
             viewport={{ once: true }}
             className="w-full xl:w-[80%] lg:w-[70%] sm:w-[70%] flex justify-center"
           >
+
+            {/* video for mobile */}
             {preview.mobVideoUrl && (
               <video
                 src={preview.mobVideoUrl}
@@ -99,6 +101,8 @@ export default function Preview() {
                 className="md:hidden w-[100%] md:w-[85%] 2xl:w-[80%] h-auto md:max-h-[350px] lg:max-h-[400px] xl:max-h-[440px] 2xl:max-h-[562px] justify-center items-center object-cover max-h-[362px] rounded-[24px] sm:rounded-[32px] md:rounded-[39px]"
               />
             )}
+
+            {/* video for desktop */}
             {preview.mobVideoUrl && (
               <video
                 src={preview.desVideoUrl}
@@ -119,14 +123,14 @@ export default function Preview() {
             viewport={{ once: true }}
             className="relative w-full sm:w-[70%] md:w-[70%] lg:w-[55%] xl:w-[70%] bg-[url(/preview-banner.png)] bg-cover bg-center max-h-[400px] md:max-h-[350px] lg:max-h-[400px] xl:max-h-[560px] max-w-[643px] bg-no-repeat rounded-[24px] sm:rounded-[28px] lg:rounded-[30px] flex items-center justify-center px-4 sm:px-10 py-8 sm:py-20 md:py-10 lg:px-15 xl:p-15 2xl:py-20 2xl:px-15 text-center overflow-hidden"
           >
-            <Image
+            <img
               className="absolute z-10 top-0 right-0 max-w-[204px] w-32 lg:w-40 xl:w-full"
               src="/mask.svg"
               width={120}
               height={80}
               alt="mask"
             />
-            <Image
+            <img
               className="absolute z-10 bottom-0 left-0 max-w-[204px] w-32 lg:w-40 xl:w-full"
               src="/bottom-mask.svg"
               width={120}

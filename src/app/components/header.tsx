@@ -46,13 +46,12 @@ export default function Header() {
           {/* Logo */}
           <div className="flex-1 md:max-w-[100px] lg:max-w-[110px] 2xl:max-w-[138px]">
             <Link href="/#home">
-              <Image
+              <img
                 src={urlFor(home.logo).auto('format').url()}
                 alt="Logo"
                 width={138}
                 height={0}
                 className="h-auto w-[100px] md:w-[138px]"
-                priority
               />
             </Link>
           </div>
@@ -82,14 +81,14 @@ export default function Header() {
                 className={`${inter.className} cursor-pointer relative font-semibold text-[14px] xl:text-[16px] text-black py-[5px] px-[25px] lg:py-[7px] lg:px-[35px] 2xl:py-[9.7px] 2xl:px-[46px] bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)]`}
               >
                 {home.buttonText}
-                <Image
+                <img
                   src="/btn.png"
                   alt="Button"
                   width={18}
                   height={20}
                   className="absolute top-1 xl:w-[18px] lg:h-auto w-[16px] h-[25px] left-0"
                 />
-                <Image
+                <img
                   src="/btn.png"
                   alt="Button"
                   width={18}
@@ -128,14 +127,14 @@ export default function Header() {
             className={`${inter.className} cursor-pointer sm:hidden relative text-[16px] text-black px-4 py-2 bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)]`}
           >
             {home.buttonText}
-            <Image
+            <img
               src="/btn.png"
               alt="Button"
               width={15}
               height={18}
               className="absolute top-1 left-0"
             />
-            <Image
+            <img
               src="/btn.png"
               alt="Button"
               width={15}
@@ -216,14 +215,14 @@ export default function Header() {
               className={`${inter.className} cursor-pointer relative xl:text-[16px] sm:text-[13px] font-semibold text-black py-[7px] px-[35px] 2xl:py-[9.7px] 2xl:px-[46px] bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)] mt-10`}
             >
               {home.buttonText}
-              <Image
+              <img
                 src="/btn.png"
                 alt="Button"
                 width={18}
                 height={20}
                 className="absolute top-1 left-0 w-[14px] xl:w-[18px]"
               />
-              <Image
+              <img
                 src="/btn.png"
                 alt="Button"
                 width={18}
