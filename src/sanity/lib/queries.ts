@@ -22,14 +22,18 @@ export function getHomeData() {
 
 export function getPreviewData() {
   return `*[_type == "preview"][0]{
-  Title,
-  point1,
-  point2,
-  point3,
-  point4,
-  point5,
-  videoUrl
-}`
+    Title,
+    point1,
+    point2,
+    point3,
+    point4,
+    point5,
+    "mobVideoUrl": mobVideo.asset->url,
+    "desVideoUrl": desVideo.asset->url
+  }
+
+
+`
 }
 export function getAboutData() {
   return `*[_type == "sectionFeaturesWithIcons"][0]{

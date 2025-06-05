@@ -20,7 +20,8 @@ function DashedLine({ index }: { index: number }) {
 
 type PreviewData = {
   Title: string;
-  videoUrl?: string;
+  mobVideoUrl?: string;
+  desVideoUrl?: string;
   point1?: string;
   point2?: string;
   point3?: string;
@@ -88,14 +89,24 @@ export default function Preview() {
             viewport={{ once: true }}
             className="w-full xl:w-[80%] lg:w-[70%] sm:w-[70%] flex justify-center"
           >
-            {preview.videoUrl && (
+            {preview.mobVideoUrl && (
               <video
-                src={preview.videoUrl}
+                src={preview.mobVideoUrl}
                 autoPlay
                 muted
                 loop
                 playsInline
-                className="w-[100%] md:w-[85%] 2xl:w-[80%] h-auto md:max-h-[350px] lg:max-h-[400px] xl:max-h-[440px] 2xl:max-h-[562px] justify-center items-center object-cover max-h-[362px] rounded-[24px] sm:rounded-[32px] md:rounded-[39px]"
+                className="md:hidden w-[100%] md:w-[85%] 2xl:w-[80%] h-auto md:max-h-[350px] lg:max-h-[400px] xl:max-h-[440px] 2xl:max-h-[562px] justify-center items-center object-cover max-h-[362px] rounded-[24px] sm:rounded-[32px] md:rounded-[39px]"
+              />
+            )}
+            {preview.mobVideoUrl && (
+              <video
+                src={preview.desVideoUrl}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="hidden md:block w-[100%] md:w-[85%] 2xl:w-[80%] h-auto md:max-h-[350px] lg:max-h-[400px] xl:max-h-[440px] 2xl:max-h-[562px] justify-center items-center object-cover max-h-[362px] rounded-[24px] sm:rounded-[32px] md:rounded-[39px]"
               />
             )}
           </motion.div>
