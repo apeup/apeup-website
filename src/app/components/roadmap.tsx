@@ -396,7 +396,7 @@ const milestonesRight = [
                         width={100}
                         height={100}
                         alt={item.league}
-                        className={`${item.size} object-contain z-10 absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2`}
+                        className={`${item.size} object-cover z-10 absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2`}
                       />
 
                     </div>
