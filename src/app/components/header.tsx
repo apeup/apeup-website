@@ -8,6 +8,7 @@ import { inter, zenDots } from "../fonts";
 import { client } from "@/sanity/lib/client";
 import { getHomeData } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
+import Loader from "./loader";
 
 type HomeData = {
   logo: { asset: { url: string } };
@@ -32,7 +33,7 @@ export default function Header() {
     const query = client.fetch(getHomeData())
     query.then((data) => setHome(data))
   }, []);
-  if (!home) return null
+  if (!home) return <Loader/>
   return (
     <div className="header-background py-1 h-[500px] sm:h-[105dvh] w-full">
       <motion.header

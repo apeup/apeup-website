@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { getAboutData } from "@/sanity/lib/queries";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
+import Loader from "./loader";
 
 
 
@@ -81,7 +82,7 @@ export default function About() {
     const query = client.fetch(getAboutData())
     query.then((data) => setAbout(data))
   }, []);
-  if (!about) return null
+  if (!about) return <Loader/>
 
 
   const features = about.features?.map((feature) => ({

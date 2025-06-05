@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { client } from "@/sanity/lib/client";
 import { getFooterData } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
+import Loader from "./loader";
 
 type FooterData = {
   logo: string;
@@ -27,7 +28,7 @@ export default function Footer() {
     const query = client.fetch(getFooterData())
     query.then((data) => setFooter(data))
   }, []);
-  if (!footer) return null;
+  if (!footer) return <Loader/>
   return (
     <footer id="socials" className="footer-background xl:px-20 2xl:pt-20 pt-10 pb-5">
       <div className="">

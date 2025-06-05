@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { client } from "@/sanity/lib/client";
 import { getRoadmapData } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
+import Loader from "./loader";
 
 
 
@@ -124,7 +125,7 @@ export default function Roadmap() {
     const query = client.fetch(getRoadmapData())
     query.then((data) => setRoadmap(data))
   }, []);
-  if (!roadmap) return null
+  if (!roadmap) return <Loader/>
 
 
 
