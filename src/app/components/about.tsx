@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { zenDots } from "../fonts";
 import { useKeenSlider } from "keen-slider/react";

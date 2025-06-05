@@ -1,5 +1,4 @@
 "use client";
-import img from "next/image";
 import { inter, zenDots } from "../fonts";
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";

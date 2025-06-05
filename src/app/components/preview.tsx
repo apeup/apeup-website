@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import { client } from '@/sanity/lib/client';
-import Image from "next/image";
 import { zenDots } from "../fonts";
 import { motion } from "framer-motion";
 import { getPreviewData } from "@/sanity/lib/queries";
