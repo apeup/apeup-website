@@ -46,7 +46,7 @@ export default function Header() {
           {/* Logo */}
           <div className="flex-1 md:max-w-[100px] lg:max-w-[110px] 2xl:max-w-[138px]">
               <img
-                src={urlFor(home.logo).auto('format').url()}
+                src="/logo.svg"
                 alt="Logo"
                 width={138}
                 height={0}
