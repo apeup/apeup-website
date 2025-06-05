@@ -45,6 +45,10 @@ export default function Preview() {
     preview.point5,
   ];
 
+  if (!preview.mobVideoUrl || !preview.desVideoUrl) {
+    return <Loader/>
+  }
+
   
   return (
     <section className="relative py-20 xl:pb-28 md:py-20 xl:px-20">
