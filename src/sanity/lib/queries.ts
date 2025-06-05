@@ -21,17 +21,15 @@ export function getHomeData() {
 }
 
 export function getPreviewData() {
-  return `*[_type == "preview"][0] {
+  return `*[_type == "preview"][0]{
+  Title,
   point1,
   point2,
   point3,
   point4,
   point5,
-  Title,
-  "videoUrl": video.asset->url
-}
-
-`
+  videoUrl
+}`
 }
 export function getAboutData() {
   return `*[_type == "sectionFeaturesWithIcons"][0]{
