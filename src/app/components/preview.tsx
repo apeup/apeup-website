@@ -88,7 +88,7 @@ export default function Preview() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="w-full xl:w-[80%] lg:w-[70%] sm:w-[70%] flex justify-center"
+            className="w-full xl:w-[80%] hidden lg:w-[70%] sm:w-[70%] md:flex justify-center"
           >
 
             {/* video for desktop */}
@@ -111,7 +111,7 @@ export default function Preview() {
             className="w-full xl:w-[80%] md:hidden lg:w-[70%] sm:w-[70%] flex justify-center"
           >
 
-            {/* video for desktop */}
+            {/* video for mobile */}
             {preview.mobVideoUrl && (
               <video
                 src={preview.mobVideoUrl}
