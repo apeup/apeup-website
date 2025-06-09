@@ -35,15 +35,8 @@ export default function Preview() {
   useEffect(() => {
     client.fetch(getPreviewData()).then((data: PreviewData) => setPreview(data));
   }, []);
-  if (!preview) return <Loader />
-
-
-  if (!preview.mobVideoUrl) {
-    return <Loader/>
-  }
-  if (!preview.desVideoUrl) {
-    return <Loader/>
-  }
+  
+  if (!preview || (!preview.desVideoUrl && !preview.mobVideoUrl)) return <Loader />;
 
   const points = [
     preview.point1,
