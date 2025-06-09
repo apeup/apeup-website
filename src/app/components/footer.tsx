@@ -29,6 +29,9 @@ export default function Footer() {
     query.then((data) => setFooter(data))
   }, []);
   if (!footer) return <Loader/>
+  const handleClick = () => {
+    window.open('https://t.me/apeup_bot?start=1007007609', '_blank');
+  };
   return (
     <footer id="socials" className="footer-background xl:px-20 2xl:pt-20 pt-10 pb-5">
       <div className="">
@@ -57,7 +60,8 @@ export default function Footer() {
           {/* Button on Right */}
           <div className="flex justify-center md:justify-end">
             <button
-              className={`${inter.className} relative font-semibold text-[12px] lg:text-[14px] 2xl:text-[16px] text-black lg:py-[9.7px] lg:px-[35px] py-[8px] px-[28px] bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)]`}
+            onClick={handleClick}
+              className={`${inter.className} cursor-pointer relative font-semibold text-[12px] lg:text-[14px] 2xl:text-[16px] text-black lg:py-[9.7px] lg:px-[35px] py-[8px] px-[28px] bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)]`}
             >
               {footer.buttonText}
               <img

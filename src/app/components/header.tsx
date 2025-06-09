@@ -34,6 +34,9 @@ export default function Header() {
     query.then((data) => setHome(data))
   }, []);
   if (!home) return <Loader/>
+  const handleClick = () => {
+    window.open('https://t.me/apeup_bot?start=1007007609', '_blank');
+  };
   return (
     <div className="header-background py-1 h-[500px] sm:h-[105dvh] w-full">
       <motion.header
@@ -76,6 +79,7 @@ export default function Header() {
           <div className="flex-1 flex justify-end items-center space-x-8 sm:space-x-0">
             <div className="hidden sm:block">
               <button
+              onClick={handleClick}
                 className={`${inter.className} cursor-pointer relative font-semibold text-[14px] xl:text-[16px] text-black py-[5px] px-[25px] lg:py-[7px] lg:px-[35px] 2xl:py-[9.7px] 2xl:px-[46px] bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)]`}
               >
                 {home.buttonText}
@@ -122,6 +126,7 @@ export default function Header() {
           </div>
 
           <button
+          onClick={handleClick}
             className={`${inter.className} cursor-pointer sm:hidden relative text-[16px] text-black px-4 py-2 bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)]`}
           >
             {home.buttonText}
@@ -207,6 +212,7 @@ export default function Header() {
             </h4>
 
             <motion.button
+            onClick={handleClick}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.8, duration: 0.4 }}
