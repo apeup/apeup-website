@@ -377,7 +377,7 @@ export default function About() {
                 >
                   <Image
                     className="rounded-xl object-contain w-full h-full"
-                    src={urlFor(url).auto('format').url()}
+                    src={`/card-${i+1}.svg`}
                     width={600}
                     height={800}
                     alt={`feature ${i + 1}`}
