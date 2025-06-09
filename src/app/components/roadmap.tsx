@@ -134,7 +134,7 @@ export default function Roadmap() {
     league: roadmap[0].league1,
     mau: roadmap[0].mau1,
     icon: roadmap[0].image1.asset.url,
-    size: "w-[40px] h-[85px] sm:w-[40px] sm:h-[90px] 2xl:w-[64px] 2xl:h-[137px]",
+    size: "w-[50px] h-[95px] sm:w-[50px] sm:h-[100px] 2xl:w-[74px] 2xl:h-[147px]",
   },
   {
     league: roadmap[0].league3,
@@ -146,13 +146,13 @@ export default function Roadmap() {
     league: roadmap[0].league5,
     mau: roadmap[0].mau5,
     icon: roadmap[0].image5.asset.url,
-    size: "w-[60px] h-[100px] sm:w-[60px] sm:h-[105px] 2xl:w-[94px] 2xl:h-[152px]",
+    size: "w-[50px] h-[90px] sm:w-[50px] sm:h-[95px] 2xl:w-[84px] 2xl:h-[142px]",
   },
   {
     league: roadmap[0].league7,
     mau: "",
     icon: roadmap[0].image7.asset.url,
-    size: "w-[60px] h-[100px] sm:w-[60px] sm:h-[105px] 2xl:w-[94px] 2xl:h-[152px]",
+    size: "w-[60px] h-[80px] sm:w-[60px] sm:h-[85px] 2xl:w-[94px] 2xl:h-[132px]",
   },
   {
     league: roadmap[0].league9,
@@ -397,7 +397,7 @@ const milestonesRight = [
                         width={100}
                         height={100}
                         alt={item.league}
-                        className={`${item.size} object-cover z-10 absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2`}
+                        className={`${item.size} z-10 absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2`}
                       />
 
                     </div>

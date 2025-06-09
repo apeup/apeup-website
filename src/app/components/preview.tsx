@@ -37,6 +37,14 @@ export default function Preview() {
   }, []);
   if (!preview) return <Loader />
 
+
+  if (!preview.mobVideoUrl) {
+    return <Loader/>
+  }
+  if (!preview.desVideoUrl) {
+    return <Loader/>
+  }
+
   const points = [
     preview.point1,
     preview.point2,
