@@ -78,26 +78,8 @@ export default function Header() {
           {/* Right Side: Button and Mobile Menu */}
           <div className="flex-1 flex justify-end items-center space-x-8 sm:space-x-0">
             <div className="hidden sm:block">
-              <button
-              onClick={handleClick}
-                className={`${inter.className} cursor-pointer relative font-semibold text-[14px] xl:text-[16px] text-black py-[5px] px-[25px] lg:py-[7px] lg:px-[35px] 2xl:py-[9.7px] 2xl:px-[46px] bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)]`}
-              >
-                {home.buttonText}
-                <img
-                  src="/btn.png"
-                  alt="Button"
-                  width={18}
-                  height={20}
-                  className="absolute top-1 xl:w-[18px] lg:h-auto w-[16px] h-[25px] left-0"
-                />
-                <img
-                  src="/btn.png"
-                  alt="Button"
-                  width={18}
-                  height={20}
-                  className="absolute top-1 right-0 xl:w-[18px] lg:h-auto w-[16px] h-[25px] rotate-180"
-                />
-              </button>{/* Mobile Menu Toggle */}
+  
+              {/* Mobile Menu Toggle */}
               <button
                 type="button"
                 aria-label="Toggle menu"
@@ -125,26 +107,6 @@ export default function Header() {
 
           </div>
 
-          <button
-          onClick={handleClick}
-            className={`${inter.className} cursor-pointer sm:hidden relative text-[16px] text-black px-4 py-2 bg-[radial-gradient(circle,_#F7EA00,_#FABA01)] shadow-[0_4px_50px_#00000040] transition duration-300 hover:bg-[radial-gradient(circle,_#FFF36D,_#FFC933)]`}
-          >
-            {home.buttonText}
-            <img
-              src="/btn.png"
-              alt="Button"
-              width={15}
-              height={18}
-              className="absolute top-1 left-0"
-            />
-            <img
-              src="/btn.png"
-              alt="Button"
-              width={15}
-              height={18}
-              className="absolute top-1 right-0 rotate-180"
-            />
-          </button>
         </div>
 
 
