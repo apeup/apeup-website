@@ -48,7 +48,7 @@ export default function Preview() {
 
 
   return (
-    <section className="relative py-20 xl:pb-28 md:py-20 xl:px-20">
+    <section className="relative py-20 xl:pb-28 md:py-20 xl:px-20 md:mt-0 mt-[50px]">
       <img src="/blur.png" height={100} width={100} alt="blur" className="absolute z-50 -top-30 w-full left-0 h-[250px]" />
 
       <img
