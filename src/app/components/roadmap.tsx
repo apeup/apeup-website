@@ -283,13 +283,11 @@ const milestonesRight = [
             </p>
           </motion.div>
         </div>
-
-
         {/* Mobile Steps */}
         <div className="sm:hidden mt-16 flex flex-col sm:flex-row justify-center items-center gap-y-12 gap-x-6 lg:gap-x-0">
 
           {/* Step 1 */}
-          <div className="flex justify-center gap-5 items-center">
+          <div className="flex justify-center gap-5">
             <motion.div
               className="flex flex-col items-center justify-center text-center w-full xs:w-[80%] sm:w-[45%] md:w-[30%] lg:w-1/5"
               {...fadeUp}
@@ -314,8 +312,8 @@ const milestonesRight = [
               transition={{ delay: 0.1, duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <Image className="xl:w-[50px] w-[30px] lg:w-[40px]] 2xl:w-[70px]" src={urlFor(roadmap[0].icon2).auto('format').url()} width={70} height={70} alt="roadmap-2" />
-              <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] mt-5`}>{roadmap[0].iconTitle2}</h4>
+              <Image className="xl:w-[50px] w-[34px] lg:w-[40px]] 2xl:w-[70px]" src={urlFor(roadmap[0].icon2).auto('format').url()} width={70} height={70} alt="roadmap-2" />
+              <h4 className={`${zenDots.className} 2xl:text-[28px] text-[18px] lg:text-[20px] mt-2`}>{roadmap[0].iconTitle2}</h4>
               <p className={`2xl:text-base xl:text-sm lg:text-[12px] text-[10px] max-w-[220px] mt-1 ${inter.className}`}>
                 {roadmap[0].iconSubtitle2}
               </p>
@@ -328,7 +326,7 @@ const milestonesRight = [
           </div>
 
           {/* Step 3 */}
-          <div className="flex justify-center items-center gap-5">
+          <div className="flex justify-center gap-5">
             <motion.div
               className="flex flex-col items-center text-center w-full xs:w-[80%] xl:mb-6 sm:w-[45%] md:w-[30%] lg:w-1/5"
               {...fadeUp}
@@ -363,6 +361,7 @@ const milestonesRight = [
             </motion.div>
           </div>
         </div>
+            
 
         {/* Milestones title */}
         <h2
