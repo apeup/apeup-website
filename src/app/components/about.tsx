@@ -300,8 +300,8 @@ export default function About() {
           viewport={{ once: true, amount: 0.2 }}
           className="flex flex-row items-center gap-4 flex-1 z-10 justify-center w-[50%] mx-auto md:max-w-[170px] xl:max-w-[200px] 2xl:max-w-none"
         >
-          <Image src={"/left-filler-img-01.jpg.png"} width={250} height={250} alt="Lucky Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px] h-auto mt-20" />
-          <Image src={"/left-filler-img-02.jpg.png"} width={180} height={180} alt="Spin Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px]" />
+          <Image src={urlFor(about.image1).auto('format').url()} width={250} height={250} alt="Lucky Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px] h-auto mt-20" />
+          <Image src={urlFor(about.image2).auto('format').url()} width={180} height={180} alt="Spin Wheel" className="rounded-xl w-full max-w-[88%] lg:max-w-[257px]" />
         </motion.div>
       </div>
 
@@ -377,7 +377,7 @@ export default function About() {
                 >
                   <Image
                     className="rounded-xl object-contain w-full h-full"
-                    src={`/card-${i+1}.svg`}
+                    src={urlFor(url).auto('format').url()}
                     width={600}
                     height={800}
                     alt={`feature ${i + 1}`}
