@@ -110,21 +110,20 @@ export function getRoadmapData() {
 
 }
 export function getFooterData() {
-  return `*[_type == "footerSection"][0] {
-  logo,
-  linkTitle1,
-  linkUrl1,
-  linkTitle2,
-  linkUrl2,
-  linkTitle3,
-  linkUrl3,
-  linkTitle4,
-  linkUrl4,
-  buttonText,
-  copyright
-}
-
-
+  return `
+  *[_type == "footerSection"][0]{
+    logo { asset->{url} },
+    linkTitle1, linkUrl1,
+    linkTitle2, linkUrl2,
+    linkTitle3, linkUrl3,
+    linkTitle4, linkUrl4,
+    buttonText,
+    copyright,
+    socialIcon1 { asset->{url} }, socialUrl1,
+    socialIcon2 { asset->{url} }, socialUrl2,
+    socialIcon3 { asset->{url} }, socialUrl3,
+    socialIcon4 { asset->{url} }, socialUrl4
+  }
 `;
 
 }

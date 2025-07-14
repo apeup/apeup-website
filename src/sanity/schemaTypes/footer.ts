@@ -74,5 +74,57 @@ export default defineType({
       title: 'Copyright',
       type: 'string',
     }),
+
+    // Social Icon 1
+    defineField({
+      name: 'socialIcon1',
+      title: 'Social Icon 1',
+      type: 'image',
+      options: { hotspot: true },
+    }),
+    defineField({
+      name: 'socialUrl1',
+      title: 'Social URL 1',
+      type: 'url',
+    }),
+
+    // Social Icon 2
+    defineField({
+      name: 'socialIcon2',
+      title: 'Social Icon 2',
+      type: 'image',
+      options: { hotspot: true },
+    }),
+    defineField({
+      name: 'socialUrl2',
+      title: 'Social URL 2',
+      type: 'url',
+    }),
+
+    // Social Icon 3
+    defineField({
+      name: 'socialIcon3',
+      title: 'Social Icon 3',
+      type: 'image',
+      options: { hotspot: true },
+    }),
+    defineField({
+      name: 'socialUrl3',
+      title: 'Social URL 3',
+      type: 'url',
+    }),
+
+    // Social Icon 4
+    defineField({
+      name: 'socialIcon4',
+      title: 'Social Icon 4',
+      type: 'image',
+      options: { hotspot: true },
+    }),
+    defineField({
+      name: 'socialUrl4',
+      title: 'Social URL 4',
+      type: 'url',
+    }),
   ],
 })
