@@ -6,7 +6,6 @@ import { client } from "@/sanity/lib/client";
 import { getFooterData } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 import Loader from "./loader";
-import Image from "next/image";
 
 type FooterData = {
   logo: string;
